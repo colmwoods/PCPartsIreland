@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-1@ijwmf8y4k91mcz9ugmh4bmqw+^5)0hv(con7)6w91&^n1etg
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', '.herokuapp.com', 'pcpartsireland.com']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'PCPartsIreland'
 ]
 
 MIDDLEWARE = [
