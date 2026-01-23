@@ -95,7 +95,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'PCPartsIreland.wsgi.application'
+ACCOUNT_EMAIL_VERIFICATION = "none"
+ACCOUNT_EMAIL_REQUIRED = True
 
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/"
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
