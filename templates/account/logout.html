@@ -1,0 +1,25 @@
+{% extends "account/base.html" %}
+
+{% block inner_content %}
+<div class="row justify-content-center">
+    <div class="col-md-6 col-lg-4 text-center">
+
+        <h2 class="mb-4">Sign Out</h2>
+
+        <p>Are you sure you want to sign out?</p>
+
+        <form method="POST" action="{% url 'account_logout' %}">
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-dark w-100 mt-3">
+                Sign Out
+            </button>
+        </form>
+
+        <a href="{% url 'home' %}" class="d-block mt-3">
+            Cancel
+        </a>
+
+    </div>
+</div>
+{% endblock %}
