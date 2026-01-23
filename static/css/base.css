@@ -11,3 +11,16 @@ main {
 footer {
     font-size: 0.9rem;
 }
+
+.top-header {
+    background: #111;
+}
+
+.top-header .top-header-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.top-header .top-header-link:hover {
+    text-decoration: underline;
+}
