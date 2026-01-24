@@ -50,6 +50,9 @@ INSTALLED_APPS = [
 
     # Local apps
     "home",
+
+    # Other apps
+    'storages'
 ]
 
 SITE_ID = 1
@@ -150,3 +153,9 @@ STATIC_ROOT = BASE_DIR / "staticfiles"
 
 EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 DEFAULT_FROM_EMAIL = "noreply@pcpartsireland.com"
+
+if 'USE_AWS' in os.environ:
+    AWS_STORAGE_BUCKET_NAME = 'pcpartsireland'
+    AWS_S3_REGION_NAME = "eu-west-1"
+    AWS_SECRET_KEY_ID= os.environ.get('AWS_SECRET_KEY_ID')
+    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
