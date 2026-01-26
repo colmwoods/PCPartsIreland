@@ -50,6 +50,7 @@ INSTALLED_APPS = [
 
     # Local apps
     "home",
+    "products",
 
     # Other apps
     'storages'
