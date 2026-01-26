@@ -154,6 +154,49 @@
             </ul>
         </li>
 
+        <!-- Motherboards -->
+        <li class="nav-item dropdown">
+            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="motherboards-link"
+                role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Motherboards
+            </a>
+
+            <ul class="dropdown-menu border-0" aria-labelledby="motherboards-link">
+
+                <li class="dropdown-header">Intel</li>
+                <li>
+                    <a class="dropdown-item"
+                        href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700">
+                        LGA 775 / 1150 / 1151 / 1200 / 1700
+                    </a>
+                </li>
+
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+
+                <li class="dropdown-header">AMD</li>
+                <li>
+                    <a class="dropdown-item"
+                        href="{% url 'products' %}?category=cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5">
+                        AM3 / AM4 / AM5
+                    </a>
+                </li>
+
+                <li>
+                    <hr class="dropdown-divider">
+                </li>
+
+                <li>
+                    <a class="dropdown-item"
+                        href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700,cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5">
+                        All Motherboards
+                    </a>
+                </li>
+
+            </ul>
+        </li>
+
         <!-- Storage -->
         <li class="nav-item dropdown">
             <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="storage-link"
