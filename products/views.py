@@ -19,15 +19,15 @@ def all_products(request):
         query = Q()
         for cat in categories:
             cat = cat.strip()
-        # match exact category
             query |= Q(category__name=cat)
-        # match proper children e.g. "desktop-nvidia-gpu-..."
             query |= Q(category__name__startswith=f"{cat}-")
-        # match if the "group" appears in the middle e.g. "gpu-desktop-nvidia-gpu-..."
             query |= Q(category__name__contains=f"-{cat}-")
 
-    products = products.filter(query).distinct()
-    current_categories = Category.objects.filter(name__in=categories)
+        products = products.filter(query).distinct()
+        current_categories = Category.objects.filter(name__in=categories)
+    else:
+        categories = []
+        # current_categories stays None
 
     # Sorting: /products/?sort=price&direction=asc
     if 'sort' in request.GET:
@@ -56,7 +56,6 @@ def all_products(request):
         'search_term': search_term,
     }
     return render(request, 'products/products.html', context)
-
 
 def product_detail(request, product_id):
     """
