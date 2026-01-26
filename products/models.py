@@ -23,6 +23,7 @@ class Product(models.Model):
         Category, null=True, blank=True, on_delete=models.SET_NULL, related_name='products'
     )
     name = models.CharField(max_length=254)
+    sku = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     rating = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)  # optional
