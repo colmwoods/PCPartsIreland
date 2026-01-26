@@ -13,11 +13,17 @@ import os
 import dj_database_url
 from pathlib import Path
 
-# Import environment variables from env.py if it exists
-if os.path.isfile("env.py"):
-    import env
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Import environment variables from env.py if it exists
+env_path = BASE_DIR / "env.py"
+if env_path.exists():
+    import env
+
+print("DEBUG settings.py loaded. USE_AWS in os.environ?", "USE_AWS" in os.environ)
+print("USE_AWS value:", os.environ.get("USE_AWS"))
 
 
 # Quick-start development settings - unsuitable for production
