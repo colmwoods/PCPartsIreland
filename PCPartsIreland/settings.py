@@ -182,3 +182,6 @@ if 'USE_AWS' in os.environ:
         "default": {"BACKEND": "custom_storages.MediaStorage"},
         "staticfiles": {"BACKEND": "custom_storages.StaticStorage"},
     }
+
+    MEDIA_URL = "/media/"
+    MEDIA_ROOT = BASE_DIR / "media"
