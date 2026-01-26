@@ -22,9 +22,6 @@ env_path = BASE_DIR / "env.py"
 if env_path.exists():
     import env
 
-print("DEBUG settings.py loaded. USE_AWS in os.environ?", "USE_AWS" in os.environ)
-print("USE_AWS value:", os.environ.get("USE_AWS"))
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
