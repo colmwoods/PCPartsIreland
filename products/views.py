@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
+from django.db.models import Q
 
 # Create your views here.
 def all_products(request):
@@ -14,8 +15,19 @@ def all_products(request):
     # Category filter: /products/?category=ddr4,ddr5
     if 'category' in request.GET:
         categories = request.GET['category'].split(',')
-        products = products.filter(category__name__in=categories)
-        current_categories = Category.objects.filter(name__in=categories)
+
+        query = Q()
+        for cat in categories:
+            cat = cat.strip()
+        # match exact category
+            query |= Q(category__name=cat)
+        # match proper children e.g. "desktop-nvidia-gpu-..."
+            query |= Q(category__name__startswith=f"{cat}-")
+        # match if the "group" appears in the middle e.g. "gpu-desktop-nvidia-gpu-..."
+            query |= Q(category__name__contains=f"-{cat}-")
+
+    products = products.filter(query).distinct()
+    current_categories = Category.objects.filter(name__in=categories)
 
     # Sorting: /products/?sort=price&direction=asc
     if 'sort' in request.GET:
