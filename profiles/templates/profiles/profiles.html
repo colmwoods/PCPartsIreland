@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profile.css' %}">
+{% endblock %}
+
+{% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container mb-5">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="logo-font mb-4">My Profile</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <!-- Profile Form -->
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Default Delivery Information</p>
+            <form action="{% url 'profile' %}" method="POST">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-dark rounded-0 text-uppercase mt-3">
+                    Update Information
+                </button>
+            </form>
+        </div>
+
+        <!-- Order History (safe even if empty) -->
+        <div class="col-12 col-lg-6 mt-4 mt-lg-0">
+            <p class="text-muted">Order History</p>
+
+            {% if orders %}
+            <div class="table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order</th>
+                            <th>Date</th>
+                            <th>Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                        <tr>
+                            <td>{{ order.order_number|truncatechars:8 }}</td>
+                            <td>{{ order.date|date:"d M Y" }}</td>
+                            <td>€{{ order.grand_total }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            {% else %}
+            <p class="small text-muted">No orders yet.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script src="{% static 'profiles/js/countryfield.js' %}"></script>
+{% endblock %}
