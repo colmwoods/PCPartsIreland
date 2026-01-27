@@ -29,16 +29,12 @@ footer {
     width: 360px;
     margin-bottom: 12px;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
+    overflow: visible !important;
 }
 
 .custom-toast {
     position: relative;
-    overflow: visible;
-    border-top: 0 !important;
-}
-
-.toast-capper {
-    height: 6px;
+    overflow: visible !important;
 }
 
 .arrow-up {
@@ -51,36 +47,4 @@ footer {
     border-right: 4px solid transparent;
     border-bottom: 10px solid black;
     z-index: 10;
-}
-
-.arrow-success {
-    border-bottom-color: #28a745 !important;
-}
-
-.arrow-danger {
-    border-bottom-color: #dc3545 !important;
-}
-
-.arrow-warning {
-    border-bottom-color: #ffc107 !important;
-}
-
-.arrow-info {
-    border-bottom-color: #17a2b8 !important;
-}
-
-.toast-capper.bg-success {
-    background-color: #28a745 !important;
-}
-
-.toast-capper.bg-danger {
-    background-color: #dc3545 !important;
-}
-
-.toast-capper.bg-warning {
-    background-color: #ffc107 !important;
-}
-
-.toast-capper.bg-info {
-    background-color: #17a2b8 !important;
 }

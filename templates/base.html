@@ -31,7 +31,7 @@
     </nav>
 
     {% if messages %}
-    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3 mt-5">
+    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3 mt-5 pt-4">
         {% for message in messages %}
         {% with message.level as level %}
         {% if level == 40 %}
@@ -62,10 +62,10 @@
 
     {% block postloadjs %}
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            document.querySelectorAll('.toast').forEach(function (toastEl) {
-                const toast = new bootstrap.Toast(toastEl);
-                toast.show();
+        document.addEventListener('DOMContentLoaded', function () {
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'))
+            var toastList = toastElList.map(function (toastEl) {
+                return new bootstrap.Toast(toastEl).show();
             });
         });
     </script>
