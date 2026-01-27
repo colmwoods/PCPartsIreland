@@ -48,3 +48,11 @@ footer {
     border-bottom: 10px solid black;
     z-index: 10;
 }
+
+/* stop the toast growing off-screen */
+.toast-container .toast {
+    max-height: 80vh;
+    /* never taller than 80% of screen */
+    overflow: hidden !important;
+    /* keep the toast box fixed */
+}
