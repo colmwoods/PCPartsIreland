@@ -121,6 +121,7 @@
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% block postloadjs %}
 {{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 <script type="text/javascript">
     $('.btt-link').click(function (e) {
         window.scrollTo(0, 0)

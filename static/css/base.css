@@ -56,3 +56,8 @@ footer {
     overflow: hidden !important;
     /* keep the toast box fixed */
 }
+
+.input-group .btn {
+    min-width: 38px;
+    border-radius: 0;
+}
