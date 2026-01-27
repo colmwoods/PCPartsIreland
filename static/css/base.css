@@ -31,3 +31,13 @@ footer {
     right: 15px;
     z-index: 99999;
 }
+
+.custom-toast {
+    width: 380px;
+}
+
+.bag-notification-wrapper {
+    max-height: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
