@@ -7,57 +7,30 @@
     <title>PC Parts Ireland</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
 
-    {% block extra_css %}
-    {% endblock %}
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body>
 
     {% include "includes/top-header.html" %}
 
-
-    <!-- Navigation -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-
             <a class="navbar-brand" href="{% url 'home' %}">PC Parts Ireland</a>
 
-            <!-- Mobile toggle -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
                 aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             {% include "includes/main-nav.html" %}
-
         </div>
     </nav>
 
-    <!-- Main Content -->
-    <main class="container mt-4">
-        {% block content %}
-        {% endblock %}
-    </main>
-
-    <!-- Footer -->
-    <footer class="text-center mt-5 py-3 bg-light">
-        <p class="mb-0">&copy; 2026 PC Parts Ireland</p>
-    </footer>
-
-    <!-- jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-    {% block extra_js %}
-    {% endblock %}
-
-    {% block postloadjs %}
+    {# ✅ messages block lives here, but does NOT wrap the whole page #}
     {% if messages %}
     <div class="message-container">
         {% for message in messages %}
@@ -74,11 +47,29 @@
         {% endwith %}
         {% endfor %}
     </div>
-
-    <script type="text/javascript">
-        $('.toast').toast('show');
-    </script>
     {% endif %}
+
+    <main class="container mt-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="text-center mt-5 py-3 bg-light">
+        <p class="mb-0">&copy; 2026 PC Parts Ireland</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+    {% block extra_js %}{% endblock %}
+
+    {% block postloadjs %}
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.querySelectorAll('.toast').forEach(function (toastEl) {
+                const toast = new bootstrap.Toast(toastEl);
+                toast.show();
+            });
+        });
+    </script>
     {% endblock %}
 
 </body>

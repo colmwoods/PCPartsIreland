@@ -24,3 +24,10 @@ footer {
 .top-header .top-header-link:hover {
     text-decoration: underline;
 }
+
+.message-container {
+    position: fixed;
+    top: 80px;
+    right: 15px;
+    z-index: 99999;
+}
