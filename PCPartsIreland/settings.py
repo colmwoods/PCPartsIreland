@@ -58,7 +58,9 @@ INSTALLED_APPS = [
     "checkout",
 
     # Other apps
-    'storages'
+    'storages',
+    'crispy_forms',
+    'crispy_bootstrap5',
 ]
 
 SITE_ID = 1
