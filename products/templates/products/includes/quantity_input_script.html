@@ -34,7 +34,6 @@
         if (value < 99) {
             input.val(value + 1);
             handleEnableDisable(itemId);
-            $(this).closest('form').submit(); // Boutique Ado behaviour
         }
     });
 
@@ -51,7 +50,6 @@
         if (value > 1) {
             input.val(value - 1);
             handleEnableDisable(itemId);
-            $(this).closest('form').submit(); // Boutique Ado behaviour
         }
     });
 
