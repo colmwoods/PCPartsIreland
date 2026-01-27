@@ -30,9 +30,8 @@
         </div>
     </nav>
 
-    {# ✅ messages block lives here, but does NOT wrap the whole page #}
     {% if messages %}
-    <div class="message-container">
+    <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3 mt-5"> style="z-index: 1100;">
         {% for message in messages %}
         {% with message.level as level %}
         {% if level == 40 %}

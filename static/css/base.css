@@ -25,19 +25,62 @@ footer {
     text-decoration: underline;
 }
 
-.message-container {
-    position: fixed;
-    top: 80px;
-    right: 15px;
-    z-index: 99999;
+.toast-container .toast {
+    width: 360px;
+    margin-bottom: 12px;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, .15);
 }
 
 .custom-toast {
-    width: 380px;
+    position: relative;
+    overflow: visible;
+    border-top: 0 !important;
 }
 
-.bag-notification-wrapper {
-    max-height: 240px;
-    overflow-y: auto;
-    overflow-x: hidden;
+.toast-capper {
+    height: 6px;
+}
+
+.arrow-up {
+    position: absolute;
+    top: -10px;
+    right: 22px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 10px solid black;
+    z-index: 10;
+}
+
+.arrow-success {
+    border-bottom-color: #28a745 !important;
+}
+
+.arrow-danger {
+    border-bottom-color: #dc3545 !important;
+}
+
+.arrow-warning {
+    border-bottom-color: #ffc107 !important;
+}
+
+.arrow-info {
+    border-bottom-color: #17a2b8 !important;
+}
+
+.toast-capper.bg-success {
+    background-color: #28a745 !important;
+}
+
+.toast-capper.bg-danger {
+    background-color: #dc3545 !important;
+}
+
+.toast-capper.bg-warning {
+    background-color: #ffc107 !important;
+}
+
+.toast-capper.bg-info {
+    background-color: #17a2b8 !important;
 }
