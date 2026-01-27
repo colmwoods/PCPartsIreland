@@ -10,7 +10,6 @@
 {% endblock %}
 
 {% block content %}
-<div class="overlay"></div>
 <div class="container mb-2">
     <div class="row">
         <div class="col">
@@ -119,7 +118,7 @@
     </div>
 </div>
 {% endblock %}
-
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 {% block postloadjs %}
 {{ block.super }}
 <script type="text/javascript">
@@ -127,27 +126,28 @@
         window.scrollTo(0, 0)
     })
 </script>
-{% include 'products/includes/quantity_input_script.html' %}
 
-<script type="text/javascript">
-    // Update quantity on click
-    $('.update-link').click(function (e) {
-        var form = $(this).prev('.update-form');
-        form.submit();
-    })
+<script>
+    document.addEventListener('click', function (e) {
+        if (!e.target.classList.contains('remove-item')) return;
 
-    // Remove item and reload on click
-    $('.remove-item').click(function (e) {
-        var csrfToken = "{{ csrf_token }}";
-        var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}/`;
-        var data = { 'csrfmiddlewaretoken': csrfToken };
+        e.preventDefault();
 
+        const itemId = e.target.id.replace('remove_', '');
+        const csrfToken = '{{ csrf_token }}';
 
-        $.post(url, data)
-            .done(function () {
+        fetch(`/bag/remove/${itemId}/`, {
+            method: 'POST',
+            headers: {
+                'X-CSRFToken': csrfToken,
+            },
+        }).then(response => {
+            if (response.ok) {
                 location.reload();
-            });
-    })
+            } else {
+                alert('Failed to remove item');
+            }
+        });
+    });
 </script>
 {% endblock %}
