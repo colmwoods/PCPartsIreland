@@ -66,6 +66,17 @@
                 </ul>
             </div>
 
+            <a href="{% url 'view_bag' %}" class="top-header-link d-flex align-items-center gap-1">
+                <i class="bi bi-bag"></i>
+
+                {% if product_count %}
+                <span>Bag ({{ product_count }})</span>
+                <span>€{{ total|floatformat:2 }}</span>
+                {% else %}
+                <span>Bag (0)</span>
+                {% endif %}
+            </a>
+
 
         </div>
     </div>
