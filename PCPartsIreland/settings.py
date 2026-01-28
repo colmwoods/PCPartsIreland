@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 import os
 import dj_database_url
 from pathlib import Path
+from decimal import Decimal
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -121,7 +122,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-STANDARD_DELIVERY_COST = 12.29
+STANDARD_DELIVERY_COST = Decimal('12.29')
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
