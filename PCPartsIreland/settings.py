@@ -121,6 +121,7 @@ ACCOUNT_EMAIL_REQUIRED = True
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
+STANDARD_DELIVERY_COST = 12.29
 
 # Database
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
