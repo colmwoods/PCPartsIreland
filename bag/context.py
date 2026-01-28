@@ -1,5 +1,6 @@
 from django.shortcuts import get_object_or_404
 from products.models import Product
+from django.conf import settings
 
 
 def bag_contents(request):
@@ -20,11 +21,13 @@ def bag_contents(request):
             'item_total': item_total,
         })
 
+    delivery = settings.STANDARD_DELIVERY_COST
     context = {
         'bag_items': bag_items,
         'total': total,
         'product_count': product_count,
-        'grand_total': total,
+        'delivery': delivery,
+        'grand_total': total + delivery,
     }
 
     return context
