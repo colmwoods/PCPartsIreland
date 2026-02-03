@@ -1,3 +1,7 @@
-body.home-page {
-    background: red !important;
+.home-hero {
+    min-height: 70vh;
+    background: url("/static/images/home-page.jpg") no-repeat center center;
+    background-size: cover;
+    display: flex;
+    align-items: center;
 }
