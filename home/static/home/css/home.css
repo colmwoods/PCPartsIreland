@@ -1,6 +1,7 @@
 .hero-section {
     background: url("/static/images/home-page.jpg") no-repeat center center;
     background-size: cover;
-    min-height: 80vh;
-    display: flex;
+    height: calc(100vh - 164px);
+    color: #555;
+    font-family: 'Lato';
 }
