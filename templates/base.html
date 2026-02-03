@@ -19,7 +19,9 @@
     {% block extra_css %}{% endblock %}
 </head>
 
-<body>
+<body class="{% block body_class %}{% endblock %}">
+    <div class="home-overlay"></div>
+
 
     {% include "includes/top-header.html" %}
 

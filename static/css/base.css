@@ -54,7 +54,6 @@ footer {
     max-height: 80vh;
     /* never taller than 80% of screen */
     overflow: hidden !important;
-    /* keep the toast box fixed */
 }
 
 .input-group .btn {
