@@ -1,7 +1,18 @@
 .hero-section {
-    background: url("/static/images/home-page.jpg") no-repeat center center;
-    background-size: cover;
-    height: calc(100vh - 164px);
-    color: #555;
-    font-family: 'Lato';
+    position: relative;
+    min-height: 70vh;
+    background: url("/static/images/home-page.jpg") center / cover no-repeat;
+    display: flex;
+}
+
+.hero-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 1;
 }
