@@ -1,0 +1,6 @@
+.hero-section {
+    background: url("/static/images/hero-bg.jpg") no-repeat center center;
+    background-size: cover;
+    min-height: 80vh;
+    display: flex;
+}
