@@ -1,4 +1,3 @@
 body.home-page {
-    background: url("/static/images/home-page.jpg") no-repeat center center fixed;
-    background-size: cover;
+    background: red !important;
 }
