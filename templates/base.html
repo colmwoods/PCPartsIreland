@@ -25,7 +25,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
-            <a class="navbar-brand" href="{% url 'home' %}">PC Parts Ireland</a>
+            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+                <img src="{% static 'images/pcpartsireland.jpg' %}" alt="PC Parts Ireland" height="40">
+            </a>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
                 aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
