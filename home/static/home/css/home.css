@@ -1,8 +1,9 @@
 .hero-section {
     position: relative;
-    min-height: 70vh;
+    min-height: 75vh;
+    width: 100vw;
     background: url("/static/images/home-page.jpg") center / cover no-repeat;
-    display: flex;
+    margin-left: calc(-50vw + 50%);
 }
 
 .hero-section::before {
@@ -12,7 +13,7 @@
     background: rgba(0, 0, 0, 0.55);
 }
 
-.hero-section .container {
+.hero-content {
     position: relative;
     z-index: 1;
 }
