@@ -1,1 +1,20 @@
-<h4><strong>Total: {{ currency_symbol }}{{ grand_total|floatformat:2 }}</strong></h4>
+{% load math_filters %}
+
+<p class="my-0">
+    <strong>Subtotal:</strong>
+    {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
+</p>
+
+<p class="my-0">
+    <strong>Delivery:</strong>
+    {{ currency_symbol }}{{ delivery|mul:currency_rate|floatformat:2 }}
+</p>
+
+<hr>
+
+<h4 class="mt-3">
+    <strong>
+        Total:
+        {{ currency_symbol }}{{ grand_total|mul:currency_rate|floatformat:2 }}
+    </strong>
+</h4>
