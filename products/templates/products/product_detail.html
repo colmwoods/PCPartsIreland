@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load math_filters %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -37,7 +38,8 @@
                 {% endif %}
 
                 <p class="lead mb-0 text-left font-weight-bold">
-                    €{{ product.price }}
+                    {{ currency_symbol }}{{ product.price|mul:currency_rate|floatformat:2 }}
+
                 </p>
 
                 {% if product.category %}
