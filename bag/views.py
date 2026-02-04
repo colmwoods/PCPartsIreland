@@ -30,32 +30,37 @@ def add_to_bag(request, item_id):
                 messages.success(
                     request,
                     f'Updated size {size.upper()} {product.name} quantity to '
-                    f'{bag[item_id]["items_by_size"][size]}'
+                    f'{bag[item_id]["items_by_size"][size]}',
+                    extra_tags='bag'
                 )
             else:
                 bag[item_id]['items_by_size'][size] = quantity
                 messages.success(
                     request,
-                    f'Added size {size.upper()} {product.name} to your bag'
+                    f'Added size {size.upper()} {product.name} to your bag',
+                    extra_tags='bag'
                 )
         else:
             bag[item_id] = {'items_by_size': {size: quantity}}
             messages.success(
                 request,
-                f'Added size {size.upper()} {product.name} to your bag'
+                f'Added size {size.upper()} {product.name} to your bag',
+                extra_tags='bag'
             )
     else:
         if item_id in list(bag.keys()):
             bag[item_id] += quantity
             messages.success(
                 request,
-                f'Updated {product.name} quantity to {bag[item_id]}'
+                f'Updated {product.name} quantity to {bag[item_id]}',
+                extra_tags='bag'
             )
         else:
             bag[item_id] = quantity
             messages.success(
                 request,
-                f'Added {product.name} to your bag'
+                f'Added {product.name} to your bag',
+                extra_tags='bag'
             )
 
     request.session['bag'] = bag
@@ -95,13 +100,15 @@ def adjust_bag(request, item_id):
             bag[item_id] = quantity
             messages.success(
                 request,
-                f'Updated {product.name} quantity to {bag[item_id]}'
+                f'Updated {product.name} quantity to {bag[item_id]}',
+                extra_tags='bag'
             )
         else:
             bag.pop(item_id)
             messages.success(
                 request,
-                f'Removed {product.name} from your bag'
+                f'Removed {product.name} from your bag',
+                extra_tags='bag'
             )
 
     request.session['bag'] = bag

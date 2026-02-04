@@ -18,17 +18,16 @@
             </div>
         </div>
 
-        {% if grand_total %}
-        <p class="logo-font bg-white text-black py-1">Your Bag ({{ product_count }})</p>
-        <div class="bag-notification-wrapper" style="height:120px; overflow-y:auto; overflow-x:hidden;">
+        {% if 'bag' in message.tags %}
+        <p class="logo-font bg-white text-black py-1">
+            Your Bag ({{ product_count }})
+        </p>
+
+        <div class="bag-notification-wrapper" style="height:120px; overflow-y:auto;">
             {% for item in bag_items %}
             <div class="row">
                 <div class="col-3 my-1">
-                    {% if item.product.image %}
-                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }}">
-                    {% else %}
-                    <img class="w-100" src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}">
-                    {% endif %}
+                    <img class="w-100" src="{{ item.product.image.url }}">
                 </div>
                 <div class="col-9">
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
@@ -38,23 +37,16 @@
             {% endfor %}
         </div>
 
-        <div class="row">
-            <div class="col">
-                <strong>
-                    <p class="mt-3 mb-1 text-black">
-                        Total:
-                        <span class="float-end">
-                            {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
-                        </span>
-                    </p>
+        <p class="mt-3 mb-1 text-black">
+            Total:
+            <span class="float-end">
+                {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
+            </span>
+        </p>
 
-                </strong>
-
-                <a href="{% url 'view_bag' %}" class="btn btn-dark w-100 rounded-0 mt-2">
-                    <span class="text-uppercase">Go To Secure Checkout</span>
-                </a>
-            </div>
-        </div>
+        <a href="{% url 'view_bag' %}" class="btn btn-dark w-100 rounded-0 mt-2">
+            Go To Secure Checkout
+        </a>
         {% endif %}
     </div>
 </div>
