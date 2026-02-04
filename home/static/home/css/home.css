@@ -1,6 +1,8 @@
 .home-hero {
-    min-height: 70vh;
-    background: url("/static/images/home-page.jpg") no-repeat center center;
+    height: 100vh;
+    background-image: url("/static/images/home-page.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
     background-size: cover;
     display: flex;
     align-items: center;
