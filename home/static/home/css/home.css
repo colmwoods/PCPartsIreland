@@ -1,5 +1,7 @@
 .home-hero {
     flex: 1;
-    background: url("/static/images/home-pagev2.jpg") center / contain no-repeat;
-    background-color: #fff;
+    background:
+        linear-gradient(rgba(255, 255, 255, 0.9),
+            rgba(255, 255, 255, 0.9)),
+        url("/static/images/home-pagev2.jpg") center / contain no-repeat;
 }
