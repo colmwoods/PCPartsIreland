@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
+{% load math_filters %}
 
 {% block page_header %}
 <div class="container header-container">
@@ -43,8 +44,10 @@
                         {% include "bag/product-info.html" %}
                     </div>
                     <div class="col-12 col-sm-6 order-sm-last">
-                        <p class="my-0">Price Each: €{{ item.product.price }}</p>
-                        <p><strong>Subtotal: </strong>€{{ item.item_total|floatformat:2 }}</p>
+                        <p class="my-0">Price Each: {{ currency_symbol }}{{
+                            item.product.price|mul:currency_rate|floatformat:2 }}</p>
+                        <p><strong>Subtotal: </strong>{{ currency_symbol }}{{
+                            item.item_total|mul:currency_rate|floatformat:2 }}</p>
                     </div>
                     <div class="col-12 col-sm-6">
                         {% include "bag/quantity-form.html" %}
@@ -83,13 +86,17 @@
                             {% include "bag/product-info.html" %}
                         </td>
                         <td class="py-3">
-                            <p class="my-0">€{{ item.product.price }}</p>
+                            <p class="my-0">
+                                {{ currency_symbol }}{{ item.product.price|mul:currency_rate|floatformat:2 }}
+                            </p>
                         </td>
+
                         <td class="py-3 w-25">
                             {% include "bag/quantity-form.html" %}
                         </td>
                         <td class="py-3">
-                            <p class="my-0">€{{ item.item_total|floatformat:2 }}</p>
+                            <p class="my-0">{{ currency_symbol }}{{ item.item_total|mul:currency_rate|floatformat:2 }}
+                            </p>
                         </td>
                     </tr>
                     {% endfor %}
