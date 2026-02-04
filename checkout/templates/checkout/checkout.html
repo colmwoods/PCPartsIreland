@@ -63,22 +63,28 @@
             </div>
             {% endfor %}
             <hr class="my-0">
-            <div class="row text-black text-right">
+            <div class="row text-black">
+                <!-- Labels -->
                 <div class="col-7 offset-2">
                     <p class="my-0">Order Total:</p>
                     <p class="my-0">Delivery:</p>
                     <p class="my-0">Grand Total:</p>
                 </div>
-                <p class="my-0">
-                    {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
-                </p>
-                <p class="my-0">
-                    {{ currency_symbol }}{{ delivery|mul:currency_rate|floatformat:2 }}
-                </p>
-                <p class="my-0">
-                    <strong>{{ currency_symbol }}{{ grand_total|mul:currency_rate|floatformat:2 }}</strong>
-                </p>
 
+                <!-- Values -->
+                <div class="col-3 text-right">
+                    <p class="my-0">
+                        {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
+                    </p>
+                    <p class="my-0">
+                        {{ currency_symbol }}{{ delivery|mul:currency_rate|floatformat:2 }}
+                    </p>
+                    <p class="my-0">
+                        <strong>
+                            {{ currency_symbol }}{{ grand_total|mul:currency_rate|floatformat:2 }}
+                        </strong>
+                    </p>
+                </div>
             </div>
         </div>
         <div class="col-12 col-lg-6">
