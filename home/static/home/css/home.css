@@ -1,4 +1,8 @@
 .home-hero {
-    flex: 1 0 auto;
-    background: url("/static/images/home-pagev2.jpg") center / cover no-repeat;
+    flex: 1;
+    background: url("/static/images/home-pagev2.jpg") center bottom / cover no-repeat;
+}
+
+.hero-content {
+    margin-top: 12vh;
 }
