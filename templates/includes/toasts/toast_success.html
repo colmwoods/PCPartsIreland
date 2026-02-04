@@ -1,3 +1,5 @@
+{% load math_filters %}
+
 <div class="toast custom-toast rounded-0 border-top-0" data-bs-autohide="false">
     <div class="arrow-up" style="border-bottom-color:#28a745 !important;"></div>
     <div class="w-100 toast-capper" style="background-color:#28a745 !important; height:10px;"></div>
@@ -41,8 +43,11 @@
                 <strong>
                     <p class="mt-3 mb-1 text-black">
                         Total:
-                        <span class="float-end">€{{ total|floatformat:2 }}</span>
+                        <span class="float-end">
+                            {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
+                        </span>
                     </p>
+
                 </strong>
 
                 <a href="{% url 'view_bag' %}" class="btn btn-dark w-100 rounded-0 mt-2">
