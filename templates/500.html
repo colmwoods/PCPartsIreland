@@ -1,26 +1,26 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
-{% endblock %}
-
 {% block content %}
-<div class="home-hero">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12 col-md-6 d-flex flex-column justify-content-center px-5 hero-content">
-                <h1 class="display-4 logo-font text-black">
-                    500 – Server Error
-                </h1>
-                <p class="lead mt-3">
-                    Something went wrong on our end.
-                    We’re working to fix it — please try again later.
-                </p>
-                <div class="mt-4">
-                    <a class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3" href="{% url 'home' %}">
-                        Return Home
-                    </a>
+<div class="d-flex align-items-center justify-content-center min-vh-100 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="bg-white p-5 shadow-sm text-center">
+                    <h1 class="display-5 logo-font text-dark">
+                        500 – Server Error
+                    </h1>
+
+                    <p class="lead mt-3 text-muted">
+                        Something went wrong on our end.
+                        Please try again later.
+                    </p>
+
+                    <div class="mt-4">
+                        <a href="{% url 'home' %}" class="btn btn-dark btn-lg rounded-0 text-uppercase px-4">
+                            Return Home
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
