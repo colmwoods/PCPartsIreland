@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 {% load math_filters %}
-
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -38,27 +37,27 @@
                     <div class="sort-select-wrapper w-50">
                         <select id="sort-selector"
                             class="custom-select custom-select-sm rounded-0 border border-{% if current_sorting != 'None_None' %}info{% else %}black{% endif %}">
-                            <option value="reset" {% if current_sorting=='None_None' %}selected{% endif %}>Sort by...
+                            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Sort by...
                             </option>
 
-                            <option value="price_asc" {% if current_sorting=='price_asc' %}selected{% endif %}>Price
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price
                                 (low to high)</option>
-                            <option value="price_desc" {% if current_sorting=='price_desc' %}selected{% endif %}>Price
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price
                                 (high to low)</option>
 
-                            <option value="rating_asc" {% if current_sorting=='rating_asc' %}selected{% endif %}>Rating
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating
                                 (low to high)</option>
-                            <option value="rating_desc" {% if current_sorting=='rating_desc' %}selected{% endif %}>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
                                 Rating (high to low)</option>
 
-                            <option value="name_asc" {% if current_sorting=='name_asc' %}selected{% endif %}>Name (A-Z)
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)
                             </option>
-                            <option value="name_desc" {% if current_sorting=='name_desc' %}selected{% endif %}>Name
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name
                                 (Z-A)</option>
 
-                            <option value="category_asc" {% if current_sorting=='category_asc' %}selected{% endif %}>
+                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
                                 Category (A-Z)</option>
-                            <option value="category_desc" {% if current_sorting=='category_desc' %}selected{% endif %}>
+                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
                                 Category (Z-A)</option>
                         </select>
                     </div>
@@ -99,9 +98,7 @@
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold">
-                                        {{ currency_symbol }}{{ product.price|mul:currency_rate|floatformat:2 }}
-                                    </p>
+                                    <p class="lead mb-0 text-left font-weight-bold">{{ currency_symbol }}{{ product.price|mul:currency_rate|floatformat:2 }}</p>
 
                                     {% if product.category %}
                                     <p class="small mt-1 mb-0">
@@ -163,27 +160,27 @@
 {{ block.super }}
 
 <script type="text/javascript">
-    $('.btt-link').click(function (e) {
-        window.scrollTo(0, 0)
-    })
-</script>
-
-<script type="text/javascript">
-    $('#sort-selector').change(function () {
-        var selector = $(this);
-        var currentUrl = new URL(window.location);
-        var selectedVal = selector.val();
-        if (selectedVal != "reset") {
-            var sort = selectedVal.split("_")[0];
-            var direction = selectedVal.split("_")[1];
-            currentUrl.searchParams.set("sort", sort);
-            currentUrl.searchParams.set("direction", direction);
-            window.location.replace(currentUrl);
-        } else {
-            currentUrl.searchParams.delete("sort");
-            currentUrl.searchParams.delete("direction");
-            window.location.replace(currentUrl);
-        }
-    })
-</script>
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
+    
+    <script type="text/javascript">
+        $('#sort-selector').change(function() {
+            var selector = $(this);
+            var currentUrl = new URL(window.location);
+            var selectedVal = selector.val();
+            if(selectedVal != "reset"){
+                var sort = selectedVal.split("_")[0];
+                var direction = selectedVal.split("_")[1];
+                currentUrl.searchParams.set("sort", sort);
+                currentUrl.searchParams.set("direction", direction);
+                window.location.replace(currentUrl);
+            } else {
+                currentUrl.searchParams.delete("sort");
+                currentUrl.searchParams.delete("direction");
+                window.location.replace(currentUrl);
+            }
+        })
+    </script>
 {% endblock %}

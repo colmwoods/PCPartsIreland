@@ -55,7 +55,7 @@ INSTALLED_APPS = [
 
     # Local apps
     "home",
-    "products",
+    "products.apps.ProductsConfig",
     "bag",
     "checkout",
     "profiles",
