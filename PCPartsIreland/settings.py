@@ -75,6 +75,22 @@ STRIPE_CURRENCY = os.environ.get('STRIPE_CURRENCY', 'eur')
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
+CURRENCIES = {
+    'EUR': {
+        'symbol': '€',
+        'rate': 1.0,
+    },
+    'USD': {
+        'symbol': '$',
+        'rate': 1.08,
+    },
+    'GBP': {
+        'symbol': '£',
+        'rate': 0.86,
+    },
+}
+
+
 
 AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
