@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load math_filters %}
 
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
@@ -54,8 +55,9 @@
                 </div>
                 <div class="col-3 text-right">
                     <p class="my-0 small text-muted">
-                        €{{ item.item_total|floatformat:2 }}
+                        {{ currency_symbol }}{{ item.item_total|mul:currency_rate|floatformat:2 }}
                     </p>
+
 
                 </div>
             </div>
@@ -67,11 +69,16 @@
                     <p class="my-0">Delivery:</p>
                     <p class="my-0">Grand Total:</p>
                 </div>
-                <div class="col-3">
-                    <p class="my-0">€{{ total | floatformat:2 }}</p>
-                    <p class="my-0">€{{ delivery | floatformat:2 }}</p>
-                    <p class="my-0"><strong>€{{ grand_total | floatformat:2 }}</strong></p>
-                </div>
+                <p class="my-0">
+                    {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
+                </p>
+                <p class="my-0">
+                    {{ currency_symbol }}{{ delivery|mul:currency_rate|floatformat:2 }}
+                </p>
+                <p class="my-0">
+                    <strong>{{ currency_symbol }}{{ grand_total|mul:currency_rate|floatformat:2 }}</strong>
+                </p>
+
             </div>
         </div>
         <div class="col-12 col-lg-6">
