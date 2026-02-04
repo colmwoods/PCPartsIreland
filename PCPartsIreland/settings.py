@@ -127,6 +127,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'bag.context.bag_contents',
+                'PCPartsIreland.context_processors.currency_context',
             ],
         },
     },
