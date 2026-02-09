@@ -44,11 +44,15 @@
                         {% include "bag/product-info.html" %}
                     </div>
                     <div class="col-12 col-sm-6 order-sm-last">
-                        <p class="my-0">Price Each: {{ currency_symbol }}{{
-                            item.product.price|mul:currency_rate|floatformat:2 }}</p>
-                        <p><strong>Subtotal: </strong>{{ currency_symbol }}{{
-                            item.item_total|mul:currency_rate|floatformat:2 }}</p>
+                        <p class="my-0">
+                            Price Each: {{ currency_symbol }}{{ item.product.price|mul:currency_rate|floatformat:2 }}
+                        </p>
+                        <p>
+                            <strong>Subtotal:</strong>
+                            {{ currency_symbol }}{{ item.item_total|mul:currency_rate|floatformat:2 }}
+                        </p>
                     </div>
+
                     <div class="col-12 col-sm-6">
                         {% include "bag/quantity-form.html" %}
                     </div>
