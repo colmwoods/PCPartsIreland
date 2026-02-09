@@ -27,6 +27,11 @@ class ProductResource(resources.ModelResource):
             'image_url',
         )
 
+    def dehydrate_image_url(self, obj):
+        if obj.image:
+            return obj.image.url
+        return ''
+
     def before_import_row(self, row, **kwargs):
         image_url = row.get('image_url')
 
