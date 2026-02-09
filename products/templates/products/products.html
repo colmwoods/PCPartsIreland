@@ -80,16 +80,17 @@
                 {% for product in products %}
                 <div class="col-sm-6 col-md-6 col-lg-4 col-xl-3">
                     <div class="card h-100 border-0">
-                        {% if product.image %}
                         <a href="{% url 'product_detail' product.id %}">
+                            {% if product.image %}
                             <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
-                        </a>
-                        {% else %}
-                        <a href="{% url 'product_detail' product.id %}">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png"
+                            {% elif product.image_url %}
+                            <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
+                            {% else %}
+                            <img class="card-img-top img-fluid" src="{% static 'images/noimage.png' %}"
                                 alt="{{ product.name }}">
+                            {% endif %}
                         </a>
-                        {% endif %}
+
 
                         <div class="card-body pb-0">
                             <p class="mb-0">{{ product.name }}</p>
@@ -98,7 +99,8 @@
                         <div class="card-footer bg-white pt-0 border-0 text-left">
                             <div class="row">
                                 <div class="col">
-                                    <p class="lead mb-0 text-left font-weight-bold">{{ currency_symbol }}{{ product.price|mul:currency_rate|floatformat:2 }}</p>
+                                    <p class="lead mb-0 text-left font-weight-bold">{{ currency_symbol }}{{
+                                        product.price|mul:currency_rate|floatformat:2 }}</p>
 
                                     {% if product.category %}
                                     <p class="small mt-1 mb-0">
@@ -160,27 +162,27 @@
 {{ block.super }}
 
 <script type="text/javascript">
-		$('.btt-link').click(function(e) {
-			window.scrollTo(0,0)
-		})
-	</script>
-    
-    <script type="text/javascript">
-        $('#sort-selector').change(function() {
-            var selector = $(this);
-            var currentUrl = new URL(window.location);
-            var selectedVal = selector.val();
-            if(selectedVal != "reset"){
-                var sort = selectedVal.split("_")[0];
-                var direction = selectedVal.split("_")[1];
-                currentUrl.searchParams.set("sort", sort);
-                currentUrl.searchParams.set("direction", direction);
-                window.location.replace(currentUrl);
-            } else {
-                currentUrl.searchParams.delete("sort");
-                currentUrl.searchParams.delete("direction");
-                window.location.replace(currentUrl);
-            }
-        })
-    </script>
+    $('.btt-link').click(function (e) {
+        window.scrollTo(0, 0)
+    })
+</script>
+
+<script type="text/javascript">
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+        var selectedVal = selector.val();
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+            window.location.replace(currentUrl);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+            window.location.replace(currentUrl);
+        }
+    })
+</script>
 {% endblock %}
