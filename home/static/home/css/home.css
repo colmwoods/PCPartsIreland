@@ -35,7 +35,7 @@
     transform: translateY(-2px);
 }
 
-.error-hero {
-    min-height: calc(100vh - 160px);
-    background: rgba(0, 0, 0, 0.05);
+.error-content {
+    position: relative;
+    z-index: 2;
 }
