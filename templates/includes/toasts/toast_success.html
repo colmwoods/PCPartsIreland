@@ -1,3 +1,4 @@
+{% load static %}
 {% load math_filters %}
 
 <div class="toast custom-toast rounded-0 border-top-0" data-bs-autohide="false">
@@ -27,7 +28,15 @@
             {% for item in bag_items %}
             <div class="row">
                 <div class="col-3 my-1">
-                    <img class="w-100" src="{{ item.product.image.url }}">
+                    {% if item.product.image and item.product.image.name %}
+                    <img class="w-100" src="{{ item.product.image.url }}" alt="{{ item.product.name }} added to bag">
+                    {% elif item.product.image_url %}
+                    <img class="w-100" src="{{ item.product.image_url }}" alt="{{ item.product.name }} added to bag">
+                    {% else %}
+                    <img class="w-100" src="{% static 'images/noimage.png' %}"
+                        alt="No image available for {{ item.product.name }}">
+                    {% endif %}
+
                 </div>
                 <div class="col-9">
                     <p class="my-0"><strong>{{ item.product.name }}</strong></p>
