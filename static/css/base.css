@@ -69,23 +69,21 @@ footer {
     border-radius: 0;
 }
 
-.btn-outline-black {
-    color: #000;
-    border: 2px solid #000;
+.btn.btn-outline-black {
+    --bs-btn-color: #000;
+    --bs-btn-border-color: #000;
+    --bs-btn-hover-color: #fff;
+    --bs-btn-hover-bg: #000;
+    --bs-btn-hover-border-color: #000;
+    border-width: 2px;
     padding: 12px 28px;
 }
 
-.btn-outline-black:hover {
-    background: #000;
-    color: #fff;
-}
-
-.btn-black {
-    background: #000;
-    color: #fff;
+.btn.btn-black {
+    --bs-btn-color: #fff;
+    --bs-btn-bg: #000;
+    --bs-btn-border-color: #000;
+    --bs-btn-hover-bg: #222;
+    --bs-btn-hover-border-color: #222;
     padding: 12px 28px;
-}
-
-.btn-black:hover {
-    background: #222;
 }
