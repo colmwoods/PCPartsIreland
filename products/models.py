@@ -28,6 +28,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=10, decimal_places=2)
     rating = models.DecimalField(max_digits=3, decimal_places=1, null=True, blank=True)  # optional
     image = models.ImageField(upload_to="media/", null=True, blank=True)
+    image_url = models.URLField(max_length=500, null=True, blank=True)
 
 
     def __str__(self):
