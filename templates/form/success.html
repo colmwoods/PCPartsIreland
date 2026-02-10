@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="success-container">
+    <div class="success-card">
+        <h1 class="display-5">Message Sent! ✅</h1>
+        <p class="lead">
+            Thanks for reaching out — this message has been saved and can be viewed by the site administrator.
+        </p>
+        <a href="{% url 'contact' %}" class="btn mt-3">
+            Back to Contact Form
+        </a>
+    </div>
+</div>
+{% endblock %}
