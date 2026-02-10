@@ -12,6 +12,8 @@ from profiles.models import UserProfile
 from bag.context import bag_contents
 import stripe
 import json
+from django.core.mail import send_mail
+from django.template.loader import render_to_string
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 if not settings.STRIPE_SECRET_KEY:
@@ -155,13 +157,13 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    # Attach user profile if authenticated
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
-        # Attach the user's profile to the order
         order.user_profile = profile
         order.save()
 
-        # Save the user's info
+        # Save the user's default delivery info
         if save_info:
             profile_data = {
                 'default_phone_number': order.phone_number,
@@ -175,9 +177,29 @@ def checkout_success(request, order_number):
             if user_profile_form.is_valid():
                 user_profile_form.save()
 
-    messages.success(request, f'Order successfully processed! \
-        Your order number is {order_number}. A confirmation \
-        email will be sent to {order.email}.')
+    # --- SEND CONFIRMATION EMAIL ---
+    subject = render_to_string(
+        'checkout/email/order_confirmation_subject.txt',
+        {'order': order}
+    )
+
+    body = render_to_string(
+        'checkout/email/order_confirmation_body.txt',
+        {'order': order}
+    )
+
+    send_mail(
+        subject.strip(),
+        body,
+        settings.DEFAULT_FROM_EMAIL,
+        [order.email],
+        fail_silently=False,
+    )
+    # --- END EMAIL ---
+
+    messages.success(request, f'Order successfully processed! '
+        f'Your order number is {order_number}. '
+        f'A confirmation email was sent to {order.email}.')
 
     if 'bag' in request.session:
         del request.session['bag']
@@ -188,3 +210,4 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
+
