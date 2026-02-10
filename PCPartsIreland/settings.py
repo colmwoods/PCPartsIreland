@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "checkout",
     "profiles",
     "form",
+    "faq",
 
     # Other apps
     'storages',
