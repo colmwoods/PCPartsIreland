@@ -11,8 +11,46 @@
     <div class="container error-content py-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
-                <div class="bg-white p-5 shadow">
+                <div class="bg-white p-5 shadow position-relative">
+
                     <h2 class="text-center mb-4">Create Account</h2>
+
+                    {# 🔴 FORM VALIDATION ERRORS → TOASTS #}
+                    {% if form.errors %}
+                    {% for field in form %}
+                    {% for error in field.errors %}
+                    <div class="toast custom-toast rounded-0 border-top-0 show mb-3" data-bs-autohide="false">
+                        <div class="arrow-up" style="border-bottom-color:#ff6600;"></div>
+                        <div class="w-100 toast-capper" style="background-color:#ff6600; height:10px;"></div>
+
+                        <div class="toast-header bg-white text-dark">
+                            <strong class="me-auto">Error</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+
+                        <div class="toast-body bg-white">
+                            {{ error }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endfor %}
+
+                    {% for error in form.non_field_errors %}
+                    <div class="toast custom-toast rounded-0 border-top-0 show mb-3" data-bs-autohide="false">
+                        <div class="arrow-up" style="border-bottom-color:#ff6600;"></div>
+                        <div class="w-100 toast-capper" style="background-color:#ff6600; height:10px;"></div>
+
+                        <div class="toast-header bg-white text-dark">
+                            <strong class="me-auto">Error</strong>
+                            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+                        </div>
+
+                        <div class="toast-body bg-white">
+                            {{ error }}
+                        </div>
+                    </div>
+                    {% endfor %}
+                    {% endif %}
 
                     <form method="POST" action="{% url 'account_signup' %}" class="row g-4">
                         {% csrf_token %}
@@ -34,10 +72,11 @@
                         </div>
                     </form>
 
-                    <p class="text-center mt-3">
+                    <p class="text-center mt-3 mb-0">
                         Already have an account?
                         <a href="{% url 'account_login' %}">Sign In</a>
                     </p>
+
                 </div>
             </div>
         </div>
