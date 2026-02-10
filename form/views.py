@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from form.forms import ContactForm
+from form.forms import ContactForm, ReturnRequestForm
 
 # Create your views here.
 
@@ -30,3 +30,25 @@ def success(request):
     Render success page after contact form submission.
     """
     return render(request, 'form/success.html')
+
+
+def return_request(request):
+    """
+    Handle return request submissions.
+    """
+    if request.method == "POST":
+        form = ReturnRequestForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect("return_success")
+    else:
+        form = ReturnRequestForm()
+
+    return render(request, "form/return_form.html", {"form": form})
+
+
+def return_success(request):
+    """
+    Render success page after return request.
+    """
+    return render(request, "form/return_success.html")
