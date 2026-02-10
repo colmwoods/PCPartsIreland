@@ -30,7 +30,7 @@ urlpatterns = [
     path('profile/', include('profiles.urls')),
     path('set-currency/<str:currency_code>/', set_currency, name='set_currency'),
     path("", include("form.urls")),
-    path("", include("faq.urls")),
+    path("faq/", include("faq.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
