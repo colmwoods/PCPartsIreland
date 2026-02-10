@@ -8,43 +8,72 @@
 
 {% block content %}
 <div class="home-hero d-flex align-items-center">
-    <div class="container error-content">
+    <div class="container error-content py-5">
         <div class="row justify-content-center">
             <div class="col-12 col-md-10 col-lg-8">
                 <div class="bg-white p-5 shadow">
                     <h2 class="text-center mb-4">Return Request</h2>
 
-                    <form method="POST" class="row g-4">
+                    <form class="row g-4" method="POST">
                         {% csrf_token %}
 
-                        <div class="col-md-6">
+                        <!-- First Name -->
+                        <div class="col-12 col-md-6">
+                            <label for="id_first_name" class="form-label fw-semibold">
+                                First Name
+                            </label>
                             {{ form.first_name|add_class:"form-control form-control-lg" }}
                         </div>
 
-                        <div class="col-md-6">
+                        <!-- Last Name -->
+                        <div class="col-12 col-md-6">
+                            <label for="id_last_name" class="form-label fw-semibold">
+                                Last Name
+                            </label>
                             {{ form.last_name|add_class:"form-control form-control-lg" }}
                         </div>
 
+                        <!-- Email -->
                         <div class="col-12">
+                            <label for="id_email" class="form-label fw-semibold">
+                                Email
+                            </label>
                             {{ form.email|add_class:"form-control form-control-lg" }}
                         </div>
 
+                        <!-- Order Number -->
                         <div class="col-12">
+                            <label for="id_order_number" class="form-label fw-semibold">
+                                Order Number
+                            </label>
                             {{ form.order_number|add_class:"form-control form-control-lg" }}
                         </div>
 
+                        <!-- Product Name -->
                         <div class="col-12">
+                            <label for="id_product_name" class="form-label fw-semibold">
+                                Product Name
+                            </label>
                             {{ form.product_name|add_class:"form-control form-control-lg" }}
                         </div>
 
+                        <!-- Reason -->
                         <div class="col-12">
+                            <label for="id_reason" class="form-label fw-semibold">
+                                Reason for Return
+                            </label>
                             {{ form.reason|add_class:"form-select form-select-lg" }}
                         </div>
 
+                        <!-- Message -->
                         <div class="col-12">
+                            <label for="id_message" class="form-label fw-semibold">
+                                Additional Details (optional)
+                            </label>
                             {{ form.message|add_class:"form-control form-control-lg" }}
                         </div>
 
+                        <!-- Submit Button -->
                         <div class="col-12">
                             <button type="submit"
                                 class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3 w-100 mt-3">
