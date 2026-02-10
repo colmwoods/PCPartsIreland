@@ -1,0 +1,30 @@
+Hi {{ order.full_name }},
+
+Thank you for your order from PC Parts Ireland.
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Items Ordered:
+{% for item in order.lineitems.all %}
+- {{ item.product.name }} (x{{ item.quantity }}) – €{{ item.product.price }}
+{% endfor %}
+
+Order Total: €{{ order.order_total }}
+Delivery: €{{ order.delivery_cost }}
+Grand Total: €{{ order.grand_total }}
+
+Delivery Address:
+{{ order.full_name }}
+{{ order.street_address1 }}
+{% if order.street_address2 %}{{ order.street_address2 }}{% endif %}
+{{ order.town_or_city }}
+{% if order.county %}{{ order.county }}{% endif %}
+{% if order.postcode %}{{ order.postcode }}{% endif %}
+
+Your order will be processed shortly.
+
+If you have any questions, please contact us through the website.
+
+Kind regards,
+PC Parts Ireland
