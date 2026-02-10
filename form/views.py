@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from form.forms import ContactForm
 
@@ -14,7 +14,7 @@ def contact(request):
         if form.is_valid():
             try:
                 form.save()
-                return render(request, 'form/success.html')
+                return redirect('success')
             except Exception as e:
                 print("💥 Contact form error:", e)
                 return render(request, 'form/contact.html', {'form': form})
