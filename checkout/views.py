@@ -191,7 +191,7 @@ def checkout_success(request, order_number):
     send_mail(
         subject.strip(),
         body,
-        settings.DEFAULT_FROM_EMAIL,
+        settings.EMAIL_HOST_USER,
         [order.email],
         fail_silently=False,
     )
