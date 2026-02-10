@@ -60,9 +60,28 @@
         {% block content %}{% endblock %}
     </main>
 
-    <footer class="text-center py-3 bg-light">
-        <p class="mb-0">&copy; 2026 PC Parts Ireland</p>
+    <footer class="bg-light py-4">
+        <div class="container text-center">
+            <div class="mb-2">
+                <a href="{% url 'contact' %}" class="text-muted mx-2">
+                    Contact
+                </a>
+                |
+                <a href="{% url 'return_request' %}" class="text-muted mx-2">
+                    Returns
+                </a>
+                |
+                <a href="{% url 'faq' %}" class="text-muted mx-2">
+                    FAQ
+                </a>
+            </div>
+
+            <p class="mb-0 text-muted">
+                &copy; 2026 PC Parts Ireland
+            </p>
+        </div>
     </footer>
+
 
 
     <script src="https://js.stripe.com/v3/"></script>
