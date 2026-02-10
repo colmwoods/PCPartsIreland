@@ -2,56 +2,65 @@
 {% load static %}
 {% load widget_tweaks %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+
 {% block content %}
-<section id="contact" class="d-flex align-items-center min-vh-100 bg-transparent">
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-md-10 col-lg-8">
-                <!-- ✅ White form container only -->
-                <div class="p-5 rounded-4 shadow-sm bg-white">
-                    <h2 class="text-center mb-4">Get in Touch</h2>
+<div class="home-hero d-flex align-items-center">
+    <div class="container error-content">
+        <div class="container py-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-md-10 col-lg-8">
+                    <!-- ✅ White form container only -->
+                    <div class="bg-white p-5 shadow">
+                        <h2 class="text-center mb-4">Get in Touch</h2>
 
-                    <form class="row g-4" method="POST" action="{% url 'contact' %}">
-                        {% csrf_token %}
+                        <form class="row g-4" method="POST" action="{% url 'contact' %}">
+                            {% csrf_token %}
 
-                        <!-- First Name -->
-                        <div class="col-12 col-md-6">
-                            <label for="id_first_name" class="form-label text-dark fw-semibold">First Name</label>
-                            {{ form.first_name|add_class:"form-control form-control-lg" }}
-                        </div>
+                            <!-- First Name -->
+                            <div class="col-12 col-md-6">
+                                <label for="id_first_name" class="form-label text-dark fw-semibold">First Name</label>
+                                {{ form.first_name|add_class:"form-control form-control-lg" }}
+                            </div>
 
-                        <!-- Last Name -->
-                        <div class="col-12 col-md-6">
-                            <label for="id_last_name" class="form-label text-dark fw-semibold">Last Name</label>
-                            {{ form.last_name|add_class:"form-control form-control-lg" }}
-                        </div>
+                            <!-- Last Name -->
+                            <div class="col-12 col-md-6">
+                                <label for="id_last_name" class="form-label text-dark fw-semibold">Last Name</label>
+                                {{ form.last_name|add_class:"form-control form-control-lg" }}
+                            </div>
 
-                        <!-- Email -->
-                        <div class="col-12">
-                            <label for="id_email" class="form-label text-dark fw-semibold">Email</label>
-                            {{ form.email|add_class:"form-control form-control-lg" }}
-                        </div>
+                            <!-- Email -->
+                            <div class="col-12">
+                                <label for="id_email" class="form-label text-dark fw-semibold">Email</label>
+                                {{ form.email|add_class:"form-control form-control-lg" }}
+                            </div>
 
-                        <!-- Phone -->
-                        <div class="col-12">
-                            <label for="id_phone" class="form-label text-dark fw-semibold">Phone (optional)</label>
-                            {{ form.phone|add_class:"form-control form-control-lg" }}
-                        </div>
+                            <!-- Phone -->
+                            <div class="col-12">
+                                <label for="id_phone" class="form-label text-dark fw-semibold">Phone (optional)</label>
+                                {{ form.phone|add_class:"form-control form-control-lg" }}
+                            </div>
 
-                        <!-- Message -->
-                        <div class="col-12">
-                            <label for="id_message" class="form-label text-dark fw-semibold">Message</label>
-                            {{ form.message|add_class:"form-control form-control-lg" }}
-                        </div>
+                            <!-- Message -->
+                            <div class="col-12">
+                                <label for="id_message" class="form-label text-dark fw-semibold">Message</label>
+                                {{ form.message|add_class:"form-control form-control-lg" }}
+                            </div>
 
-                        <!-- Submit Button -->
-                        <div class="col-12">
-                            <button class="btn btn-primary btn-lg w-100 mt-3" type="submit">Send Message</button>
-                        </div>
-                    </form>
+                            <!-- Submit Button -->
+                            <div class="col-12">
+                                <button type="submit"
+                                    class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3 w-100 mt-3">
+                                    Send Message</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}

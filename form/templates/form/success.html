@@ -1,15 +1,26 @@
 {% extends "base.html" %}
 
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
 {% block content %}
-<div class="success-container">
-    <div class="success-card">
-        <h1 class="display-5">Message Sent! ✅</h1>
-        <p class="lead">
-            Thanks for reaching out — this message has been saved and can be viewed by the site administrator.
-        </p>
-        <a href="{% url 'contact' %}" class="btn mt-3">
-            Back to Contact Form
-        </a>
+<div class="home-hero d-flex align-items-center">
+    <div class="container error-content">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="bg-white p-5 shadow text-center">
+                    <h1 class="display-5">Message Sent! ✅</h1>
+
+                    <p class="lead text-muted mt-3">
+                        Thanks for reaching out — we’ll get back to you shortly.
+                    </p>
+
+                    <a href="{% url 'home' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3 mt-3">
+                        Return Home
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}
