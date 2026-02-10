@@ -29,7 +29,7 @@ urlpatterns = [
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
     path('set-currency/<str:currency_code>/', set_currency, name='set_currency'),
-    path('contact/', include('contact.urls')),
+    path("", include("forms.urls")),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
