@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="home-hero d-flex align-items-center">
+    <div class="container error-content">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-10 col-lg-8">
+                <div class="bg-white p-5 shadow">
+                    <h2 class="text-center mb-4">Return Request</h2>
+
+                    <form method="POST" class="row g-4">
+                        {% csrf_token %}
+
+                        <div class="col-md-6">
+                            {{ form.first_name|add_class:"form-control form-control-lg" }}
+                        </div>
+
+                        <div class="col-md-6">
+                            {{ form.last_name|add_class:"form-control form-control-lg" }}
+                        </div>
+
+                        <div class="col-12">
+                            {{ form.email|add_class:"form-control form-control-lg" }}
+                        </div>
+
+                        <div class="col-12">
+                            {{ form.order_number|add_class:"form-control form-control-lg" }}
+                        </div>
+
+                        <div class="col-12">
+                            {{ form.product_name|add_class:"form-control form-control-lg" }}
+                        </div>
+
+                        <div class="col-12">
+                            {{ form.reason|add_class:"form-select form-select-lg" }}
+                        </div>
+
+                        <div class="col-12">
+                            {{ form.message|add_class:"form-control form-control-lg" }}
+                        </div>
+
+                        <div class="col-12">
+                            <button type="submit"
+                                class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3 w-100 mt-3">
+                                Submit Return Request
+                            </button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
