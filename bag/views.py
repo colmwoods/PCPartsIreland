@@ -97,17 +97,25 @@ def adjust_bag(request, item_id):
     product = get_object_or_404(Product, pk=item_id)
 
     quantity = int(request.POST.get('quantity'))
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    size = request.POST.get('product_size', None)
+
     bag = request.session.get('bag', {})
+
+    # ---- STOCK VALIDATION ----
+    if quantity > product.stock:
+        messages.error(
+            request,
+            f"You cannot set quantity higher than available stock ({product.stock})."
+        )
+        return redirect(reverse('view_bag'))
+
     if size:
         if quantity > 0:
             bag[item_id]['items_by_size'][size] = quantity
             messages.success(
                 request,
                 f'Updated size {size.upper()} {product.name} quantity to '
-                f'{bag[item_id]["items_by_size"][size]}'
+                f'{quantity}'
             )
         else:
             del bag[item_id]['items_by_size'][size]
@@ -122,7 +130,7 @@ def adjust_bag(request, item_id):
             bag[item_id] = quantity
             messages.success(
                 request,
-                f'Updated {product.name} quantity to {bag[item_id]}',
+                f'Updated {product.name} quantity to {quantity}',
                 extra_tags='bag'
             )
         else:
@@ -135,6 +143,7 @@ def adjust_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(reverse('view_bag'))
+
 
 
 def remove_from_bag(request, item_id):
