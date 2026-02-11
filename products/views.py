@@ -68,12 +68,35 @@ def product_detail(request, product_id):
     }
     return render(request, 'products/product_detail.html', context)
 
+from django.shortcuts import render
+from django.db.models import Q
+from .models import Product
+
+
 def product_search(request):
     query = request.GET.get('q')
-    results = Product.objects.filter(name__icontains=query)
-    return render(request, 'products/search_results.html', {
-        'query': query,
-        'results': results
+
+    if not query:
+        return render(request, 'search/search_results.html')
+
+    products = Product.objects.filter(
+        Q(name__icontains=query) |
+        Q(description__icontains=query) |
+        Q(sku__icontains=query)
+    )
+
+    # 🔥 IF RESULTS EXIST → USE PRODUCTS PAGE
+    if products.exists():
+        return render(request, 'products/products.html', {
+            'products': products,
+            'search_term': query,
+            'current_categories': None,
+            'current_sorting': 'None_None',
+        })
+
+    # ❌ IF NO RESULTS → USE HERO EMPTY PAGE
+    return render(request, 'search/search_results.html', {
+        'query': query
     })
 
 
