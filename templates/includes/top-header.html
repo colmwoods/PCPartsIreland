@@ -1,86 +1,93 @@
 {% load math_filters %}
 <div class="top-header py-2">
     <div class="container">
-        <div class="d-flex justify-content-end align-items-center gap-3 small">
 
-            <div class="dropdown">
-                <a class="top-header-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    <i class="fas fa-money-bill-wave me-1"></i>
-                    {{ current_currency }}
-                </a>
+        <div class="d-flex justify-content-between align-items-center small">
 
-                <ul class="dropdown-menu dropdown-menu-end">
-                    {% for code, data in currencies.items %}
-                    <li>
-                        <a class="dropdown-item" href="{% url 'set_currency' code %}">
-                            {{ data.symbol }} {{ code }}
-                        </a>
-                    </li>
-                    {% endfor %}
-                </ul>
-            </div>
+            <!-- LEFT SIDE - SEARCH -->
+            <form method="GET" action="{% url 'product_search' %}" class="d-flex align-items-center"
+                style="max-width: 300px;">
 
-            <div class="dropdown">
-                <a class="top-header-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    My Account
-                </a>
+                <input class="form-control form-control-sm me-2" type="search" name="q" placeholder="Search products..."
+                    aria-label="Search">
 
-                <ul class="dropdown-menu dropdown-menu-end">
+                <button class="btn btn-sm btn-outline-light" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
+            </form>
 
-                    {% if request.user.is_authenticated %}
-                    <li>
-                        <a class="dropdown-item" href="{% url 'profile' %}">
-                            My Profile
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{% url 'account_logout' %}">
-                            Logout
-                        </a>
-                    </li>
+
+            <!-- RIGHT SIDE - EXISTING LINKS -->
+            <div class="d-flex align-items-center gap-3">
+
+                <!-- Currency Dropdown -->
+                <div class="dropdown">
+                    <a class="top-header-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <i class="fas fa-money-bill-wave me-1"></i>
+                        {{ current_currency }}
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        {% for code, data in currencies.items %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'set_currency' code %}">
+                                {{ data.symbol }} {{ code }}
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <!-- Account Dropdown -->
+                <div class="dropdown">
+                    <a class="top-header-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        My Account
+                    </a>
+
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        {% if request.user.is_authenticated %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'profile' %}">
+                                My Profile
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'account_logout' %}">
+                                Logout
+                            </a>
+                        </li>
+                        {% else %}
+                        <li>
+                            <a class="dropdown-item" href="{% url 'account_signup' %}">
+                                Register
+                            </a>
+                        </li>
+                        <li>
+                            <a class="dropdown-item" href="{% url 'account_login' %}">
+                                Login
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+
+                <!-- Bag -->
+                <a href="{% url 'view_bag' %}" class="top-header-link d-flex align-items-center gap-1">
+                    <i class="bi bi-bag"></i>
+
+                    {% if product_count %}
+                    <span>Bag ({{ product_count }})</span>
+                    <span>
+                        {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
+                    </span>
                     {% else %}
-
-                    <li>
-                        <a class="dropdown-item" href="{% url 'account_signup' %}">
-                            Register
-                        </a>
-                    </li>
-                    <li>
-                        <a class="dropdown-item" href="{% url 'account_login' %}">
-                            Login
-                        </a>
-                    </li>
+                    <span>Bag (0)</span>
                     {% endif %}
+                </a>
 
-                </ul>
             </div>
-
-            <a href="{% url 'view_bag' %}" class="top-header-link d-flex align-items-center gap-1">
-                <i class="bi bi-bag"></i>
-
-                {% if product_count %}
-                <span>Bag ({{ product_count }})</span>
-                <span>
-                    {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
-                </span>
-                {% else %}
-                <span>Bag (0)</span>
-                {% endif %}
-            </a>
-
-            <a href="{% url 'contact' %}" class="top-header-link d-flex align-items-center gap-1">
-                <i class="bi bi-envelope"></i>
-                Contact Us
-            </a>
-
-            <a href="{% url 'faq' %}" class="top-header-link d-flex align-items-center gap-1">
-                <i class="bi bi-question-circle"></i>
-                FAQ
-            </a>
-
-
         </div>
     </div>
 </div>
