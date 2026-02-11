@@ -5,12 +5,17 @@
         <div class="d-flex justify-content-between align-items-center small">
 
             <!-- LEFT SIDE - SEARCH -->
-            <form method="GET" action="{% url 'product_search' %}" id="search-form">
-                <input type="search" name="q" id="search-input" class="form-control">
-                <button type="submit">
-                    <i class="bi bi-search"></i>
-                </button>
+            <form method="GET" action="{% url 'product_search' %}" id="search-form"
+                class="d-flex align-items-center flex-nowrap position-relative" style="width: 280px;">
+
+                <input class="form-control form-control-sm py-1" type="search" name="q" id="search-input"
+                    placeholder="Search products...">
+
+                <div id="search-suggestions" class="list-group position-absolute w-100"
+                    style="top: 100%; z-index: 1050;">
+                </div>
             </form>
+
 
             <!-- RIGHT SIDE - EXISTING LINKS -->
             <div class="d-flex align-items-center gap-3">

@@ -109,7 +109,8 @@ def search_suggestions(request):
     data = [
         {
             'name': product.name,
-            'url': product.get_absolute_url()
+            'url': f"/products/{product.id}/"
+
         }
         for product in products
     ]
