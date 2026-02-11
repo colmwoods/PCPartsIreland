@@ -101,6 +101,53 @@
     </script>
     {% endblock %}
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const searchInput = document.getElementById("search-input");
+            const suggestionsBox = document.getElementById("search-suggestions");
+            const searchForm = document.getElementById("search-form");
+
+            if (!searchInput) return;  // prevents errors on pages without search
+
+            searchInput.addEventListener("keyup", function (e) {
+
+                let query = this.value;
+
+                if (e.key === "Enter") {
+                    suggestionsBox.innerHTML = "";
+                    return;
+                }
+
+                if (query.length < 2) {
+                    suggestionsBox.innerHTML = "";
+                    return;
+                }
+
+                fetch(`/search-suggestions/?q=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+
+                        suggestionsBox.innerHTML = "";
+
+                        data.forEach(item => {
+                            suggestionsBox.innerHTML += `
+                        <a href="${item.url}" class="list-group-item list-group-item-action">
+                            ${item.name}
+                        </a>
+                    `;
+                        });
+                    });
+            });
+
+            searchForm.addEventListener("submit", function () {
+                suggestionsBox.innerHTML = "";
+            });
+
+        });
+    </script>
+
+
 </body>
 
 </html>

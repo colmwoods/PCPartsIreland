@@ -70,12 +70,25 @@ def product_detail(request, product_id):
 
 def product_search(request):
     query = request.GET.get('q')
-    results = None
-
-    if query:
-        results = Product.objects.filter(name__icontains=query)
-
+    results = Product.objects.filter(name__icontains=query)
     return render(request, 'products/search_results.html', {
         'query': query,
         'results': results
     })
+
+
+from django.http import JsonResponse
+
+def search_suggestions(request):
+    query = request.GET.get('q')
+    products = Product.objects.filter(name__icontains=query)[:5]
+
+    data = [
+        {
+            'name': product.name,
+            'url': product.get_absolute_url()
+        }
+        for product in products
+    ]
+
+    return JsonResponse(data, safe=False)
