@@ -18,14 +18,35 @@ def add_to_bag(request, item_id):
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
-    size = None
-    if 'product_size' in request.POST:
-        size = request.POST['product_size']
+    size = request.POST.get('product_size', None)
+
+    # ---- STOCK PROTECTION ----
+    if product.stock == 0:
+        messages.error(request, "Sorry, this product is out of stock.")
+        return redirect(redirect_url)
+
     bag = request.session.get('bag', {})
 
+    current_quantity = 0
+
+    # Get current quantity already in bag
+    if item_id in bag:
+        if size:
+            if size in bag[item_id]['items_by_size']:
+                current_quantity = bag[item_id]['items_by_size'][size]
+        else:
+            current_quantity = bag[item_id]
+
+    # Prevent exceeding stock
+    if current_quantity + quantity > product.stock:
+        messages.error(
+            request,
+            f"Only {product.stock} available in stock."
+        )
+        return redirect(redirect_url)
     if size:
-        if item_id in list(bag.keys()):
-            if size in bag[item_id]['items_by_size'].keys():
+        if item_id in bag:
+            if size in bag[item_id]['items_by_size']:
                 bag[item_id]['items_by_size'][size] += quantity
                 messages.success(
                     request,
@@ -48,7 +69,7 @@ def add_to_bag(request, item_id):
                 extra_tags='bag'
             )
     else:
-        if item_id in list(bag.keys()):
+        if item_id in bag:
             bag[item_id] += quantity
             messages.success(
                 request,
@@ -65,6 +86,7 @@ def add_to_bag(request, item_id):
 
     request.session['bag'] = bag
     return redirect(redirect_url)
+
 
 
 def adjust_bag(request, item_id):
