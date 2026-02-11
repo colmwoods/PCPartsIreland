@@ -120,6 +120,17 @@
                                         {% else %}
                                         <small class="text-muted">No Rating</small>
                                         {% endif %}
+
+                                        {% if product.stock > 0 %}
+                                            <small class="text-success d-block mt-1">
+                                               <i class="fas fa-check-circle"></i> In Stock ({{ product.stock }})
+                                            </small>
+                                        {% else %}
+                                            <small class="text-danger d-block mt-1">
+                                               <i class="fas fa-times-circle"></i> Out of Stock
+                                            </small>
+                                        {% endif %}
+
                                     </div>
                                 </div>
                             </div>

@@ -65,7 +65,22 @@
                 {% endif %}
 
                 <p class="mt-3">{{ product.description }}</p>
+                {% if product.stock == 0 %}
+                <p class="text-danger mt-2">
+                    <strong>Out of Stock</strong>
                 </p>
+
+                {% elif product.stock <= 5 %} <p class="text-warning mt-2">
+                    <strong>Only {{ product.stock }} left!</strong>
+                    </p>
+
+                    {% else %}
+                    <p class="text-success mt-2">
+                        <strong>In Stock</strong>
+                    </p>
+                    {% endif %}
+
+
             </div>
         </div>
         <form action="{% url 'add_to_bag' product.id %}" method="POST">
