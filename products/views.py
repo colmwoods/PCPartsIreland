@@ -67,3 +67,15 @@ def product_detail(request, product_id):
         'product': product,
     }
     return render(request, 'products/product_detail.html', context)
+
+def product_search(request):
+    query = request.GET.get('q')
+    results = None
+
+    if query:
+        results = Product.objects.filter(name__icontains=query)
+
+    return render(request, 'products/search_results.html', {
+        'query': query,
+        'results': results
+    })
