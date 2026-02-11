@@ -88,19 +88,17 @@ footer {
     padding: 12px 28px;
 }
 
-/* Fix mobile collapse so it drops under navbar */
 @media (max-width: 1399px) {
     .navbar-collapse {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        right: 0;
         background: #fff;
         padding: 1rem;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        z-index: 999;
+    }
+
+    .navbar-nav {
+        flex-direction: column;
     }
 }
+
 
 .navbar-inner {
     max-width: 1400px;
