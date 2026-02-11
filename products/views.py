@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 from django.db.models import Q
+from django.http import JsonResponse
 
 # Create your views here.
 def all_products(request):
@@ -68,10 +69,6 @@ def product_detail(request, product_id):
     }
     return render(request, 'products/product_detail.html', context)
 
-from django.shortcuts import render
-from django.db.models import Q
-from .models import Product
-
 
 def product_search(request):
     query = request.GET.get('q')
@@ -99,11 +96,6 @@ def product_search(request):
         'query': query
     })
 
-
-from django.http import JsonResponse
-
-from django.http import JsonResponse
-from django.templatetags.static import static
 
 def search_suggestions(request):
     query = request.GET.get('q', '')
