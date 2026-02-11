@@ -1,6 +1,7 @@
 html,
 body {
     margin: 0;
+    overflow: hidden;
 }
 
 body {
@@ -90,21 +91,21 @@ footer {
 
 @media (max-width: 1399px) {
     .navbar-collapse {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
         background: #fff;
         padding: 1rem;
-    }
-
-    .navbar-nav {
-        flex-direction: column;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        z-index: 999;
     }
 }
 
+.navbar .container {
+    max-width: 1200px;
+}
 
-.navbar-inner {
-    max-width: 1400px;
-    margin: 0 auto;
-    width: 100%;
-
-    display: flex;
-    align-items: center;
+.navbar {
+    overflow: visible !important;
 }

@@ -23,31 +23,26 @@
 
     {% include "includes/top-header.html" %}
 
-    <nav class="navbar navbar-expand-xxl navbar-light bg-light">
+    <nav class="navbar navbar-expand-xxl navbar-light bg-light position-relative">
         <div class="container-fluid px-4">
-            <div class="navbar-inner">
 
-                <!-- Logo LEFT -->
-                <a class="navbar-brand" href="{% url 'home' %}">
-                    <img src="{% static 'images/pcpartsireland.jpg' %}" height="40">
-                </a>
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/pcpartsireland.jpg' %}" height="40">
+            </a>
 
-                <!-- Burger -->
-                <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#main-nav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-                <!-- Nav RIGHT -->
-                <div class="collapse navbar-collapse" id="main-nav">
-                    <ul class="navbar-nav ms-auto">
-                        {% include "includes/main-nav.html" %}
-                    </ul>
-                </div>
-
+            <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                <ul class="navbar-nav">
+                    {% include "includes/main-nav.html" %}
+                </ul>
             </div>
+
         </div>
     </nav>
+
 
 
     {% if messages %}
