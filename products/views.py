@@ -102,17 +102,33 @@ def product_search(request):
 
 from django.http import JsonResponse
 
+from django.http import JsonResponse
+from django.templatetags.static import static
+
 def search_suggestions(request):
-    query = request.GET.get('q')
-    products = Product.objects.filter(name__icontains=query)[:5]
+    query = request.GET.get('q', '')
 
-    data = [
-        {
+    products = Product.objects.filter(
+        name__icontains=query
+    )[:5]
+
+    data = []
+
+    for product in products:
+
+        if product.image:
+            image_url = product.image.url
+        elif product.image_url:
+            image_url = product.image_url
+        else:
+            image_url = ""
+
+        data.append({
             'name': product.name,
-            'url': f"/products/{product.id}/"
-
-        }
-        for product in products
-    ]
+            'url': f"/products/{product.id}/",
+            'image_url': image_url,
+        })
 
     return JsonResponse(data, safe=False)
+
+
