@@ -157,6 +157,13 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    # ---- DEDUCT STOCK AFTER SUCCESSFUL ORDER ----
+    for line_item in order.lineitems.all():
+        product = line_item.product
+        product.stock -= line_item.quantity
+        product.save()
+
+
     # Attach user profile if authenticated
     if request.user.is_authenticated:
         profile = UserProfile.objects.get(user=request.user)
