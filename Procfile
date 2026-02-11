@@ -1,1 +1,1 @@
-web: gunicorn PCPartsIreland.wsgi --timeout 120
+web: gunicorn PCPartsIreland.wsgi
