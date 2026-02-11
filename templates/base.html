@@ -23,20 +23,30 @@
 
     {% include "includes/top-header.html" %}
 
-    <nav class="navbar navbar-expand-xxl navbar-light bg-light">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
-                <img src="{% static 'images/pcpartsireland.jpg' %}" alt="PC Parts Ireland" height="40">
+    <nav class="navbar navbar-expand-xxl navbar-light bg-light position-relative">
+        <div class="container d-flex align-items-center">
+
+            <!-- Logo LEFT -->
+            <a class="navbar-brand" href="{% url 'home' %}">
+                <img src="{% static 'images/pcpartsireland.jpg' %}" height="40">
             </a>
 
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
-                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <!-- Burger -->
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
-            {% include "includes/main-nav.html" %}
+            <!-- Nav RIGHT -->
+            <div class="collapse navbar-collapse justify-content-end" id="main-nav">
+                <ul class="navbar-nav">
+                    {% include "includes/main-nav.html" %}
+                </ul>
+            </div>
+
         </div>
     </nav>
+
 
     {% if messages %}
     <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3 mt-5 pt-4">
