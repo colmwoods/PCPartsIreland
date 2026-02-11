@@ -91,9 +91,20 @@
 
                     </div>
 
-                    <button type="submit" class="btn btn-dark mt-4 px-5">
-                        Add to Bag
-                    </button>
+                    <div class="mt-4 d-flex gap-3">
+
+                        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Shopping</span>
+                        </a>
+
+                        <button type="submit" class="btn btn-black rounded-0 text-uppercase px-4">
+                            Add to Bag
+                        </button>
+
+                    </div>
 
                 </form>
 
