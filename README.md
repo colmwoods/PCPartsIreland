@@ -352,41 +352,88 @@ The following features represent planned improvements for PCPartsIreland. These 
 | [![badge](https://img.shields.io/badge/W3Schools-grey?logo=w3schools&logoColor=04AA6D)](https://www.w3schools.com) | Tutorials/Reference Guide |
 | [![badge](https://img.shields.io/badge/StackOverflow-grey?logo=stackoverflow&logoColor=F58025)](https://stackoverflow.com) | Troubleshooting and Debugging |
 
-⚠️ NOTE ⚠️
-
-Want to add more?
-
-- Tutorial: https://shields.io/badges/static-badge
-- Icons/Logos: https://simpleicons.org
-  - FYI: not all logos are available to use
-
-🛑 --- END --- 🛑
+---
 
 ## Database Design
 
 ### Data Model
 
-Entity Relationship Diagrams (ERD) help to visualize database architecture before creating models. Understanding the relationships between different tables can save time later in the project.
+PCPartsIreland uses a relational database powered by PostgreSQL and managed through Django’s ORM. The data model was carefully structured to support e-commerce functionality, structured product organisation, inventory-aware ordering, and secure payment processing.
+
+The core models in the system are:
+
+User  
+Handles authentication and login functionality using Django’s built-in user model.
+
+UserProfile  
+Extends the default User model using a one-to-one relationship.  
+Stores default delivery information such as phone number, address, town/city, county, postcode, and country.  
+This improves checkout efficiency for returning customers.
+
+Category  
+Organises products into structured hardware categories (e.g., CPUs, GPUs, RAM, Storage).  
+Each category contains multiple products using a one-to-many relationship.
+
+Product  
+Stores all product-related data including:
+- SKU
+- Name
+- Description
+- Price
+- Rating
+- Image
+- Category relationship
+
+Each product belongs to a single category but can appear in multiple customer orders.
+
+Order  
+Represents a completed checkout transaction.  
+Stores:
+- Order number
+- Customer details
+- Delivery address
+- Order totals
+- Stripe payment reference
+- Original cart data
+- Timestamp
+
+OrderLineItem  
+Breaks down an Order into individual purchased products.  
+Stores:
+- Product reference
+- Quantity ordered
+- Line total price
+
+This model ensures accurate quantity tracking and allows customers to order multiple units of the same product while maintaining correct stock awareness.
+
+Newsletter  
+Stores email addresses of users who subscribe to marketing updates.
+
+Contact  
+Stores contact form submissions including name, email, and message content.
+
+FAQ  
+Allows administrators to manage frequently asked questions displayed on the site.
+
+### Relationship Overview
+
+- One User has one UserProfile
+- One Category has many Products
+- One Order has many OrderLineItems
+- One OrderLineItem references one Product
+- Orders optionally relate to a UserProfile
+
+This relational structure ensures:
+
+- Accurate order tracking
+- Clean separation of concerns
+- Scalable product management
+- Secure transaction storage
+- Efficient retrieval of user purchase history
+
+The ERD below visualises these relationships.
 
 ![screenshot](documentation/erd.png)
-
-⚠️ INSTRUCTIONS ⚠️
-
-Using your defined models, create an ERD with the relationships identified. A couple of recommendations for building your own free ERDs:
-- [Lucidchart](https://www.lucidchart.com/pages/ER-diagram-symbols-and-meaning)
-- [Draw.io](https://draw.io)
-
-Looking for an interactive version of your ERD? Consider using a [`Mermaid flowchart`](https://mermaid.live). To simplify the process, you can ask ChatGPT (or similar) the following prompt:
-
-> ChatGPT Prompt:  
-> "Generate a Markdown syntax Mermaid ERD using my Django models"  
-> [paste-your-django-models-into-ChatGPT]
-
-The "Boutique Ado" sample ERD in Markdown syntax using Mermaid can be seen below as an example.
-
-**NOTE**: A Markdown Preview tool doesn't show the interactive ERD; you must first commit/push the code to your GitHub repository in order to see it live in action.
-
-⚠️ --- END --- ⚠️
 
 I have used `Mermaid` to generate an interactive ERD of my project.
 
@@ -519,76 +566,102 @@ source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to
 
 ### GitHub Projects
 
-⚠️ TIP ⚠️
+## Agile Development Process
 
-Consider adding screenshots of your Projects Board(s), Issues (open and closed), and Milestone tasks.
+### GitHub Projects
 
-⚠️ --- END ---⚠️
+[GitHub Projects](https://www.github.com/colmwoods/PCPartsIreland/projects) served as the primary Agile planning tool throughout the development of PCPartsIreland.
 
-[GitHub Projects](https://www.github.com/colmwoods/PCPartsIreland/projects) served as an Agile tool for this project. Through it, EPICs, User Stories, issues/bugs, and Milestone tasks were planned, then subsequently tracked on a regular basis using the Kanban project board.
+EPICs were first defined at a high level (e.g., Product Management, Checkout & Payments, User Authentication, Inventory & Orders). These EPICs were then broken down into detailed User Stories and implemented incrementally.
+
+A Kanban-style project board was used to move tasks through development stages such as:
+
+- Backlog  
+- To Do  
+- In Progress  
+- Testing  
+- Done  
+
+This structured workflow ensured:
+
+- Clear feature planning  
+- Logical development progression  
+- Transparent milestone tracking  
+- Efficient bug management  
 
 ![screenshot](documentation/gh-projects.png)
 
+
 ### GitHub Issues
 
-[GitHub Issues](https://www.github.com/colmwoods/PCPartsIreland/issues) served as an another Agile tool. There, I managed my User Stories and Milestone tasks, and tracked any issues/bugs.
+[GitHub Issues](https://www.github.com/colmwoods/PCPartsIreland/issues) were used to manage User Stories, bugs, and feature implementation tasks.
+
+Each issue included:
+
+- A detailed description of functionality
+- Defined acceptance criteria
+- MoSCoW prioritisation labels
+- References to related commits where applicable
+
+This ensured traceability between planning and implementation, aligning development with Agile principles.
 
 | Link | Screenshot |
 | --- | --- |
 | [![GitHub issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![screenshot](documentation/gh-issues-open.png) |
 | [![GitHub closed issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/gh-issues-closed.png) |
 
+
 ### MoSCoW Prioritization
 
-I've decomposed my Epics into User Stories for prioritizing and implementing them. Using this approach, I was able to apply "MoSCoW" prioritization and labels to my User Stories within the Issues tab.
+I've decomposed my EPICs into User Stories for prioritizing and implementing them. Using this approach, I was able to apply MoSCoW prioritization and labels to my User Stories within the Issues tab.
 
-- **Must Have**: guaranteed to be delivered - required to Pass the project (*max ~60% of stories*)
-- **Should Have**: adds significant value, but not vital (*~20% of stories*)
-- **Could Have**: has small impact if left out (*the rest ~20% of stories*)
-- **Won't Have**: not a priority for this iteration - future features
+- **Must Have**: guaranteed to be delivered - required to pass the project (max ~60% of stories). These included core e-commerce functionality such as product listing, search and filtering, stock-aware ordering, cart management, checkout, Stripe payments, and order confirmation.
+
+- **Should Have**: adds significant value, but not vital (~20% of stories). These included usability improvements, enhanced filtering, improved UI feedback, and profile enhancements.
+
+- **Could Have**: has small impact if left out (the remaining ~20% of stories). These included additional refinements and minor UX improvements.
+
+- **Won't Have**: not a priority for this iteration - future features such as a PC compatibility checker, full PC builder tool, advanced analytics dashboard, and loyalty system.
+
+---
+
 
 ## Ecommerce Business Model
 
-⚠️ INSTRUCTIONS ⚠️
+PCPartsIreland sells PC hardware components directly to individual customers, and therefore follows a **Business to Customer (B2C)** model. It operates using a straightforward transactional structure, where customers browse products, add items to their cart, and complete purchases securely online. It does not currently rely on subscription services or recurring payment models.
 
-Use this space to discuss the business model for your e-commerce project. An example is provided below that aligns closely with **Boutique Ado's B2C** strategy. Be sure to align to your own project requirements.
+The platform is still in its early development stages, although it already includes newsletter functionality and social media integration to support marketing efforts.
 
-⚠️ --- END --- ⚠️
+Social media can help build a community around PCPartsIreland, increase visibility within the Irish tech and gaming market, and drive additional site traffic — particularly when using widely adopted platforms such as Facebook.
 
-This site sells goods to individual customers, and therefore follows a **Business to Customer** model. It is of the simplest **B2C** forms, as it focuses on individual transactions, and doesn't need anything such as monthly/annual subscriptions.
-
-It is still in its early development stages, although it already has a newsletter, and links for social media marketing.
-
-Social media can potentially build a community of users around the business, and boost site visitor numbers, especially when using larger platforms such a Facebook.
-
-A newsletter list can be used by the business to send regular messages to site users. For example, what items are on special offer, new items in stock, updates to business hours, notifications of events, and much more!
+The newsletter allows the business to communicate directly with customers. This can include notifications about special offers, new hardware releases, restocked components, updates to delivery options, changes to business hours, and other relevant announcements.
 
 ## SEO & Marketing
 
 ### Keywords
 
-I've identified some appropriate keywords to align with my site, that should help users when searching online to find my page easily from a search engine. This included a series of the following keyword types:
+I've identified appropriate keywords that align with PCPartsIreland, helping users find the site more easily through search engines. This included a combination of:
 
 - Short-tail (head terms) keywords
 - Long-tail keywords
 
-I've also played around with [Word Tracker](https://www.wordtracker.com) a bit to check the frequency of some of my site's primary keywords (only until the free trial expired).
+Examples include terms such as “PC parts Ireland”, “gaming GPU Ireland”, “DDR5 RAM Ireland”, and more specific searches like “buy RTX graphics card Ireland delivery”.
+
+I've also used [Word Tracker](https://www.wordtracker.com) to review search frequency and competitiveness of some of the site's primary keywords (during the free trial period).
 
 ### Sitemap
 
-I've used [XML-Sitemaps](https://www.xml-sitemaps.com) to generate a sitemap.xml file. This was generated using my deployed site URL: https://pcpartsireland-1cfc0205aac1.herokuapp.com
+I've used [XML-Sitemaps](https://www.xml-sitemaps.com) to generate a sitemap.xml file. This was generated using the deployed site URL: https://pcpartsireland-1cfc0205aac1.herokuapp.com
 
-After it finished crawling the entire site, it created a [sitemap.xml](sitemap.xml), which I've downloaded and included in the repository.
+After crawling the entire site, it created a [sitemap.xml](sitemap.xml), which I downloaded and included in the repository to improve search engine indexing.
 
 ### Robots
 
 I've created the [robots.txt](robots.txt) file at the root-level. Inside, I've included the default settings:
 
-```txt
 User-agent: *
 Disallow:
 Sitemap: https://pcpartsireland-1cfc0205aac1.herokuapp.com/sitemap.xml
-```
 
 Further links for future implementation:
 - [Google search console](https://search.google.com/search-console)
@@ -598,7 +671,7 @@ Further links for future implementation:
 
 ### Social Media Marketing
 
-Creating a strong social base (with participation) and linking that to the business site can help drive sales. Using more popular providers with a wider user base, such as Facebook, typically maximizes site views.
+Creating a strong social presence and linking it to the PCPartsIreland website can help drive engagement and increase sales. Using widely adopted platforms such as Facebook helps maximise exposure within the Irish tech and gaming community.
 
 I've created a mockup Facebook business account using the [Balsamiq template](https://code-institute-org.github.io/5P-Assessments-Handbook/files/Facebook_Mockups.zip) provided by Code Institute.
 
@@ -606,39 +679,38 @@ I've created a mockup Facebook business account using the [Balsamiq template](ht
 
 ### Newsletter Marketing
 
-I have incorporated a newsletter sign-up form on my application, to allow users to supply their email address if they are interested in learning more. 
+I have incorporated newsletter functionality within the application to allow users to supply their email address if they are interested in receiving updates about PCPartsIreland products and promotions.
 
-⚠️ OPTION 1: RECOMMENDED ⚠️
+Two newsletter approaches are supported:
 
-**Custom Django Model Newsletter**
+**1. Custom Django Model Newsletter**
 
-- Create a custom `newsletter` app in your project, with a custom model/class called `Newsletter`.
-- This method satisfies two assessment criteria:
-    1. include a newsletter
-    2. one of your 3 required custom models
-- It doesn't need anything except the `email` field on the model, but feel free to add more if you need.
-- Example: (keep this in your README if you've done this method, attach your `Newsletter` model in a code block like the following example)
-    ```python
-    class Newsletter(models.Model):
-        email = models.EmailField(unique=True, null=False, blank=False)
+- A custom `newsletter` app was created within the project, containing a model called `Newsletter`.
+- This satisfies two assessment criteria:
+    1. Including a newsletter feature
+    2. Implementing one of the required custom models
+- The model stores subscriber email addresses securely.
+- The existing `send_mail()` functionality used within `webhook_handler.py` can be reused to send promotional emails when new products are added to the store.
 
-        def __str__(self):
-            return self.email
-    ```
-- Consider using the same `send_mail()` functionality used on the `webhook_handler.py` file.
-    - You can trigger an email to be sent out to subscribed users when new products are added to the site!
+**2. MailChimp Newsletter (Alternative Option)**
 
-⚠️ --- END --- ⚠️
+- A Mailchimp account can be created to manage campaigns externally.
+- This allows up to 2,500 subscription email sends per month.
+- Mailchimp scripts can be integrated into the project following Code Institute guidance.
 
-🛑 OPTION 2 🛑
+Example Mailchimp embedded form integration:
 
-**MailChimp Newsletter**
+<script>
+document.getElementById("mc-embedded-subscribe-form").addEventListener("submit", function(e) {
+    const emailInput = document.getElementById("mce-EMAIL").value;
+    if (!emailInput.includes("@")) {
+        e.preventDefault();
+        alert("Please enter a valid email address.");
+    }
+});
+</script>
 
-- Sign up for a Mailchimp account
-- This allows up to 2,500 subscription email sends per month
-- Incorporate the code and scripts into your project like in the Code Institute lessons.
-
-🛑 --- END --- 🛑
+This JavaScript provides simple client-side validation before submitting the form to Mailchimp.
 
 ## Testing
 
@@ -647,34 +719,24 @@ I have incorporated a newsletter sign-up form on my application, to allow users 
 
 ## Deployment
 
-The live deployed application can be found deployed on [Heroku](https://pcpartsireland-1cfc0205aac1.herokuapp.com).
+The live deployed application can be found on [Heroku](https://pcpartsireland-1cfc0205aac1.herokuapp.com).
 
 ### Heroku Deployment
 
-This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications entirely in the cloud.
+This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications in the cloud.
 
-Deployment steps are as follows, after account setup:
+Deployment steps after account setup:
 
-- Select **New** in the top-right corner of your Heroku Dashboard, and select **Create new app** from the dropdown menu.
-- Your app name must be unique, and then choose a region closest to you (EU or USA), then finally, click **Create App**.
-- From the new app **Settings**, click **Reveal Config Vars**, and set your environment variables to match your private `env.py` file.
-
-> [!IMPORTANT]  
-> This is a sample only; you would replace the values with your own if cloning/forking my repository.
-
-🛑 !!! ATTENTION colmwoods !!! 🛑
-
-⚠️ DO NOT update the environment variables to your own! These should never be public; only use the demo values below! ⚠️
-⚠️ Replace the keys below with your own actual keys used; example: if not using AWS, then replace those keys with Cloudinary keys, or similar. ⚠️
-
-🛑 --- END --- 🛑
+- Select **New** in the top-right corner of the Heroku Dashboard and choose **Create new app**.
+- Ensure the app name is unique and select the closest region (EU or USA), then click **Create App**.
+- From the app **Settings**, click **Reveal Config Vars**, and configure environment variables to match your private `env.py` file.
 
 | Key | Value |
 | --- | --- |
 | `AWS_ACCESS_KEY_ID` | user-inserts-own-aws-access-key-id |
 | `AWS_SECRET_ACCESS_KEY` | user-inserts-own-aws-secret-access-key |
 | `DATABASE_URL` | user-inserts-own-postgres-database-url |
-| `DISABLE_COLLECTSTATIC` | 1 (*this is temporary, and can be removed for the final deployment*) |
+| `DISABLE_COLLECTSTATIC` | 1 (*temporary during setup*) |
 | `EMAIL_HOST_PASS` | user-inserts-own-gmail-api-key |
 | `EMAIL_HOST_USER` | user-inserts-own-gmail-email-address |
 | `SECRET_KEY` | any-random-secret-key |
@@ -683,119 +745,120 @@ Deployment steps are as follows, after account setup:
 | `STRIPE_WH_SECRET` | user-inserts-own-stripe-webhook-secret |
 | `USE_AWS` | True |
 
-Heroku needs some additional files in order to deploy properly.
+Heroku requires the following additional files:
 
 - [requirements.txt](requirements.txt)
 - [Procfile](Procfile)
 - [.python-version](.python-version)
 
-You can install this project's **[requirements.txt](requirements.txt)** (*where applicable*) using:
+
+You can install this project's **[requirements.txt](requirements.txt)** (where applicable) using:
 
 - `pip3 install -r requirements.txt`
 
-If you have your own packages that have been installed, then the requirements file needs updated using:
+If you install additional packages while developing or extending PCPartsIreland, the requirements file should be updated using:
 
 - `pip3 freeze --local > requirements.txt`
 
 The **[Procfile](Procfile)** can be created with the following command:
 
 - `echo web: gunicorn app_name.wsgi > Procfile`
-- *replace `app_name` with the name of your primary Django app name; the folder where `settings.py` is located*
+- Replace `app_name` with the name of your primary Django project folder (the folder containing `settings.py`).
 
-The **[.python-version](.python-version)** file tells Heroku the specific version of Python to use when running your application.
+The **[.python-version](.python-version)** file tells Heroku which Python version to use when running PCPartsIreland.
 
 - `3.12` (or similar)
 
-For Heroku deployment, follow these steps to connect your own GitHub repository to the newly created app:
+For Heroku deployment, follow these steps to connect your GitHub repository to the newly created app:
 
-Either (*recommended*):
+Either (recommended):
 
-- Select **Automatic Deployment** from the Heroku app.
+- Select **Automatic Deployment** from the Heroku app dashboard.
 
 Or:
 
-- In the Terminal/CLI, connect to Heroku using this command: `heroku login -i`
-- Set the remote for Heroku: `heroku git:remote -a app_name` (*replace `app_name` with your app name*)
-- After performing the standard Git `add`, `commit`, and `push` to GitHub, you can now type:
-	- `git push heroku main`
+- In the Terminal/CLI, connect to Heroku using:
+  - `heroku login -i`
+- Set the Heroku remote:
+  - `heroku git:remote -a app_name` (replace `app_name` with your Heroku app name)
+- After completing the standard Git `add`, `commit`, and `push` to GitHub, deploy using:
+  - `git push heroku main`
 
-The project should now be connected and deployed to Heroku!
+The PCPartsIreland project should now be connected and deployed to Heroku.
 
 ### PostgreSQL
 
-This project uses a [Code Institute PostgreSQL Database](https://dbs.ci-dbs.net) for the Relational Database with Django.
+This project uses a [Code Institute PostgreSQL Database](https://dbs.ci-dbs.net) as its relational database.
 
-> [!CAUTION]
-> - PostgreSQL databases by Code Institute are only available to CI Students.
-> - You must acquire your own PostgreSQL database through some other method if you plan to clone/fork this repository.
-> - Code Institute students are allowed a maximum of 8 databases.
-> - Databases are subject to deletion after 18 months.
+- PostgreSQL databases provided by Code Institute are only available to CI students.
+- If cloning or forking this repository outside Code Institute, you will need to configure your own PostgreSQL database.
+- Code Institute students are allowed a maximum of 8 databases.
+- Databases may be subject to deletion after 18 months.
 
-To obtain my own Postgres Database from Code Institute, I followed these steps:
+To obtain a PostgreSQL database from Code Institute:
 
-- Submitted my email address to the CI PostgreSQL Database link above.
-- An email was sent to me with my new Postgres Database.
-- The Database connection string will resemble something like this:
-    - `postgres://<db_username>:<db_password>@<db_host_url>/<db_name>`
-- You can use the above URL with Django; simply paste it into your `env.py` file and Heroku Config Vars as `DATABASE_URL`.
+- Submit your email address using the link above.
+- An email will be sent containing your database credentials.
+- The connection string will resemble:
+  - `postgres://<db_username>:<db_password>@<db_host_url>/<db_name>`
+- This connection string should be added to your `env.py` file and Heroku Config Vars as `DATABASE_URL`.
 
 ### Stripe API
 
-This project uses [Stripe](https://stripe.com) to handle the ecommerce payments.
+This project uses [Stripe](https://stripe.com) to handle e-commerce payments for PCPartsIreland.
 
-Once you've created a Stripe account and logged-in, follow these series of steps to get your project connected.
+After creating a Stripe account:
 
-- From your Stripe dashboard, click to expand the "Get your test API keys".
-- You'll have two keys here:
-	- `STRIPE_PUBLIC_KEY` = Publishable Key (starts with **pk**)
-	- `STRIPE_SECRET_KEY` = Secret Key (starts with **sk**)
+- From the Stripe dashboard, expand “Get your test API keys”.
+- Two keys will be available:
+  - `STRIPE_PUBLIC_KEY` (Publishable Key, starts with **pk**)
+  - `STRIPE_SECRET_KEY` (Secret Key, starts with **sk**)
 
-As a backup, in case users prematurely close the purchase-order page during payment, we can include Stripe Webhooks.
+To add Stripe Webhooks:
 
-- From your Stripe dashboard, click **Developers**, and select **Webhooks**.
-- From there, click **Add Endpoint**.
-	- `https://pcpartsireland-1cfc0205aac1.herokuapp.com/checkout/wh/`
-- Click **receive all events**.
-- Click **Add Endpoint** to complete the process.
-- You'll have a new key here:
-	- `STRIPE_WH_SECRET` = Signing Secret (Wehbook) Key (starts with **wh**)
+- In the Stripe dashboard, go to **Developers** → **Webhooks**.
+- Click **Add Endpoint**.
+  - `https://pcpartsireland-1cfc0205aac1.herokuapp.com/checkout/wh/`
+- Select **receive all events**.
+- Click **Add Endpoint**.
+- Stripe will generate:
+  - `STRIPE_WH_SECRET` (Webhook Signing Secret, starts with **wh**)
 
 ### Gmail API
 
-This project uses [Gmail](https://mail.google.com) to handle sending emails to users for purchase order confirmations.
+This project uses [Gmail](https://mail.google.com) to send order confirmation emails to customers of PCPartsIreland.
 
-Once you've created a Gmail (Google) account and logged-in, follow these series of steps to get your project connected.
+To configure Gmail:
 
-- Click on the **Account Settings** (cog icon) in the top-right corner of Gmail.
-- Click on the **Accounts and Import** tab.
-- Within the section called "Change account settings", click on the link for **Other Google Account settings**.
-- From this new page, select **Security** on the left.
-- Select **2-Step Verification** to turn it on. (*verify your password and account*)
-- Once verified, select **Turn On** for 2FA.
-- Navigate back to the **Security** page, and you'll see a new option called **App passwords** (*search for it at the top, if not*).
-- This might prompt you once again to confirm your password and account.
-- Select **Mail** for the app type.
-- Select **Other (Custom name)** for the device type.
-    - Any custom name, such as "Django" or `PCPartsIreland`
-- You'll be provided with a 16-character password (API key).
-    - Save this somewhere locally, as you cannot access this key again later!
-    - If your 16-character password contains *spaces*, make sure to remove them entirely.
-    - `EMAIL_HOST_PASS` = user's 16-character API key
-    - `EMAIL_HOST_USER` = user's own personal Gmail email address
+- Open Gmail and click the **Account Settings** (cog icon).
+- Select **Accounts and Import**.
+- Under “Change account settings”, click **Other Google Account settings**.
+- Select **Security**.
+- Enable **2-Step Verification**.
+- After enabling 2FA, return to **Security**.
+- Select **App passwords**.
+- Choose:
+  - App: **Mail**
+  - Device: **Other (Custom name)** (e.g., “PCPartsIreland”)
+- A 16-character password (API key) will be generated.
+  - Save it securely.
+  - Remove any spaces if present.
+  - Set:
+    - `EMAIL_HOST_PASS` to the 16-character key
+    - `EMAIL_HOST_USER` to your Gmail address
 
 ### WhiteNoise
 
-This project uses the [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) to aid with static files temporarily hosted on the live Heroku site.
+This project uses [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) to serve static files on the deployed Heroku version of PCPartsIreland.
 
-To include WhiteNoise in your own projects:
+To configure WhiteNoise:
 
-- Install the latest WhiteNoise package:
-    - `pip install whitenoise`
-- Update the `requirements.txt` file with the newly installed package:
-    - `pip freeze --local > requirements.txt`
-- Edit your `settings.py` file and add WhiteNoise to the `MIDDLEWARE` list, above all other middleware (apart from Django’s "SecurityMiddleware"):
+- Install the package:
+  - `pip install whitenoise`
+- Update requirements:
+  - `pip freeze --local > requirements.txt`
+- Add WhiteNoise to `settings.py` above other middleware (except SecurityMiddleware):
 
-```python
 # settings.py
 
 MIDDLEWARE = [
@@ -803,32 +866,19 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # any additional middleware
 ]
-```
-
 
 ### Local Development
 
-This project can be cloned or forked in order to make a local copy on your own system.
+PCPartsIreland can be cloned or forked to run locally.
 
-For either method, you will need to install any applicable packages found within the [requirements.txt](requirements.txt) file.
+Install dependencies using:
 
-- `pip3 install -r requirements.txt`.
+- `pip3 install -r requirements.txt`
 
-You will need to create a new file called `env.py` at the root-level, and include the same environment variables listed above from the Heroku deployment steps.
-
-> [!IMPORTANT]  
-> This is a sample only; you would replace the values with your own if cloning/forking my repository.
-
-🛑 !!! ATTENTION colmwoods !!! 🛑
-
-⚠️ DO NOT update the environment variables to your own! These should never be public; only use the demo values below! ⚠️
-⚠️ Replace the keys below with your own actual keys used; example: if not using Cloudinary | AWS, then replace those keys with whatever keys you're using. ⚠️
-
-🛑 --- END --- 🛑
+Create an `env.py` file at the root level and configure the same environment variables used in Heroku.
 
 Sample `env.py` file:
 
-```python
 import os
 
 os.environ.setdefault("AWS_ACCESS_KEY_ID", "user-inserts-own-aws-access-key-id")
@@ -839,151 +889,88 @@ os.environ.setdefault("EMAIL_HOST_USER", "user-inserts-own-gmail-email-address")
 os.environ.setdefault("SECRET_KEY", "any-random-secret-key")
 os.environ.setdefault("STRIPE_PUBLIC_KEY", "user-inserts-own-stripe-public-key")
 os.environ.setdefault("STRIPE_SECRET_KEY", "user-inserts-own-stripe-secret-key")
-os.environ.setdefault("STRIPE_WH_SECRET", "user-inserts-own-stripe-webhook-secret")  # only if using Stripe Webhooks
+os.environ.setdefault("STRIPE_WH_SECRET", "user-inserts-own-stripe-webhook-secret")
 
-# local environment only (do not include these in production/deployment!)
 os.environ.setdefault("DEBUG", "True")
 os.environ.setdefault("DEVELOPMENT", "True")
-```
 
-Once the project is cloned or forked, in order to run it locally, you'll need to follow these steps:
+To run locally:
 
-- Start the Django app: `python3 manage.py runserver`
-- Stop the app once it's loaded: `CTRL+C` (*Windows/Linux*) or `⌘+C` (*Mac*)
-- Make any necessary migrations: `python3 manage.py makemigrations --dry-run` then `python3 manage.py makemigrations`
-- Migrate the data to the database: `python3 manage.py migrate --plan` then `python3 manage.py migrate`
-- Create a superuser: `python3 manage.py createsuperuser`
-- Load fixtures (*if applicable*): `python3 manage.py loaddata file-name.json` (*repeat for each file*)
-- Everything should be ready now, so run the Django app again: `python3 manage.py runserver`
+- `python3 manage.py runserver`
+- Stop with CTRL+C
+- `python3 manage.py makemigrations`
+- `python3 manage.py migrate`
+- `python3 manage.py createsuperuser`
+- `python3 manage.py runserver`
 
-If you'd like to backup your database models, use the following command for each model you'd like to create a fixture for:
+To back up models:
 
 - `python3 manage.py dumpdata your-model > your-model.json`
-- *repeat this action for each model you wish to backup*
-- **NOTE**: You should never make a backup of the default *admin* or *users* data with confidential information.
+- Do not back up default admin or user data containing confidential information.
 
 #### Cloning
 
-You can clone the repository by following these steps:
+Clone the repository:
 
-1. Go to the [GitHub repository](https://www.github.com/colmwoods/PCPartsIreland).
-2. Locate and click on the green "Code" button at the very top, above the commits and files.
-3. Select whether you prefer to clone using "HTTPS", "SSH", or "GitHub CLI", and click the "copy" button to copy the URL to your clipboard.
-4. Open "Git Bash" or "Terminal".
-5. Change the current working directory to the location where you want the cloned directory.
-6. In your IDE Terminal, type the following command to clone the repository:
-	- `git clone https://www.github.com/colmwoods/PCPartsIreland.git`
-7. Press "Enter" to create your local clone.
+1. Visit [GitHub repository](https://www.github.com/colmwoods/PCPartsIreland)
+2. Click the green “Code” button.
+3. Copy the HTTPS/SSH/CLI URL.
+4. In Terminal:
+   - `git clone https://www.github.com/colmwoods/PCPartsIreland.git`
 
-Alternatively, if using Ona (formerly Gitpod), you can click below to create your own workspace using this repository.
+Alternatively, open in Ona (formerly Gitpod):
 
 [![Open in Ona-Gitpod](https://ona.com/run-in-ona.svg)](https://gitpod.io/#https://www.github.com/colmwoods/PCPartsIreland)
 
-**Please Note**: in order to directly open the project in Ona (Gitpod), you should have the browser extension installed. A tutorial on how to do that can be found [here](https://www.gitpod.io/docs/configure/user-settings/browser-extension).
-
 #### Forking
 
-By forking the GitHub Repository, you make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original owner's repository. You can fork this repository by using the following steps:
+To fork the repository:
 
-1. Log in to GitHub and locate the [GitHub Repository](https://www.github.com/colmwoods/PCPartsIreland).
-2. At the top of the Repository, just below the "Settings" button on the menu, locate and click the "Fork" Button.
-3. Once clicked, you should now have a copy of the original repository in your own GitHub account!
+1. Log into GitHub and navigate to [PCPartsIreland](https://www.github.com/colmwoods/PCPartsIreland)
+2. Click the **Fork** button
+3. A copy will be created in your GitHub account
 
 ### Local VS Deployment
 
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to discuss any differences between the local version you've developed, and the live deployment site. Generally, there shouldn't be [m]any major differences, so if you honestly cannot find any differences, feel free to use the following example:
-
-⚠️ --- END --- ⚠️
-
-There are no remaining major differences between the local version when compared to the deployed version online.
+There are no remaining major differences between the local development version of PCPartsIreland and the deployed version hosted on Heroku.
 
 ## Credits
 
-⚠️ INSTRUCTIONS ⚠️
-
-In the following sections, you need to reference where you got your content, media, and any extra help. It is common practice to use code from other repositories and tutorials (which is totally acceptable), however, it is important to be very specific about these sources to avoid potential plagiarism.
-
-⚠️ --- END ---⚠️
-
 ### Content
-
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to provide attribution links for any borrowed code snippets, elements, and resources. Ideally, you should provide an actual link to every resource used, not just a generic link to the main site. If you've used multiple components from the same source (such as Bootstrap), then you only need to list it once, but if it's multiple Codepen samples, then you should list each example individually. If you've used AI for some assistance (such as ChatGPT or Perplexity), be sure to mention that as well. A few examples have been provided below to give you some ideas.
-
-Eventually you'll want to learn how to use Git branches. Here's a helpful tutorial called [Learn Git Branching](https://learngitbranching.js.org) to bookmark for later.
-
-⚠️ --- END ---⚠️
 
 | Source | Notes |
 | --- | --- |
 | [Markdown Builder](https://markdown.2bn.dev) | Help generating Markdown files |
-| [Chris Beams](https://chris.beams.io/posts/git-commit) | "How to Write a Git Commit Message" |
-| [Boutique Ado](https://codeinstitute.net) | Code Institute walkthrough project inspiration |
-| [Bootstrap](https://getbootstrap.com) | Various components / responsive front-end framework |
-| [AWS S3](https://aws.amazon.com/s3) | Cloud storage for static/media files |
+| [Chris Beams](https://chris.beams.io/posts/git-commit) | Git commit message guidance |
+| [Boutique Ado](https://codeinstitute.net) | Code Institute walkthrough inspiration |
+| [Bootstrap](https://getbootstrap.com) | Responsive front-end framework |
+| [AWS S3](https://aws.amazon.com/s3) | Static/media storage |
 | [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
-| [Stripe](https://docs.stripe.com/payments/elements) | Online payment services |
-| [Gmail API](https://developers.google.com/gmail/api/guides) | Sending payment confirmation emails |
-| [Python Tutor](https://pythontutor.com) | Additional Python help |
-| [ChatGPT](https://chatgpt.com) | Help with code logic and explanations |
+| [Stripe](https://docs.stripe.com/payments/elements) | Payment integration |
+| [Gmail API](https://developers.google.com/gmail/api/guides) | Email integration |
+| [Python Tutor](https://pythontutor.com) | Python assistance |
+| [ChatGPT](https://chatgpt.com) | Debugging and documentation refinement |
 
 ### Media
 
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to provide attribution links to any media files borrowed from elsewhere (images, videos, audio, etc.). If you're the owner (or a close acquaintance) of some/all media files, then make sure to specify this information. Let the assessors know that you have explicit rights to use the media files within your project. Ideally, you should provide an actual link to every media file used, not just a generic link to the main site, unless it's AI-generated artwork.
-
-Looking for some media files? Here are some popular sites to use. The list of examples below is by no means exhaustive.
-
-- Images
-    - [Pexels](https://www.pexels.com)
-    - [Unsplash](https://unsplash.com)
-    - [Pixabay](https://pixabay.com)
-    - [Lorem Picsum](https://picsum.photos) (placeholder images)
-    - [Wallhere](https://wallhere.com) (wallpaper / backgrounds)
-    - [This Person Does Not Exist](https://thispersondoesnotexist.com) (reload to get a new person)
-- Audio
-    - [Audio Micro](https://www.audiomicro.com/free-sound-effects)
-    - [Button Clicks](https://www.zapsplat.com/sound-effect-category/button-clicks)
-    - [Lasers & Weapons](https://www.zapsplat.com/sound-effect-category/lasers-and-weapons/page/5)
-    - [Puzzle Music](https://soundimage.org/puzzle-music)
-    - [Camtasia Audio](https://library.techsmith.com/camtasia/assets/Audio)
-- Video
-    - [Videvo](https://www.videvo.net)
-- Image Compression
-    - [TinyPNG](https://tinypng.com) (for images <5MB)
-    - [CompressPNG](https://compresspng.com) (for images >5MB)
-
-A few examples have been provided below to give you some ideas on how to do your own Media credits.
-
-⚠️ --- END ---⚠️
-
 | Source | Notes |
 | --- | --- |
-| [favicon.io](https://favicon.io) | Generating the favicon |
-| [Boutique Ado](https://codeinstitute.net) | Sample images provided from the walkthrough projects |
-| [Font Awesome](https://fontawesome.com) | Icons used throughout the site |
+| [favicon.io](https://favicon.io) | Favicon generation |
+| [Boutique Ado](https://codeinstitute.net) | Sample walkthrough assets |
+| [Font Awesome](https://fontawesome.com) | Icons used |
 | [Pexels](https://images.pexels.com/photos/416160/pexels-photo-416160.jpeg) | Hero image |
 | [Wallhere](https://c.wallhere.com/images/9c/c8/da4b4009f070c8e1dfee43d25f99-2318808.jpg!d) | Background wallpaper |
 | [Pixabay](https://cdn.pixabay.com/photo/2017/09/04/16/58/passport-2714675_1280.jpg) | Background wallpaper |
 | [DALL-E 3](https://openai.com/index/dall-e-3) | AI generated artwork |
-| [TinyPNG](https://tinypng.com) | Compressing images < 5MB |
-| [CompressPNG](https://compresspng.com) | Compressing images > 5MB |
-| [CloudConvert](https://cloudconvert.com/webp-converter) | Converting images to `.webp` |
+| [TinyPNG](https://tinypng.com) | Image compression |
+| [CompressPNG](https://compresspng.com) | Image compression (large files) |
+| [CloudConvert](https://cloudconvert.com/webp-converter) | WebP conversion |
 
 ### Acknowledgements
 
-⚠️ INSTRUCTIONS ⚠️
-
-Use this space to provide attribution and acknowledgement to any supports that helped, encouraged, or supported you throughout the development stages of this project. It's always lovely to appreciate those that help us grow and improve our developer skills. A few examples have been provided below to give you some ideas.
-
-⚠️ --- END ---⚠️
-
-- I would like to thank my Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN) for the support throughout the development of this project.
-- I would like to thank the [Code Institute](https://codeinstitute.net) Tutor Team for their assistance with troubleshooting and debugging some project issues.
-- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) and [Code Institute Discord community](https://discord-portal.codeinstitute.net) for the moral support; it kept me going during periods of self doubt and impostor syndrome.
-- I would like to thank my partner, for believing in me, and allowing me to make this transition into software development.
-- I would like to thank my employer, for supporting me in my career development change towards becoming a software developer.
+- I would like to thank my Code Institute mentor, [Tim Nelson](https://www.github.com/TravelTimN), for the support and guidance throughout the development of PCPartsIreland.
+- I would like to thank the [Code Institute](https://codeinstitute.net) Tutor Team for their assistance with troubleshooting and debugging various project issues.
+- I would like to thank the [Code Institute Slack community](https://code-institute-room.slack.com) and [Code Institute Discord community](https://discord-portal.codeinstitute.net) for the encouragement and moral support during challenging stages of development.
+- I would also like to acknowledge the Code Institute **Boutique Ado** walkthrough project, which provided foundational structure and learning guidance that helped shape the development approach for PCPartsIreland.
+- I would like to thank my partner for believing in me and supporting my transition into software development.
+- I would like to thank my employer for supporting my career development and progression toward becoming a software developer.
