@@ -69,7 +69,7 @@ From an academic perspective, this project demonstrates:
 
 PCPartsIreland is therefore not just an online shop, but a complete demonstration of my ability to design, build, deploy, and document a production-ready full-stack web application.
 
-![screenshot](documentation/mockup.png)
+![screenshot](documentation/mockup.jpg)
 
 source: [PCPartsIreland amiresponsive](https://ui.dev/amiresponsive?url=https://pcpartsireland.com)
 
@@ -142,7 +142,7 @@ I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to ge
 - `#DF2935` secondary text.
 - `#FDCA40` secondary highlights.
 
-![screenshot](documentation/coolors.png)
+![screenshot](documentation/coolors.jpg)
 
 ### Typography
 
@@ -157,20 +157,20 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 | Page | Mobile | Tablet | Desktop |
 | --- | --- | --- | --- |
-| Register | ![screenshot](documentation/wireframes/mobile-register.png) | ![screenshot](documentation/wireframes/tablet-register.png) | ![screenshot](documentation/wireframes/desktop-register.png) |
-| Login | ![screenshot](documentation/wireframes/mobile-login.png) | ![screenshot](documentation/wireframes/tablet-login.png) | ![screenshot](documentation/wireframes/desktop-login.png) |
-| Profile | ![screenshot](documentation/wireframes/mobile-profile.png) | ![screenshot](documentation/wireframes/tablet-profile.png) | ![screenshot](documentation/wireframes/desktop-profile.png) |
-| Home | ![screenshot](documentation/wireframes/mobile-home.png) | ![screenshot](documentation/wireframes/tablet-home.png) | ![screenshot](documentation/wireframes/desktop-home.png) |
-| Products | ![screenshot](documentation/wireframes/mobile-products.png) | ![screenshot](documentation/wireframes/tablet-products.png) | ![screenshot](documentation/wireframes/desktop-products.png) |
-| Product Details | ![screenshot](documentation/wireframes/mobile-product-details.png) | ![screenshot](documentation/wireframes/tablet-product-details.png) | ![screenshot](documentation/wireframes/desktop-product-details.png) |
-| Bag | ![screenshot](documentation/wireframes/mobile-bag.png) | ![screenshot](documentation/wireframes/tablet-bag.png) | ![screenshot](documentation/wireframes/desktop-bag.png) |
-| Checkout | ![screenshot](documentation/wireframes/mobile-checkout.png) | ![screenshot](documentation/wireframes/tablet-checkout.png) | ![screenshot](documentation/wireframes/desktop-checkout.png) |
-| Checkout Success | ![screenshot](documentation/wireframes/mobile-checkout-success.png) | ![screenshot](documentation/wireframes/tablet-checkout-success.png) | ![screenshot](documentation/wireframes/desktop-checkout-success.png) |
-| Add Product | ![screenshot](documentation/wireframes/mobile-add-product.png) | ![screenshot](documentation/wireframes/tablet-add-product.png) | ![screenshot](documentation/wireframes/desktop-add-product.png) |
-| Edit Product | ![screenshot](documentation/wireframes/mobile-edit-product.png) | ![screenshot](documentation/wireframes/tablet-edit-product.png) | ![screenshot](documentation/wireframes/desktop-edit-product.png) |
-| Newsletter | ![screenshot](documentation/wireframes/mobile-newsletter.png) | ![screenshot](documentation/wireframes/tablet-newsletter.png) | ![screenshot](documentation/wireframes/desktop-newsletter.png) |
-| Contact | ![screenshot](documentation/wireframes/mobile-contact.png) | ![screenshot](documentation/wireframes/tablet-contact.png) | ![screenshot](documentation/wireframes/desktop-contact.png) |
-| 404 | ![screenshot](documentation/wireframes/mobile-404.png) | ![screenshot](documentation/wireframes/tablet-404.png) | ![screenshot](documentation/wireframes/desktop-404.png) |
+| Register | ![screenshot](documentation/wireframes/mobile-register.jpg) | ![screenshot](documentation/wireframes/tablet-register.jpg) | ![screenshot](documentation/wireframes/desktop-register.jpg) |
+| Login | ![screenshot](documentation/wireframes/mobile-login.jpg) | ![screenshot](documentation/wireframes/tablet-login.jpg) | ![screenshot](documentation/wireframes/desktop-login.jpg) |
+| Profile | ![screenshot](documentation/wireframes/mobile-profile.jpg) | ![screenshot](documentation/wireframes/tablet-profile.jpg) | ![screenshot](documentation/wireframes/desktop-profile.jpg) |
+| Home | ![screenshot](documentation/wireframes/mobile-home.jpg) | ![screenshot](documentation/wireframes/tablet-home.jpg) | ![screenshot](documentation/wireframes/desktop-home.jpg) |
+| Products | ![screenshot](documentation/wireframes/mobile-products.jpg) | ![screenshot](documentation/wireframes/tablet-products.jpg) | ![screenshot](documentation/wireframes/desktop-products.jpg) |
+| Product Details | ![screenshot](documentation/wireframes/mobile-product-details.jpg) | ![screenshot](documentation/wireframes/tablet-product-details.jpg) | ![screenshot](documentation/wireframes/desktop-product-details.jpg) |
+| Bag | ![screenshot](documentation/wireframes/mobile-bag.jpg) | ![screenshot](documentation/wireframes/tablet-bag.jpg) | ![screenshot](documentation/wireframes/desktop-bag.jpg) |
+| Checkout | ![screenshot](documentation/wireframes/mobile-checkout.jpg) | ![screenshot](documentation/wireframes/tablet-checkout.jpg) | ![screenshot](documentation/wireframes/desktop-checkout.jpg) |
+| Checkout Success | ![screenshot](documentation/wireframes/mobile-checkout-success.jpg) | ![screenshot](documentation/wireframes/tablet-checkout-success.jpg) | ![screenshot](documentation/wireframes/desktop-checkout-success.jpg) |
+| Add Product | ![screenshot](documentation/wireframes/mobile-add-product.jpg) | ![screenshot](documentation/wireframes/tablet-add-product.jpg) | ![screenshot](documentation/wireframes/desktop-add-product.jpg) |
+| Edit Product | ![screenshot](documentation/wireframes/mobile-edit-product.jpg) | ![screenshot](documentation/wireframes/tablet-edit-product.jpg) | ![screenshot](documentation/wireframes/desktop-edit-product.jpg) |
+| Newsletter | ![screenshot](documentation/wireframes/mobile-newsletter.jpg) | ![screenshot](documentation/wireframes/tablet-newsletter.jpg) | ![screenshot](documentation/wireframes/desktop-newsletter.jpg) |
+| Contact | ![screenshot](documentation/wireframes/mobile-contact.jpg) | ![screenshot](documentation/wireframes/tablet-contact.jpg) | ![screenshot](documentation/wireframes/desktop-contact.jpg) |
+| 404 | ![screenshot](documentation/wireframes/mobile-404.jpg) | ![screenshot](documentation/wireframes/tablet-404.jpg) | ![screenshot](documentation/wireframes/desktop-404.jpg) |
 
 ## User Stories
 
@@ -211,29 +211,29 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Register | Authentication is handled by Django Allauth, allowing secure user registration and account creation. | ![screenshot](documentation/features/register.png) |
-| Login | Registered users can securely log in to manage their account and order history. | ![screenshot](documentation/features/login.png) |
-| Logout | Users can safely log out of their account to protect personal data. | ![screenshot](documentation/features/logout.png) |
-| Product List | Displays all available PC components in a structured grid layout. Includes sorting, filtering, and search functionality. | ![screenshot](documentation/features/product-list.png) |
-| Search Bar | A navigation-based search bar allows users to search for hardware by keyword or product name. | ![screenshot](documentation/features/product-list.png) |
-| Sorting & Filtering | Products can be sorted by price or name and filtered by category for easier browsing. | ![screenshot](documentation/features/product-list.png) |
-| Product Details | Shows product specifications, description, pricing, imagery, and stock-aware quantity controls. | ![screenshot](documentation/features/product-details.png) |
-| Stock Management | Quantity controls prevent users from selecting more units than are available in stock. | ![screenshot](documentation/features/product-details.png) |
-| Add to Bag | Users can add selected quantities of hardware to their shopping cart. | ![screenshot](documentation/features/add-to-bag.png) |
-| View Bag | Users can review cart contents, update quantities, remove products, and view updated totals. | ![screenshot](documentation/features/view-bag.png) |
-| Checkout | Stripe integration provides secure payment processing and order validation. | ![screenshot](documentation/features/checkout.png) |
-| Order Confirmation | Users receive both on-screen and email confirmation with full order breakdown. | ![screenshot](documentation/features/order-confirmation.png) |
-| Profile Management | Users can manage personal details and store default shipping information. | ![screenshot](documentation/features/profile-management.png) |
-| Order History | Logged-in users can view past orders and purchase details. | ![screenshot](documentation/features/order-history.png) |
-| Product Management | Superusers can add, edit, update stock, and delete products via a full CRUD interface. | ![screenshot](documentation/features/product-management.png) |
-| Newsletter | Users can subscribe to receive updates on hardware releases and promotions. | ![screenshot](documentation/features/newsletter.png) |
-| Contact | Contact form stores user enquiries in the database for admin review. | ![screenshot](documentation/features/contact.png) |
-| FAQs | Admin-managed FAQ section provides answers to common purchasing queries. | ![screenshot](documentation/features/faqs.png) |
-| User Feedback | Django messaging framework provides real-time feedback (e.g., added to cart, removed item, insufficient stock). | ![screenshot](documentation/features/user-feedback.png) |
-| SEO | Includes sitemap.xml, robots.txt, and optimised metadata. | ![screenshot](documentation/features/seo.png) |
-| Marketing | Footer includes social media integration to support brand growth. | ![screenshot](documentation/features/marketing.png) |
-| Heroku Deployment | The site is deployed and publicly accessible via Heroku. | ![screenshot](documentation/features/heroku.png) |
-| 404 | Custom branded 404 page replaces the default server error page. | ![screenshot](documentation/features/404.png) |
+| Register | Authentication is handled by Django Allauth, allowing secure user registration and account creation. | ![screenshot](documentation/features/register.jpg) |
+| Login | Registered users can securely log in to manage their account and order history. | ![screenshot](documentation/features/login.jpg) |
+| Logout | Users can safely log out of their account to protect personal data. | ![screenshot](documentation/features/logout.jpg) |
+| Product List | Displays all available PC components in a structured grid layout. Includes sorting, filtering, and search functionality. | ![screenshot](documentation/features/product-list.jpg) |
+| Search Bar | A navigation-based search bar allows users to search for hardware by keyword or product name. | ![screenshot](documentation/features/product-list.jpg) |
+| Sorting & Filtering | Products can be sorted by price or name and filtered by category for easier browsing. | ![screenshot](documentation/features/product-list.jpg) |
+| Product Details | Shows product specifications, description, pricing, imagery, and stock-aware quantity controls. | ![screenshot](documentation/features/product-details.jpg) |
+| Stock Management | Quantity controls prevent users from selecting more units than are available in stock. | ![screenshot](documentation/features/product-details.jpg) |
+| Add to Bag | Users can add selected quantities of hardware to their shopping cart. | ![screenshot](documentation/features/add-to-bag.jpg) |
+| View Bag | Users can review cart contents, update quantities, remove products, and view updated totals. | ![screenshot](documentation/features/view-bag.jpg) |
+| Checkout | Stripe integration provides secure payment processing and order validation. | ![screenshot](documentation/features/checkout.jpg) |
+| Order Confirmation | Users receive both on-screen and email confirmation with full order breakdown. | ![screenshot](documentation/features/order-confirmation.jpg) |
+| Profile Management | Users can manage personal details and store default shipping information. | ![screenshot](documentation/features/profile-management.jpg) |
+| Order History | Logged-in users can view past orders and purchase details. | ![screenshot](documentation/features/order-history.jpg) |
+| Product Management | Superusers can add, edit, update stock, and delete products via a full CRUD interface. | ![screenshot](documentation/features/product-management.jpg) |
+| Newsletter | Users can subscribe to receive updates on hardware releases and promotions. | ![screenshot](documentation/features/newsletter.jpg) |
+| Contact | Contact form stores user enquiries in the database for admin review. | ![screenshot](documentation/features/contact.jpg) |
+| FAQs | Admin-managed FAQ section provides answers to common purchasing queries. | ![screenshot](documentation/features/faqs.jpg) |
+| User Feedback | Django messaging framework provides real-time feedback (e.g., added to cart, removed item, insufficient stock). | ![screenshot](documentation/features/user-feedback.jpg) |
+| SEO | Includes sitemap.xml, robots.txt, and optimised metadata. | ![screenshot](documentation/features/seo.jpg) |
+| Marketing | Footer includes social media integration to support brand growth. | ![screenshot](documentation/features/marketing.jpg) |
+| Heroku Deployment | The site is deployed and publicly accessible via Heroku. | ![screenshot](documentation/features/heroku.jpg) |
+| 404 | Custom branded 404 page replaces the default server error page. | ![screenshot](documentation/features/404.jpg) |
 
 ---
 
@@ -409,7 +409,7 @@ This relational structure ensures:
 
 The ERD below visualises these relationships.
 
-![screenshot](documentation/erd.png)
+![screenshot](documentation/erd.jpg)
 
 I have used `Mermaid` to generate an interactive ERD of my project.
 
@@ -523,12 +523,12 @@ INSTALLED_APPS = [
     ...
 ]
 ```
-- back in the terminal: `python3 manage.py graph_models -a -o erd.png`
-- drag the new `erd.png` file into my `documentation/` folder
+- back in the terminal: `python3 manage.py graph_models -a -o erd.jpg`
+- drag the new `erd.jpg` file into my `documentation/` folder
 - removed `'django_extensions',` from my `INSTALLED_APPS`
 - finally, in the terminal: `pip3 uninstall django-extensions pygraphviz -y`
 
-![screenshot](documentation/advanced-erd.png)
+![screenshot](documentation/advanced-erd.jpg)
 
 source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
@@ -555,7 +555,7 @@ This structured workflow ensured:
 - Transparent milestone tracking  
 - Efficient bug management  
 
-![screenshot](documentation/gh-projects.png)
+![screenshot](documentation/gh-projects.jpg)
 
 
 ### GitHub Issues
@@ -573,8 +573,8 @@ This ensured traceability between planning and implementation, aligning developm
 
 | Link | Screenshot |
 | --- | --- |
-| [![GitHub issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![screenshot](documentation/gh-issues-open.png) |
-| [![GitHub closed issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/gh-issues-closed.png) |
+| [![GitHub issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![screenshot](documentation/gh-issues-open.jpg) |
+| [![GitHub closed issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/gh-issues-closed.jpg) |
 
 
 ### MoSCoW Prioritization
@@ -641,7 +641,7 @@ Creating a strong social presence and linking it to the PCPartsIreland website c
 
 I've created a mockup Facebook business account using the [Balsamiq template](https://code-institute-org.github.io/5P-Assessments-Handbook/files/Facebook_Mockups.zip) provided by Code Institute.
 
-![screenshot](documentation/mockup-facebook.png)
+![screenshot](documentation/mockup-facebook.jpg)
 
 ### Newsletter Marketing
 
