@@ -19,6 +19,22 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from PCPartsIreland.views import set_currency
+from pathlib import Path
+from django.views import View
+from django.http import HttpResponse
+
+class RobotsView(View):
+    def get(self, request):
+        robots_path = Path(settings.BASE_DIR) / "robots.txt"
+        with open(robots_path) as f:
+            return HttpResponse(f.read(), content_type="text/plain")
+
+
+class SitemapView(View):
+    def get(self, request):
+        sitemap_path = Path(settings.BASE_DIR) / "sitemap.xml"
+        with open(sitemap_path) as f:
+            return HttpResponse(f.read(), content_type="application/xml")
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -31,6 +47,8 @@ urlpatterns = [
     path('set-currency/<str:currency_code>/', set_currency, name='set_currency'),
     path("", include("form.urls")),
     path("faq/", include("faq.urls")),
+    path("robots.txt", RobotsView.as_view()),
+    path("sitemap.xml", SitemapView.as_view()),
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
