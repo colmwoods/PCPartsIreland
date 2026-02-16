@@ -5,9 +5,29 @@ from import_export import resources
 from .models import Product, Category
 
 
+class CategoryResource(resources.ModelResource):
+    class Meta:
+        model = Category
+        import_id_fields = ('name',)
+        fields = (
+            'name',
+            'friendly_name',
+            'slug',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
+        )
+
 @admin.register(Category)
-class CategoryAdmin(admin.ModelAdmin):
-    list_display = ('friendly_name', 'name')
+class CategoryAdmin(ImportExportModelAdmin):
+    resource_class = CategoryResource
+
+    list_display = (
+        'friendly_name',
+        'name',
+        'slug',
+    )
+
 
 
 class ProductResource(resources.ModelResource):
@@ -23,6 +43,9 @@ class ProductResource(resources.ModelResource):
             'rating',
             'stock',
             'image_url',
+            'meta_title',
+            'meta_description',
+            'meta_keywords',
         )
 
 
