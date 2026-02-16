@@ -137,10 +137,11 @@ source: [PCPartsIreland amiresponsive](https://ui.dev/amiresponsive?url=https://
 
 I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
 
-- `#000000` primary text.
-- `#3772FF` primary highlights.
-- `#DF2935` secondary text.
-- `#FDCA40` secondary highlights.
+- `#000000` Primary structural colour (buttons, emphasis, layout).
+- `#111111` Header / dark background.
+- `#FFFFFF` Text and contrast.
+- `#FF6600` Main call-to-action (Shop Now, key buttons).
+- `#E65C00` CTA hover state.
 
 ![screenshot](documentation/coolors.jpg)
 
