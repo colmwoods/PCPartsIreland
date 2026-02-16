@@ -115,6 +115,10 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
+# MockUp Needs To Work
+X_FRAME_OPTIONS = "ALLOWALL"
+
+
 ROOT_URLCONF = 'PCPartsIreland.urls'
 SECURE_SSL_REDIRECT = not DEBUG
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
