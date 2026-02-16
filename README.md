@@ -938,7 +938,7 @@ To fork the repository:
 
 ### Local VS Deployment
 
-The deployed version reflects the fully tested local development environment with no functional discrepancies.
+The deployed version reflects the tested local environment. Minor differences may exist in DEBUG configuration and static file handling, but functionality remains consistent.
 
 ## Credits
 
