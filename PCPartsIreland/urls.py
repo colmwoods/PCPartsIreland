@@ -35,6 +35,7 @@ class SitemapView(View):
         sitemap_path = Path(settings.BASE_DIR) / "sitemap.xml"
         with open(sitemap_path) as f:
             return HttpResponse(f.read(), content_type="application/xml")
+    
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -49,6 +50,8 @@ urlpatterns = [
     path("faq/", include("faq.urls")),
     path("robots.txt", RobotsView.as_view()),
     path("sitemap.xml", SitemapView.as_view()),
+    path("trigger-500/", views.trigger_error),
+
 ]
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
