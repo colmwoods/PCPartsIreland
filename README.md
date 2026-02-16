@@ -217,7 +217,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Login | Registered users can securely log in to manage their account and order history. | ![screenshot](documentation/features/login.jpg) |
 | Logout | Users can safely log out of their account to protect personal data. | ![screenshot](documentation/features/logout.jpg) |
 | Product List | Displays all available PC components in a structured grid layout. Includes sorting, filtering, and search functionality. | ![screenshot](documentation/features/product-list.jpg) |
-| Search Bar | A navigation-based search bar allows users to search for hardware by keyword or product name. | ![screenshot](documentation/features/product-list.jpg) |
+| Search Bar | A navigation-based search bar allows users to search for hardware by keyword or product name. | ![screenshot](documentation/features/search-bar.jpg) |
 | Sorting & Filtering | Products can be sorted by price or name and filtered by category for easier browsing. | ![screenshot](documentation/features/product-list.jpg) |
 | Product Details | Shows product specifications, description, pricing, imagery, and stock-aware quantity controls. | ![screenshot](documentation/features/product-details.jpg) |
 | Stock Management | Quantity controls prevent users from selecting more units than are available in stock. | ![screenshot](documentation/features/product-details.jpg) |
@@ -236,6 +236,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Marketing | Footer includes social media integration to support brand growth. | ![screenshot](documentation/features/marketing.jpg) |
 | Heroku Deployment | The site is deployed and publicly accessible via Heroku. | ![screenshot](documentation/features/heroku.jpg) |
 | 404 | Custom branded 404 page replaces the default server error page. | ![screenshot](documentation/features/404.jpg) |
+| 500 | Custom branded 500 page replaces the default server error 500 page. | ![screenshot](documentation/features/500.jpg) |
 
 ---
 
