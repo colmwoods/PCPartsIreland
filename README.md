@@ -220,7 +220,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Search Bar | A navigation-based search bar allows users to search for hardware by keyword or product name. | ![screenshot](documentation/features/search-bar.jpg) |
 | Sorting & Filtering | Products can be sorted by price or name and filtered by category for easier browsing. | ![screenshot](documentation/features/product-list.jpg) |
 | Product Details | Shows product specifications, description, pricing, imagery, and stock-aware quantity controls. | ![screenshot](documentation/features/product-details.jpg) |
-| Stock Management | Quantity controls prevent users from selecting more units than are available in stock. | ![screenshot](documentation/features/product-details.jpg) |
+| Stock Management | Quantity controls prevent users from selecting more units than are available in stock. | ![screenshot](documentation/features/user-feedback.jpg) |
 | Add to Bag | Users can add selected quantities of hardware to their shopping cart. | ![screenshot](documentation/features/add-to-bag.jpg) |
 | View Bag | Users can review cart contents, update quantities, remove products, and view updated totals. | ![screenshot](documentation/features/view-bag.jpg) |
 | Checkout | Stripe integration provides secure payment processing and order validation. | ![screenshot](documentation/features/checkout.jpg) |
