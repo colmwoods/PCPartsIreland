@@ -161,6 +161,63 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <div id="newsletterModal" class="newsletter-overlay">
+        <div class="newsletter-card shadow">
+
+            <button class="newsletter-close" onclick="closeNewsletter()">×</button>
+
+            <h3 class="text-black mb-3">Join PCPartsIreland</h3>
+
+            <p class="text-muted mb-4">
+                Get notified about GPU restocks, hardware drops,
+                and exclusive deals.
+            </p>
+
+            <form
+                action="https://pcpartsireland.us16.list-manage.com/subscribe/post?u=46fe288fc56b228d74d7e7d16&id=a32c94a612&f_id=005dbbe3f0"
+                method="post" target="_blank">
+
+                <input type="email" name="EMAIL" placeholder="Enter your email" required class="form-control mb-3">
+
+                <!-- Honeypot -->
+                <div style="position:absolute; left:-5000px;">
+                    <input type="text" name="b_46fe288fc56b228d74d7e7d16_a32c94a612" tabindex="-1" value="">
+                </div>
+
+                <button type="submit" class="shop-now-button btn w-100 text-uppercase">
+                    Subscribe
+                </button>
+
+                <small class="text-muted d-block mt-3">
+                    Unsubscribe anytime.
+                </small>
+
+            </form>
+        </div>
+    </div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            // Only show once per visitor
+            if (!localStorage.getItem("newsletterShown")) {
+
+                setTimeout(function () {
+                    document
+                        .getElementById("newsletterModal")
+                        .classList.add("show");
+
+                    localStorage.setItem("newsletterShown", "true");
+                }, 1500);
+
+            }
+        });
+
+        function closeNewsletter() {
+            document
+                .getElementById("newsletterModal")
+                .classList.remove("show");
+        }
+    </script>
 </body>
 
 </html>

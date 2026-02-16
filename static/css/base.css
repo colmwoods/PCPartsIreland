@@ -108,3 +108,40 @@ footer {
 .navbar {
     overflow: visible !important;
 }
+
+.newsletter-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.55);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+}
+
+.newsletter-overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.newsletter-card {
+    background: #fff;
+    padding: 40px;
+    max-width: 420px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+}
+
+.newsletter-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+}
