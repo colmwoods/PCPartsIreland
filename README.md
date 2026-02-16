@@ -263,30 +263,66 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ### Future Features
 
-⚠️ INSTRUCTIONS ⚠️
+The following features represent planned improvements for PCPartsIreland. These enhancements aim to improve user experience, increase customer retention, and strengthen the platform’s competitiveness within the PC hardware market.
 
-Do you have additional ideas that you'd like to include on your project in the future? Fantastic, list them here! It's always great to have plans for future improvements. Consider adding any helpful links or notes to help remind you in the future, if you revisit the project in a couple years.
+- **Product Reviews & Ratings**:  
+  Allow customers to leave reviews and rate products, with admin moderation to prevent spam or abuse. Average ratings and total review counts would be displayed on product pages to build trust and help customers make informed decisions when purchasing hardware.
 
-A few examples are listed below to align with possible ways to improve on the sample walkthrough project, to give you some inspiration.
+- **Wishlist Functionality**:  
+  Enable users to save products to a personal wishlist for future purchases or planned PC builds. Users could receive notifications if wishlist items go on sale or return to stock, increasing return visits and engagement.
 
-⚠️ --- END ---⚠️
+- **Product Recommendations**:  
+  Implement a “Customers who bought this also bought” or “You might also like” feature. This would be particularly useful for suggesting compatible components such as RAM for a motherboard or a PSU suitable for a selected GPU.
 
-- **Product Reviews & Ratings**: Allow customers to leave reviews and rate products, with admin moderation. Display average ratings and review counts on product pages.
-- **Wishlist Functionality**: Enable users to save products to a personal wishlist for future purchases. Notify users if wishlist items go on sale or are back in stock.
-- **Product Recommendations**: Implement a "Customers who bought this also bought" or "You might also like" feature to suggest related products.
-- **Live Chat Support**: Provide real-time customer support through an integrated live chat or chatbot.
-- **Abandoned Cart Recovery**: Automatically send emails to users who add items to their cart but don't complete the purchase, offering discounts or reminders.
-- **Discount Codes and Vouchers**: Allow the admin to create discount codes or vouchers for promotions and marketing campaigns.
-- **Loyalty Program**: Introduce a points-based loyalty system where customers earn points for purchases, which can be redeemed for discounts.
-- **Product Inventory Alerts**: Notify customers when out-of-stock items are back in stock, or when low inventory is approaching.
-- **Multi-Currency and Multi-Language Support**: Expand the application to support multiple currencies and languages to reach a global audience.
-- **Product Bundles**: Offer discounted product bundles (e.g., buy 3 for the price of 2) or custom product kits.
-- **Social Media Integration**: Enable users to share products directly to social media platforms or implement a social login for quick account creation.
-- **Shipping Tracking Integration**: Provide real-time shipping updates and tracking information directly within the user’s order history.
-- **Advanced Analytics Dashboard for Admin**: Offer an in-depth dashboard that displays sales trends, popular products, customer behavior, and more.
-- **Subscription-Based Products**: Allow users to subscribe to certain products (e.g., monthly deliveries of consumables like coffee or skincare products).
-- **Product Video Demos**: Support product videos to better showcase features, especially for high-tech or complex items.
-- **Mobile App**: Develop a mobile app for iOS and Android, providing users with a more optimized shopping experience on mobile devices.
+- **Live Chat Support**:  
+  Provide real-time customer support through an integrated live chat or chatbot system. This would help customers with compatibility questions, stock queries, and general purchasing advice.
+
+- **Abandoned Cart Recovery**:  
+  Automatically send reminder emails to users who add items to their cart but do not complete checkout. This could include optional discount incentives to improve conversion rates.
+
+- **Discount Codes and Vouchers**:  
+  Allow administrators to create promotional discount codes for seasonal sales, hardware launches, or clearance events. This supports marketing campaigns and increases sales during peak periods.
+
+- **Loyalty Program**:  
+  Introduce a points-based loyalty system where customers earn points for purchases and redeem them for discounts. This encourages repeat business and long-term customer retention.
+
+- **Product Inventory Alerts**:  
+  Notify customers when out-of-stock items are back in stock, and optionally alert administrators when inventory levels fall below a certain threshold to improve stock management.
+
+- **Multi-Currency and Multi-Language Support**:  
+  Expand the platform to support additional currencies and languages, enabling potential growth beyond the Irish market.
+
+- **Product Bundles**:  
+  Offer discounted hardware bundles (e.g., CPU + motherboard + RAM kits) or complete upgrade packages. This simplifies purchasing decisions and increases average order value.
+
+- **Social Media Integration**:  
+  Enable users to share products directly to social media platforms and potentially support social login functionality for faster account creation.
+
+- **Shipping Tracking Integration**:  
+  Provide real-time courier tracking information within the user’s order history, improving transparency and reducing customer support enquiries.
+
+- **Advanced Analytics Dashboard for Admin**:  
+  Develop a comprehensive dashboard showing sales trends, best-selling products, category performance, and customer purchasing behaviour to support data-driven business decisions.
+
+- **Subscription-Based Products**:  
+  Allow users to subscribe to certain consumable products (e.g., thermal paste, cleaning kits, peripherals) for recurring deliveries.
+
+- **Product Video Demos**:  
+  Support embedded product videos, such as GPU benchmarks or CPU performance demonstrations, to better showcase high-performance components.
+
+- **Mobile App**:  
+  Develop a mobile application for iOS and Android to provide a more optimised shopping experience, push notifications for deals, and saved build configurations.
+
+- **PC Compatibility Checker**:  
+  Introduce a system that automatically checks compatibility between selected components (CPU socket, RAM type, GPU clearance, PSU wattage) to reduce incorrect purchases.
+
+- **PC Builder Tool (PCPartPicker-Style)**:  
+  Implement a guided PC builder that allows users to assemble a full system step-by-step with live pricing updates and compatibility validation.
+
+- **Hardware Comparison Tool**:  
+  Allow side-by-side comparison of specifications such as CPU cores, GPU VRAM, RAM speed, and storage type to assist customers in making technical decisions.
+
+---
 
 ## Tools & Technologies
 
