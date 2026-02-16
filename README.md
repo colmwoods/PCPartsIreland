@@ -198,72 +198,68 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## User Stories
 
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, list all of your possible user stories for the project. Samples have been provided below using the example walkthrough project for your inspiration. Make sure to adjust to match your own project features!
-
-⚠️ --- END --- ⚠️
-
 | Target | Expectation | Outcome |
 | --- | --- | --- |
-| As a guest user | I would like to browse products without needing to register | so that I can shop freely before deciding to create an account. |
+| As a guest user | I would like to browse PC components without needing to register | so that I can explore products before committing to an account. |
 | As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and track my order history. |
-| As a user | I would like to sign up to the site's newsletter | so that I can stay up to date with any upcoming sales or promotions. |
-| As a customer | I would like to browse various product categories (clothing, toys, jewelry, kitchen gadgets, etc.) | so that I can easily find what I'm looking for. |
-| As a customer | I would like to sort products by price (low-to-high/high-to-low) and name (alphabetical) | so that I can quickly organize items in a way that suits my shopping style. |
-| As a customer | I would like to filter products by category | so that I can narrow down the products to the types I am most interested in. |
-| As a customer | I would like to click on individual products to view more details (description, price, image, etc.) | so that I can make an informed decision about my purchase. |
-| As a customer | I would like to add items to my shopping cart using quantity increment/decrement buttons | so that I can adjust how many units of a product I want before checkout. |
-| As a customer | I would like to view and manage my shopping cart | so that I can review, add, or remove items before proceeding to checkout. |
-| As a customer | I would like to adjust the quantity of items in my cart | so that I can modify my purchase preferences without leaving the cart. |
-| As a customer | I would like to remove items from my cart | so that I can remove products I no longer wish to buy. |
-| As a customer | I would like to proceed to checkout where I see my cart items, grand total, and input my name, email, shipping address, and card details | so that I can complete my purchase. |
-| As a customer | I would like to receive a confirmation email after my purchase | so that I can have a record of my transaction and order details. |
-| As a customer | I would like to see an order confirmation page with a checkout order number after completing my purchase | so that I know my order has been successfully placed. |
-| As a customer | I would like to securely enter my card details using Stripe at checkout | so that I can feel confident my payment information is protected. |
-| As a returning customer | I would like to be able to log in and view my past orders | so that I can track my previous purchases and order history. |
-| As a returning customer | I would like the checkout process to remember my shipping address | so that future purchases are quicker and easier. |
-| As a site owner | I would like to create new products with a name, description, price, images, and category | so that I can add additional items to the store inventory. |
-| As a site owner | I would like to update product details (name, price, description, image, category) at any time | so that I can keep my product listings accurate and up to date. |
-| As a site owner | I would like to delete products that are no longer available or relevant | so that I can maintain a clean and accurate inventory. |
-| As a site owner | I would like to view all orders placed on the website | so that I can track and manage customer purchases. |
-| As a site owner | I would like to manage product categories | so that I can ensure items are correctly organized and easy for customers to find. |
-| As a user | I would like to see a 404 error page if I get lost | so that it's obvious that I've stumbled upon a page that doesn't exist. |
+| As a user | I would like to sign up to the site's newsletter | so that I can stay up to date with hardware releases, restocks, and promotions. |
+| As a customer | I would like to browse various hardware categories (CPU, GPU, RAM, Storage, Prebuilt PCs, Accessories) | so that I can easily find what I need. |
+| As a customer | I would like to use the search bar to find specific components | so that I can quickly locate a product by name or keyword. |
+| As a customer | I would like to sort products by price and name | so that I can compare hardware within my budget. |
+| As a customer | I would like to filter products by category | so that I can narrow down hardware types efficiently. |
+| As a customer | I would like to view detailed specifications on each product page | so that I can make informed compatibility decisions. |
+| As a customer | I would like to see whether a product is in stock | so that I know if it can be purchased immediately. |
+| As a customer | I would like to know the maximum quantity available | so that I cannot order more units than are in stock. |
+| As a customer | I would like to increase or decrease product quantity before adding to cart | so that I can control how many units I purchase. |
+| As a customer | I would like to be prevented from checking out if stock is insufficient | so that I cannot complete an invalid order. |
+| As a customer | I would like to view and manage my shopping cart | so that I can review, adjust, or remove components. |
+| As a customer | I would like to proceed to checkout with a clear breakdown of items and totals | so that I understand my purchase fully. |
+| As a customer | I would like to securely enter my card details using Stripe | so that my payment information is protected. |
+| As a customer | I would like to receive a confirmation email after my purchase | so that I have a record of my transaction. |
+| As a customer | I would like to see a checkout success page with an order number | so that I know my order was successful. |
+| As a returning customer | I would like to log in and view past orders | so that I can track previous purchases. |
+| As a returning customer | I would like my shipping details remembered | so that future checkouts are faster. |
+| As a site owner | I would like to create new products with name, description, price, images, category, and stock quantity | so that inventory is properly managed. |
+| As a site owner | I would like to update product details and stock levels | so that listings remain accurate. |
+| As a site owner | I would like stock to automatically reduce after purchase | so that inventory reflects real-time sales. |
+| As a site owner | I would like to delete discontinued products | so that customers cannot purchase unavailable hardware. |
+| As a site owner | I would like to view all orders placed | so that I can manage fulfilment and revenue tracking. |
+| As a site owner | I would like to manage product categories | so that hardware remains logically structured. |
+| As a user | I would like to see a custom 404 page if I get lost | so that it is clear the page does not exist. |
+
+---
 
 ## Features
-
-⚠️ INSTRUCTIONS ⚠️
-
-In this section, you should go over the different parts of your project, and describe each feature. You should explain what value each of the features provides for the user, focusing on your target audience, what they want to achieve, and how your project can help them achieve these things.
-
-**IMPORTANT**: Remember to always include a screenshot of each individual feature!
-
-⚠️ --- END --- ⚠️
 
 ### Existing Features
 
 | Feature | Notes | Screenshot |
 | --- | --- | --- |
-| Register | Authentication is handled by allauth, allowing users to register accounts. | ![screenshot](documentation/features/register.png) |
-| Login | Authentication is handled by allauth, allowing users to log in to their existing accounts. | ![screenshot](documentation/features/login.png) |
-| Logout | Authentication is handled by allauth, allowing users to log out of their accounts. | ![screenshot](documentation/features/logout.png) |
-| Product List | Users can browse all available products with sorting, filtering by categories, and search functionality. | ![screenshot](documentation/features/product-list.png) |
-| Product Details | Displays detailed information about a selected product, including its name, description, price, an image, and available sizes. | ![screenshot](documentation/features/product-details.png) |
-| Add to Bag | Users can add items to their shopping bag, with support for selecting different sizes if applicable. | ![screenshot](documentation/features/add-to-bag.png) |
-| View Bag | Users can view the contents of their shopping bag, adjust quantities, or remove items. | ![screenshot](documentation/features/view-bag.png) |
-| Checkout | Users can proceed to checkout, where they provide their delivery details and payment information using Stripe integration. | ![screenshot](documentation/features/checkout.png) |
-| Order Confirmation | Users receive an on-screen and email confirmation with details of their purchase. | ![screenshot](documentation/features/order-confirmation.png) |
-| Profile Management | Users can manage their profile information, including their default delivery address and order history. | ![screenshot](documentation/features/profile-management.png) |
-| Order History | Users can view their past orders and access details of each order, including products purchased and the delivery status. | ![screenshot](documentation/features/order-history.png) |
-| Product Management | Superusers can add, edit, and delete products from the site via a CRUD interface. | ![screenshot](documentation/features/product-management.png) |
-| Newsletter | Users can register their email address to receive newsletters from the site. Currently, this only stores the email in the database. | ![screenshot](documentation/features/newsletter.png) |
-| Contact | Users can submit a message via the contact form, which stores their name, email, and message in the database. | ![screenshot](documentation/features/contact.png) |
-| FAQs | Admins can manage frequently asked questions, which are displayed on the site for users. | ![screenshot](documentation/features/faqs.png) |
-| User Feedback | Clear and concise Django messages are used to provide feedback to users when interacting with various features (e.g., adding products to the bag, checking out, etc.). | ![screenshot](documentation/features/user-feedback.png) |
-| Heroku Deployment | The site is deployed to Heroku, making it accessible online for users. | ![screenshot](documentation/features/heroku.png) |
-| SEO | SEO optimization with a sitemap.xml, robots.txt, and appropriate meta tags to improve search engine visibility. | ![screenshot](documentation/features/seo.png) |
-| Marketing | Social media presence is available in the footer using external links, as well as a Facebook Marketplace wireframe in the README for future integrations. | ![screenshot](documentation/features/marketing.png) |
-| 404 | The 404 error page will indicate when a user has navigated to a page that doesn't exist, replacing the default Heroku 404 page with one that ties into the site's look and feel. | ![screenshot](documentation/features/404.png) |
+| Register | Authentication is handled by Django Allauth, allowing secure user registration and account creation. | ![screenshot](documentation/features/register.png) |
+| Login | Registered users can securely log in to manage their account and order history. | ![screenshot](documentation/features/login.png) |
+| Logout | Users can safely log out of their account to protect personal data. | ![screenshot](documentation/features/logout.png) |
+| Product List | Displays all available PC components in a structured grid layout. Includes sorting, filtering, and search functionality. | ![screenshot](documentation/features/product-list.png) |
+| Search Bar | A navigation-based search bar allows users to search for hardware by keyword or product name. | ![screenshot](documentation/features/product-list.png) |
+| Sorting & Filtering | Products can be sorted by price or name and filtered by category for easier browsing. | ![screenshot](documentation/features/product-list.png) |
+| Product Details | Shows product specifications, description, pricing, imagery, and stock-aware quantity controls. | ![screenshot](documentation/features/product-details.png) |
+| Stock Management | Quantity controls prevent users from selecting more units than are available in stock. | ![screenshot](documentation/features/product-details.png) |
+| Add to Bag | Users can add selected quantities of hardware to their shopping cart. | ![screenshot](documentation/features/add-to-bag.png) |
+| View Bag | Users can review cart contents, update quantities, remove products, and view updated totals. | ![screenshot](documentation/features/view-bag.png) |
+| Checkout | Stripe integration provides secure payment processing and order validation. | ![screenshot](documentation/features/checkout.png) |
+| Order Confirmation | Users receive both on-screen and email confirmation with full order breakdown. | ![screenshot](documentation/features/order-confirmation.png) |
+| Profile Management | Users can manage personal details and store default shipping information. | ![screenshot](documentation/features/profile-management.png) |
+| Order History | Logged-in users can view past orders and purchase details. | ![screenshot](documentation/features/order-history.png) |
+| Product Management | Superusers can add, edit, update stock, and delete products via a full CRUD interface. | ![screenshot](documentation/features/product-management.png) |
+| Newsletter | Users can subscribe to receive updates on hardware releases and promotions. | ![screenshot](documentation/features/newsletter.png) |
+| Contact | Contact form stores user enquiries in the database for admin review. | ![screenshot](documentation/features/contact.png) |
+| FAQs | Admin-managed FAQ section provides answers to common purchasing queries. | ![screenshot](documentation/features/faqs.png) |
+| User Feedback | Django messaging framework provides real-time feedback (e.g., added to cart, removed item, insufficient stock). | ![screenshot](documentation/features/user-feedback.png) |
+| SEO | Includes sitemap.xml, robots.txt, and optimised metadata. | ![screenshot](documentation/features/seo.png) |
+| Marketing | Footer includes social media integration to support brand growth. | ![screenshot](documentation/features/marketing.png) |
+| Heroku Deployment | The site is deployed and publicly accessible via Heroku. | ![screenshot](documentation/features/heroku.png) |
+| 404 | Custom branded 404 page replaces the default server error page. | ![screenshot](documentation/features/404.png) |
+
+---
 
 ### Future Features
 
