@@ -160,7 +160,7 @@
     </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    <div id="newsletterModal" class="newsletter-overlay">
+    <div id="newsletterModal" class="newsletter-overlay" style="display:none;">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-12 col-md-8 col-lg-6">
@@ -206,23 +206,22 @@
         </div>
     </div>
     <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        window.addEventListener("load", function () {
 
             const modal = document.getElementById("newsletterModal");
 
-            if (!localStorage.getItem("newsletterShown")) {
+            if (!sessionStorage.getItem("newsletterShown")) {
 
                 setTimeout(function () {
-                    modal.classList.add("show");
-                }, 5000); // 5 seconds
-            }
+                    modal.style.display = "flex";
+                    sessionStorage.setItem("newsletterShown", "true");
+                }, 5000);
 
+            }
         });
 
         function closeNewsletter() {
-            const modal = document.getElementById("newsletterModal");
-            modal.classList.remove("show");
-            localStorage.setItem("newsletterShown", "true");
+            document.getElementById("newsletterModal").style.display = "none";
         }
     </script>
 </body>

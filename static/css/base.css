@@ -111,13 +111,17 @@ footer {
 
 .newsletter-overlay {
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     background: rgba(0, 0, 0, 0.6);
 
     display: none;
-    /* important */
-    align-items: center;
+    /* CRITICAL */
     justify-content: center;
+    align-items: center;
 
     z-index: 99999;
 }
