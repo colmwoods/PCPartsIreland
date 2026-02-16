@@ -124,3 +124,13 @@ def search_suggestions(request):
     return JsonResponse(data, safe=False)
 
 
+def category_view(request, slug):
+    category = get_object_or_404(Category, slug=slug)
+    products = Product.objects.filter(category=category)
+
+    context = {
+        'products': products,
+        'current_categories': [category],
+    }
+
+    return render(request, 'products/products.html', context)
