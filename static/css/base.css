@@ -110,27 +110,24 @@ footer {
 }
 
 .newsletter-overlay {
-    position: fixed;
-    inset: 0;
+    position: fixed !important;
+    inset: 0 !important;
 
-    display: flex;
+    display: none;
+    /* IMPORTANT CHANGE */
+
     justify-content: center;
     align-items: center;
 
     background: rgba(0, 0, 0, 0.6);
 
-    z-index: 9999;
-
-    flex: none;
-
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
+    z-index: 99999;
+    /* higher than everything */
 }
 
 .newsletter-overlay.show {
-    opacity: 1;
-    visibility: visible;
+    display: flex;
+    /* IMPORTANT CHANGE */
 }
 
 .newsletter-card {
