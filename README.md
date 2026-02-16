@@ -160,6 +160,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | --- | --- | --- | --- |
 | Register | ![screenshot](documentation/wireframes/mobile-register.jpg) | ![screenshot](documentation/wireframes/tablet-register.jpg) | ![screenshot](documentation/wireframes/desktop-register.jpg) |
 | Login | ![screenshot](documentation/wireframes/mobile-login.jpg) | ![screenshot](documentation/wireframes/tablet-login.jpg) | ![screenshot](documentation/wireframes/desktop-login.jpg) |
+| Change Password | ![screenshot](documentation/wireframes/mobile-password.jpg) | ![screenshot](documentation/wireframes/tablet-password.jpg) | ![screenshot](documentation/wireframes/desktop-password.jpg) |
 | Profile | ![screenshot](documentation/wireframes/mobile-profile.jpg) | ![screenshot](documentation/wireframes/tablet-profile.jpg) | ![screenshot](documentation/wireframes/desktop-profile.jpg) |
 | Home | ![screenshot](documentation/wireframes/mobile-home.jpg) | ![screenshot](documentation/wireframes/tablet-home.jpg) | ![screenshot](documentation/wireframes/desktop-home.jpg) |
 | Products | ![screenshot](documentation/wireframes/mobile-products.jpg) | ![screenshot](documentation/wireframes/tablet-products.jpg) | ![screenshot](documentation/wireframes/desktop-products.jpg) |
