@@ -140,3 +140,9 @@ footer {
     font-size: 22px;
     cursor: pointer;
 }
+
+.newsletter-box {
+    width: 90%;
+    max-width: 500px;
+    border-radius: 6px;
+}
