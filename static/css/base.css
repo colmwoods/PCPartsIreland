@@ -111,15 +111,22 @@ footer {
 
 .newsletter-overlay {
     position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.55);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2000;
+
+    background: rgba(0, 0, 0, 0.55);
+
+    z-index: 9999;
+
     opacity: 0;
     visibility: hidden;
-    transition: 0.3s ease;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
 }
 
 .newsletter-overlay.show {
@@ -129,7 +136,7 @@ footer {
 
 .newsletter-card {
     background: #fff;
-    padding: 40px;
+    padding: 45px 35px;
     max-width: 420px;
     width: 90%;
     position: relative;
@@ -142,6 +149,6 @@ footer {
     right: 15px;
     background: none;
     border: none;
-    font-size: 24px;
+    font-size: 22px;
     cursor: pointer;
 }
