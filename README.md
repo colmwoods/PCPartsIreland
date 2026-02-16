@@ -7,32 +7,67 @@ Developer: Colm Woods ([colmwoods](https://www.github.com/colmwoods))
 [![GitHub repo size](https://img.shields.io/github/repo-size/colmwoods/PCPartsIreland)](https://www.github.com/colmwoods/PCPartsIreland)
 [![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://pcpartsireland-1cfc0205aac1.herokuapp.com)
 
-⚠️ PROJECT INTRODUCTION AND RATIONALE⚠️
+# Table of Contents
+- [Project Introduction & Rationale](#project-introduction--rationale)
+- [UX](#ux)
+  - [The 5 Planes of UX](#the-5-planes-of-ux)
+  - [1. Strategy](#1-strategy)
+  - [2. Scope](#2-scope)
+  - [3. Structure](#3-structure)
+  - [4. Skeleton](#4-skeleton)
+  - [5. Surface](#5-surface)
+- [Colour Scheme](#colour-scheme)
+- [Typography](#typography)
+- [Wireframes](#wireframes)
+- [User Stories](#user-stories)
+- [Features](#features)
+- [Database Design](#database-design)
+- [Agile Development Process](#agile-development-process)
+- [Ecommerce Business Model](#ecommerce-business-model)
+- [SEO & Marketing](#seo--marketing)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Credits](#credits)
+- [Acknowledgements](#acknowledgements)
 
-In this section, include a few paragraphs providing an overview of your project. Essentially, this part is your "sales pitch". Describe what the project hopes to accomplish, who it is intended to target, and how it will be useful to the target audience. Also, assessors lately have been asking that students explain "why" they opted to do a project about this particular topic/subject, so be sure to explain what made you choose this particular theme/concept/subject/idea. This is the project "rationale".
+---
 
-⚠️ --- END --- ⚠️
+## Project Introduction & Rationale
 
-🛑 README NOTES 🛑
+**PCPartsIreland** is a full-stack e-commerce web application designed to provide customers in Ireland with a streamlined platform to browse and purchase computer components and PC hardware online. The site enables users to explore products by category, filter and sort listings, view detailed specifications, securely complete purchases using Stripe, and manage their accounts and order history.
 
-Do not add a **Table of Contents** to your Markdown files. GitHub has these built-in automatically using the headers/hashtags.
+The primary target audience includes:
 
-Don't add screenshots for the README/TESTING into your `assets` or `static` folders. Create a new folder at the root-level called `documentation`. Consider creating sub-directories within `documentation` to handle things like `wireframes`, `features`, `validation`, `responsiveness`, etc.
+- PC builders and gaming enthusiasts  
+- Students and professionals upgrading hardware  
+- Customers seeking reliable access to computer components within Ireland  
+- First-time PC builders who benefit from clearly structured product categories  
 
-Learn about Markdown Alerts (aka Callouts), a fairly new feature for GitHub Markdown files.
-https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#alerts
-Note: these are not visible within your README Previewer, and are only visible once you push the code to GitHub.
+The application focuses on delivering a smooth, intuitive user experience while maintaining strong administrative control for the site owner. Administrators can create, update, and delete products, manage categories, review orders, and oversee site content such as FAQs and newsletter subscriptions. This ensures the platform remains scalable, maintainable, and aligned with business needs.
 
-**Site Mockups**
-*([amiresponsive](https://ui.dev/amiresponsive?url=https://pcpartsireland-1cfc0205aac1.herokuapp.com), [techsini](https://techsini.com/multi-mockup), etc.)*
-Having issues generating site mockups? This is likely due to security policies with your deployed site.
-If you open up your DevTools, there may be an error referencing `X-Frame-Options`.
+### Why This Project?
 
-For Chrome users, head over to http://bit.ly/3iRPn4u and install the extension within your browser. Once installed, navigate back to the mockup site of your choice. You should find your site rendering in the various devices now.
+I chose to build **PCPartsIreland** because of my strong personal interest in computers, hardware, and system building. Having built and upgraded PCs myself, I understand the challenges customers face when searching for compatible components. Many existing sites feel cluttered, overly complex, or are not tailored specifically to an Irish audience.
 
-Alternatively, open your project in Gitpod and run the server. Once the site is running, click the `Ports` tab from your Gitpod Terminal. Click the padlock on the appropriate port for your project (`Flask: 5000`, `Django: 8000`). This will make your local page public temporarily. Now, copy the URL of your live-preview page into the responsive tool above. You should find your site rendering in the various devices.
+This project allowed me to:
 
-🛑 --- END ---- 🛑
+- Combine technical development skills with a subject I am genuinely passionate about  
+- Design structured product categorisation that reflects real-world hardware organisation  
+- Apply full-stack Django development principles in a realistic business scenario  
+- Implement secure Stripe payment processing and order management systems  
+- Demonstrate database relationships, authentication, CRUD functionality, and deployment practices  
+
+From an academic perspective, this project demonstrates:
+
+- Full e-commerce functionality  
+- Secure Stripe integration  
+- Custom Django models  
+- Role-based permissions  
+- Database design and ERD modelling  
+- Agile project management via GitHub Projects  
+- Deployment using Heroku and PostgreSQL  
+
+PCPartsIreland is therefore not just an online shop, but a complete demonstration of my ability to design, build, deploy, and document a production-ready full-stack web application.
 
 ![screenshot](documentation/mockup.png)
 
