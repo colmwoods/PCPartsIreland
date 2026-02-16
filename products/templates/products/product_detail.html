@@ -2,6 +2,29 @@
 {% load static %}
 {% load math_filters %}
 
+{% block title %}
+{% if product.meta_title %}
+{{ product.meta_title }}
+{% else %}
+{{ product.name }} | PC Parts Ireland
+{% endif %}
+{% endblock %}
+
+{% block meta_description %}
+{% if product.meta_description %}
+{{ product.meta_description }}
+{% else %}
+Buy {{ product.name }} in Ireland with fast delivery and secure checkout from PC Parts Ireland.
+{% endif %}
+{% endblock %}
+
+{% block extra_meta %}
+{% if product.meta_keywords %}
+<meta name="keywords" content="{{ product.meta_keywords }}">
+{% endif %}
+{% endblock %}
+
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
