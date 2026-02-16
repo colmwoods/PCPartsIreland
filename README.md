@@ -1,11 +1,11 @@
-# [PCPartsIreland](https://pcpartsireland-1cfc0205aac1.herokuapp.com)
+# [PCPartsIreland](https://pcpartsireland.com)
 
 Developer: Colm Woods ([colmwoods](https://www.github.com/colmwoods))
 
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/t/colmwoods/PCPartsIreland)](https://www.github.com/colmwoods/PCPartsIreland/commits/main)
 [![GitHub last commit](https://img.shields.io/github/last-commit/colmwoods/PCPartsIreland)](https://www.github.com/colmwoods/PCPartsIreland/commits/main)
 [![GitHub repo size](https://img.shields.io/github/repo-size/colmwoods/PCPartsIreland)](https://www.github.com/colmwoods/PCPartsIreland)
-[![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://pcpartsireland-1cfc0205aac1.herokuapp.com)
+[![badge](https://img.shields.io/badge/deployment-Heroku-purple)](https://pcpartsireland.com)
 
 # Table of Contents
 - [Project Introduction & Rationale](#project-introduction--rationale)
@@ -71,7 +71,7 @@ PCPartsIreland is therefore not just an online shop, but a complete demonstratio
 
 ![screenshot](documentation/mockup.png)
 
-source: [PCPartsIreland amiresponsive](https://ui.dev/amiresponsive?url=https://pcpartsireland-1cfc0205aac1.herokuapp.com)
+source: [PCPartsIreland amiresponsive](https://ui.dev/amiresponsive?url=https://pcpartsireland.com)
 
 ---
 
@@ -617,7 +617,7 @@ I've also used [Word Tracker](https://www.wordtracker.com) to review search freq
 
 ### Sitemap
 
-I've used [XML-Sitemaps](https://www.xml-sitemaps.com) to generate a sitemap.xml file. This was generated using the deployed site URL: https://pcpartsireland-1cfc0205aac1.herokuapp.com
+I've used [XML-Sitemaps](https://www.xml-sitemaps.com) to generate a sitemap.xml file. This was generated using the deployed site URL: https://pcpartsireland.com
 
 After crawling the entire site, it created a [sitemap.xml](sitemap.xml), which I downloaded and included in the repository to improve search engine indexing.
 
@@ -627,7 +627,7 @@ I've created the [robots.txt](robots.txt) file at the root-level. Inside, I've i
 
 User-agent: *
 Disallow:
-Sitemap: https://pcpartsireland-1cfc0205aac1.herokuapp.com/sitemap.xml
+Sitemap: https://pcpartsireland.com/sitemap.xml
 
 Further links for future implementation:
 - [Google search console](https://search.google.com/search-console)
@@ -685,7 +685,7 @@ This JavaScript provides simple client-side validation before submitting the for
 
 ## Deployment
 
-The live deployed application can be found on [Heroku](https://pcpartsireland-1cfc0205aac1.herokuapp.com).
+The live deployed application can be found on [Heroku](https://pcpartsireland.com).
 
 ## Security Considerations
 
@@ -792,7 +792,7 @@ To add Stripe Webhooks:
 
 - In the Stripe dashboard, go to **Developers** → **Webhooks**.
 - Click **Add Endpoint**.
-  - `https://pcpartsireland-1cfc0205aac1.herokuapp.com/checkout/wh/`
+  - `https://pcpartsireland.com/checkout/wh/`
 - Select **receive all events**.
 - Click **Add Endpoint**.
 - Stripe will generate:
