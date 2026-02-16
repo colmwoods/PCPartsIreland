@@ -1,6 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 {% load math_filters %}
+
+{% block title %}
+{% if current_categories and current_categories|length == 1 %}
+    {% with category=current_categories.0 %}
+        {% if category.meta_title %}
+            {{ category.meta_title }}
+        {% else %}
+            {{ category.get_friendly_name }} | PC Parts Ireland
+        {% endif %}
+    {% endwith %}
+{% else %}
+    Products | PC Parts Ireland
+{% endif %}
+{% endblock %}
+
+{% block meta_description %}
+{% if current_categories and current_categories|length == 1 %}
+    {% with category=current_categories.0 %}
+        {% if category.meta_description %}
+            {{ category.meta_description }}
+        {% else %}
+            Browse {{ category.get_friendly_name }} available in Ireland with fast shipping from PC Parts Ireland.
+        {% endif %}
+    {% endwith %}
+{% else %}
+    Browse PC parts in Ireland including GPUs, CPUs, RAM, SSDs and more.
+{% endif %}
+{% endblock %}
+
+{% block extra_meta %}
+{% if current_categories and current_categories|length == 1 %}
+    {% with category=current_categories.0 %}
+        {% if category.meta_keywords %}
+            <meta name="keywords" content="{{ category.meta_keywords }}">
+        {% endif %}
+    {% endwith %}
+{% endif %}
+{% endblock %}
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
