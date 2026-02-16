@@ -73,15 +73,11 @@ PCPartsIreland is therefore not just an online shop, but a complete demonstratio
 
 source: [PCPartsIreland amiresponsive](https://ui.dev/amiresponsive?url=https://pcpartsireland-1cfc0205aac1.herokuapp.com)
 
-> [!IMPORTANT]  
-> The examples in these templates are strongly influenced by the Code Institute walkthrough project called "Boutique Ado".
+---
 
 ## UX
 
 ### The 5 Planes of UX
-
-⚠️ NOTE: make sure to update the text below to match your own project! ⚠️
-
 #### 1. Strategy
 
 **Purpose**
@@ -139,14 +135,6 @@ source: [PCPartsIreland amiresponsive](https://ui.dev/amiresponsive?url=https://
 
 ### Colour Scheme
 
-⚠️INSTRUCTIONS ⚠️
-
-Explain your colors and color scheme. Consider adding a link and screenshot for your color scheme using [coolors](https://coolors.co/generate).
-
-When you add a color to the palette, the URL is dynamically updated, making it easier for you to return back to your color palette later if needed. See example below:
-
-⚠️ --- END --- ⚠️
-
 I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to generate my color palette.
 
 - `#000000` primary text.
@@ -158,23 +146,11 @@ I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to ge
 
 ### Typography
 
-⚠️ INSTRUCTIONS ⚠️
-
-Explain any fonts and icon libraries used, like **Google Fonts**, **Font Awesome**, etc. Consider adding a link to each font used, the Font Awesome site (if used), or similar icon library.
-
-⚠️ --- END --- ⚠️
-
 - [Montserrat](https://fonts.google.com/specimen/Montserrat) was used for the primary headers and titles.
 - [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
 ## Wireframes
-
-⚠️ INSTRUCTIONS ⚠️
-
-If you've created wireframes or mock-ups, use this section to display screenshots of your wireframes. The example table below uses sample pages from the walkthrough project to give you some inspiration for your own project, so please adjust accordingly.
-
-⚠️ --- END --- ⚠️
 
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
 I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wireframes.
@@ -532,12 +508,6 @@ erDiagram
 
 source: [Mermaid](https://mermaid.live/edit#pako:eNqVVcFu2zAM_RVD57RIHLdpfRs6DBg2bB2GXYYAhmIxjlBZcimqqdvk3yfbSVPHceP5kBh8TyRFPtKvLDUCWMwAP0ueIc_nOvDPHwsYvDbv1SM1BVIE998OpieO6Ypj4DxV8xy6CORcqq654NauDYoG2c71IeQ9mqVUMDCygCV3ipJiZTQk2uULwH6WJQSghAuBYO1kKDHsJ5JZ68Rgkkoq-1mpcfojvDCWqiac8YDliXoFm83FxWbTql0crLhNfEX2xDtOkBksB1b1dC-XKEELVSYH-C0TH1m4lAb6tw_uXFCCZ_K3tynKgqTRB2RhjKrvZ-UL2INdQCpzroICZQpdM3KSOuuG9WAGicN3Kq1NzW_PNauam82hrHGwAGV0Zr0g9tyfKAYPkKm4vfJdOqWS_5uvD8ehJabWsV4dfqzzs3N1dp6OJ0T4ypLMoX7pNlOAkk-ApZ8LS124KScZ4qoL-g2nxTFYy82gzKTmKlnw7OQdZAFJIY-3Vt3o71LDV4L8TMMr06Pjmlp13KemvBPpnRxn99afRn618k8lsddlO6NmG-Rcl6fy3R3ZK7tfyTtie890yT9gbRUQDdb-Owm_3ebOaOKD18mg0ag7nHv1daf6y6dfAyM9OrDtbVS75dqu94O2ZSOWA_rgwn9Ta7dzRivwKbLYvwqOD3M21xWPOzK_S52ymNDBiLmikvvuK8ziJVfWWwuuWfzKnlk8jSaXN9ez8HoyHc_C8TiajVjJ4ovp5XUUTqMovLqdXd2Et-FsO2Ivxngfk8vxZBpGkT_m_zxW-_tbY01QNC5b7YJt_wE0ZoQj)
 
-⚠️ RECOMMENDED ⚠️
-
-Alternatively, or in addition to, a more comprehensive ERD can be auto-generated once you're at the end of your development stages, just before you submit. Follow the steps below to obtain a thorough ERD that you can include. Feel free to leave the steps below in the README for future use to yourself.
-
-⚠️ --- END --- ⚠️
-
 I have used `pygraphviz` and `django-extensions` to auto-generate an ERD.
 
 The steps taken were as follows:
@@ -561,10 +531,6 @@ INSTALLED_APPS = [
 ![screenshot](documentation/advanced-erd.png)
 
 source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
-
-## Agile Development Process
-
-### GitHub Projects
 
 ## Agile Development Process
 
@@ -721,6 +687,14 @@ This JavaScript provides simple client-side validation before submitting the for
 
 The live deployed application can be found on [Heroku](https://pcpartsireland-1cfc0205aac1.herokuapp.com).
 
+## Security Considerations
+
+- All secret keys are stored in environment variables and never committed to the repository.
+- DEBUG is set to False in production.
+- Sensitive files such as env.py are included in .gitignore.
+- Stripe webhook signing is verified before processing events.
+
+
 ### Heroku Deployment
 
 This project uses [Heroku](https://www.heroku.com), a platform as a service (PaaS) that enables developers to build, run, and operate applications in the cloud.
@@ -859,6 +833,7 @@ To configure WhiteNoise:
   - `pip freeze --local > requirements.txt`
 - Add WhiteNoise to `settings.py` above other middleware (except SecurityMiddleware):
 
+```python
 # settings.py
 
 MIDDLEWARE = [
@@ -866,6 +841,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
     # any additional middleware
 ]
+```
 
 ### Local Development
 
@@ -877,7 +853,8 @@ Install dependencies using:
 
 Create an `env.py` file at the root level and configure the same environment variables used in Heroku.
 
-Sample `env.py` file:
+```python
+# env.py
 
 import os
 
@@ -894,6 +871,8 @@ os.environ.setdefault("STRIPE_WH_SECRET", "user-inserts-own-stripe-webhook-secre
 os.environ.setdefault("DEBUG", "True")
 os.environ.setdefault("DEVELOPMENT", "True")
 
+```
+
 To run locally:
 
 - `python3 manage.py runserver`
@@ -907,6 +886,33 @@ To back up models:
 
 - `python3 manage.py dumpdata your-model > your-model.json`
 - Do not back up default admin or user data containing confidential information.
+
+### Running Locally
+
+1. Clone the repository:
+   git clone https://www.github.com/colmwoods/PCPartsIreland.git
+
+2. Navigate into the project directory:
+   cd PCPartsIreland
+
+3. Create and activate a virtual environment:
+   python3 -m venv venv
+   source venv/bin/activate  (Mac/Linux)
+   venv\Scripts\activate     (Windows)
+
+4. Install dependencies:
+   pip3 install -r requirements.txt
+
+5. Create an env.py file at root level and configure environment variables.
+
+6. Apply migrations:
+   python3 manage.py migrate
+
+7. Create a superuser:
+   python3 manage.py createsuperuser
+
+8. Run the development server:
+   python3 manage.py runserver
 
 #### Cloning
 
@@ -932,7 +938,7 @@ To fork the repository:
 
 ### Local VS Deployment
 
-There are no remaining major differences between the local development version of PCPartsIreland and the deployed version hosted on Heroku.
+The deployed version reflects the fully tested local development environment with no functional discrepancies.
 
 ## Credits
 
