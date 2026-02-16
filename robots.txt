@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://pcpartsireland.com/sitemap.xml
