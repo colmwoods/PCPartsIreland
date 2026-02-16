@@ -3,65 +3,34 @@
 > [!NOTE]  
 > Return back to the [README.md](README.md) file.
 
-⚠️ INSTRUCTIONS ⚠️
+In the following sections, I outline the manual and automated testing conducted on PCPartsIreland to ensure the application works correctly, securely, and provides a smooth user experience.
 
-In the following sections, you need to convince the assessors that you have conducted enough manual testing to legitimately believe that the site works well. Essentially, in this part, you should go over all of your project's features, and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
-⚠️ --- END --- ⚠️
+---
 
 ## Code Validation
 
-⚠️ INSTRUCTIONS ⚠️
+All custom-written code files were validated using industry-standard validation tools. External libraries and frameworks (Bootstrap, Stripe, Django Allauth, etc.) were not validated as they are third-party dependencies.
 
-Use the space below to discuss code validation for all of your own code files (*where applicable*). You are not required to validate external libraries/frameworks.
-
-**MANDATORY**: You must provide a screenshot for each file you validate.
-
-**PRO TIP**: Where possible, always validate the live URL pages/files, not your local code using copy/paste. There could be subtle/hidden differences.
-
-⚠️ --- END --- ⚠️
+---
 
 ### HTML
 
-⚠️ INSTRUCTIONS ⚠️
+I used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all HTML templates.
 
-1. [*recommended*] If you are using the live deployed site URLs, validate using this link: https://validator.w3.org/#validate_by_uri
-2. Otherwise, if you are copying/pasting your HTML code manually, use this link: https://validator.w3.org/#validate_by_input
-
-It's recommended to validate the live pages (all of them) using the deployed URL. This will give you a custom URL as well, which you can use below on your testing documentation. It makes it easier to return back to a page for validating it again in the future. The URL will look something like this:
-
-- https://validator.w3.org/nu/?doc=https://colmwoods.github.io/PCPartsIreland/index.html
-
-⚠️ --- END --- ⚠️
-
-🛑 IMPORTANT 🛑
-
-RE: Python/Jinja syntax in HTML
-
-Python projects that use Jinja syntax, such as `{% for loops %}`, `{% url 'home' %}`, and `{{ variable|filter }}` will not validate properly if you're copying/pasting into the HTML validator.
-
-In order to properly validate these types of files, it's recommended to [validate by uri](https://validator.w3.org/#validate_by_uri) from the deployed Heroku pages.
-
-Unfortunately, pages that require a user to be "logged-in" and authenticated (CRUD functionality) will not work using this method, due to the fact that the HTML Validator (W3C) doesn't have access to login to an account on your project. In order to properly validate HTML pages with Jinja syntax for authenticated pages, follow these steps:
-
-- Navigate to the deployed pages which require authentication.
-- Right-click anywhere on the page, and select **View Page Source** (usually `CTRL+U` or `⌘+U` on Mac).
-- This will display the entire "compiled" code, without any Jinja syntax.
-- Copy everything, and use the [validate by input](https://validator.w3.org/#validate_by_input) method.
-- Repeat this process for every page that requires a user to be logged-in/authenticated (e.g.: CRUD functionality).
-
-🛑 ---- END --- 🛑
-
-I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
+Public pages were validated using **Validate by URI** from the deployed site.  
+Authenticated pages containing Django/Jinja syntax were validated by copying the compiled page source and using **Validate by Input**.
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| home | [index.html](https://github.com/colmwoods/PCPartsIreland/blob/main/home/templates/home/index.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-home-index.png) | ⚠️ Notes (if applicable) |
-| templates | [login.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/login.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-login.png) | ⚠️ Notes (if applicable) |
-| templates | [logout.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/logout.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-logout.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_from_key.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_from_key.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_from_key.png) | ⚠️ Notes (if applicable) |
-| templates | [signup.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/signup.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-signup.png) | ⚠️ Notes (if applicable) |
+| home | [index.html](https://github.com/colmwoods/PCPartsIreland/blob/main/home/templates/home/index.html) | Validated via deployed URL | ![screenshot](documentation/validation/html-home-index.png) | Homepage displaying featured products, navigation menu, and promotional content. Publicly accessible landing page of the site. |
+| templates | [login.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/login.html) | Compiled source validated | ![screenshot](documentation/validation/html-templates-login.png) | User authentication page allowing registered users to securely log into their account using Django Allauth. |
+| templates | [logout.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/logout.html) | Compiled source validated | ![screenshot](documentation/validation/html-templates-logout.png) | Logout confirmation page that securely ends the user session. |
+| templates | [password_reset.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset.html) | Compiled source validated | ![screenshot](documentation/validation/html-templates-password_reset.png) | Allows users to request a password reset email by submitting their registered email address. |
+| templates | [password_reset_from_key.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_from_key.html) | Compiled source validated | ![screenshot](documentation/validation/html-templates-password_reset_from_key.png) | Allows users to securely set a new password using a tokenized reset link sent via email. |
+| templates | [signup.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/signup.html) | Compiled source validated | ![screenshot](documentation/validation/html-templates-signup.png) | User registration page enabling new customers to create an account. Validation warnings originate from Django Allauth and are outside custom code scope. |
+
+All custom HTML templates passed validation. Any warnings present are related to Django Allauth and third-party integrations.
+
 
 
 ### CSS
