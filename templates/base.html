@@ -210,24 +210,21 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
 
-            // Only show once per visitor
+            const modal = document.getElementById("newsletterModal");
+
             if (!localStorage.getItem("newsletterShown")) {
 
                 setTimeout(function () {
-                    document
-                        .getElementById("newsletterModal")
-                        .classList.add("show");
-
-                    localStorage.setItem("newsletterShown", "true");
-                }, 1500);
-
+                    modal.classList.add("show");
+                }, 5000); // 5 seconds
             }
+
         });
 
         function closeNewsletter() {
-            document
-                .getElementById("newsletterModal")
-                .classList.remove("show");
+            const modal = document.getElementById("newsletterModal");
+            modal.classList.remove("show");
+            localStorage.setItem("newsletterShown", "true");
         }
     </script>
 </body>
