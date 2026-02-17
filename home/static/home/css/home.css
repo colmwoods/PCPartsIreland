@@ -22,11 +22,25 @@
 }
 
 .hero-content {
-
+    
     color: white;
 }
 
 .error-content {
     position: relative;
     z-index: 1;
+}
+
+.shop-now-button {
+    background: #ff6600;
+    color: white !important;
+    border: none;
+    letter-spacing: 1px;
+    font-weight: 600;
+    transition: 0.2s ease;
+}
+
+.shop-now-button:hover {
+    background: #e65c00;
+    transform: translateY(-2px);
 }
