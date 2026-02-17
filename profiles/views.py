@@ -6,6 +6,9 @@ from .models import UserProfile
 from .forms import UserProfileForm
 
 from checkout.models import Order
+from django.conf import settings
+from decimal import Decimal
+
 
 
 @login_required
@@ -26,6 +29,19 @@ def profile(request):
         form = UserProfileForm(instance=profile)
     orders = profile.orders.all()
 
+    selected_currency = request.session.get("currency", "EUR").upper()
+
+    if selected_currency not in settings.CURRENCIES:
+        selected_currency = "EUR"
+
+    currency_symbol = settings.CURRENCIES[selected_currency]["symbol"]
+    rate = settings.CURRENCIES[selected_currency]["rate"]
+
+    for order in orders:
+        order.converted_grand_total = (
+            order.grand_total * rate
+        ).quantize(Decimal("0.01"))
+
     template = 'profiles/profile.html'
     context = {
         'form': form,
@@ -45,9 +61,24 @@ def order_history(request, order_number):
     ))
 
     template = 'checkout/checkout_success.html'
-    context = {
-        'order': order,
-        'from_profile': True,
-    }
+    selected_currency = request.session.get("currency", "EUR").upper()
 
+    if selected_currency not in settings.CURRENCIES:
+        selected_currency = "EUR"
+
+    currency_symbol = settings.CURRENCIES[selected_currency]["symbol"]
+    rate = settings.CURRENCIES[selected_currency]["rate"]
+
+    order_total_converted = (order.order_total * rate).quantize(Decimal("0.01"))
+    delivery_converted = (order.delivery_cost * rate).quantize(Decimal("0.01"))
+    grand_total_converted = (order.grand_total * rate).quantize(Decimal("0.01"))
+
+    context = {
+    'order': order,
+    'from_profile': True,
+    'currency_symbol': currency_symbol,
+    'order_total_converted': order_total_converted,
+    'delivery_converted': delivery_converted,
+    'grand_total_converted': grand_total_converted,
+}
     return render(request, template, context)
