@@ -108,12 +108,30 @@ def checkout(request):
             return redirect(reverse('products'))
 
         current_bag = bag_contents(request)
-        total = current_bag['grand_total']
-        stripe_total = round(total * 100)
+        total_eur = current_bag['grand_total']
+
+        # Get selected currency from session
+        selected_currency = request.session.get("currency", "EUR").upper()
+
+        # Validate currency
+        if selected_currency not in settings.CURRENCIES:
+            selected_currency = "EUR"
+
+        # Get exchange rate
+        rate = settings.CURRENCIES[selected_currency]["rate"]
+
+        # Convert total
+        converted_total = round(total_eur * rate, 2)
+
+        # Stripe requires smallest unit
+        stripe_total = int(converted_total * 100)
+
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY,
+            currency=selected_currency.lower(),
         )
+
+
 
         if request.user.is_authenticated:
             try:
