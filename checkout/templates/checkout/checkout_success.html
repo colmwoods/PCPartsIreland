@@ -72,17 +72,23 @@
 
                 <div class="row">
                     <div class="col-6 font-weight-bold">Order Total</div>
-                    <div class="col-6 text-right">€{{ order.order_total }}</div>
+                    <div class="col-6 text-right">
+                        {{ currency_symbol }}{{ order_total_converted }}
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6 font-weight-bold">Delivery</div>
-                    <div class="col-6 text-right">€{{ order.delivery_cost }}</div>
+                    <div class="col-6 text-right">
+                        {{ currency_symbol }}{{ delivery_converted }}
+                    </div>
                 </div>
 
                 <div class="row">
                     <div class="col-6 font-weight-bold">Grand Total</div>
-                    <div class="col-6 text-right">€{{ order.grand_total }}</div>
+                    <div class="col-6 text-right">
+                        {{ currency_symbol }}{{ grand_total_converted }}
+                    </div>
                 </div>
 
             </div>

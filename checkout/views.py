@@ -14,6 +14,7 @@ import stripe
 import json
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
+from decimal import Decimal
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 if not settings.STRIPE_SECRET_KEY:
@@ -233,9 +234,25 @@ def checkout_success(request, order_number):
         del request.session['bag']
 
     template = 'checkout/checkout_success.html'
-    context = {
-        'order': order,
-    }
 
+    selected_currency = request.session.get("currency", "EUR").upper()
+
+    if selected_currency not in settings.CURRENCIES:
+        selected_currency = "EUR"
+
+    currency_symbol = settings.CURRENCIES[selected_currency]["symbol"]
+    rate = settings.CURRENCIES[selected_currency]["rate"]
+
+    order_total_converted = (order.order_total * rate).quantize(Decimal("0.01"))
+    delivery_converted = (order.delivery_cost * rate).quantize(Decimal("0.01"))
+    grand_total_converted = (order.grand_total * rate).quantize(Decimal("0.01"))
+    
+    context = {
+    'order': order,
+    'currency_symbol': currency_symbol,
+    'order_total_converted': order_total_converted,
+    'delivery_converted': delivery_converted,
+    'grand_total_converted': grand_total_converted,
+}
     return render(request, template, context)
 
