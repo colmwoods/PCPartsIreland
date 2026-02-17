@@ -45,7 +45,7 @@
                         {{ item.product.name }}
                     </div>
                     <div class="col-4 text-right">
-                        {{ item.quantity }} × €{{ item.product.price }}
+                        {{ item.quantity }} × {{ currency_symbol }}{{ order_total_converted }}
                     </div>
                 </div>
                 {% endfor %}
