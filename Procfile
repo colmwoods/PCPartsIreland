@@ -1,1 +1,1 @@
-web: gunicorn PCPartsIreland.wsgi
+web: gunicorn pcpartsireland.wsgi
