@@ -179,6 +179,19 @@ def checkout_success(request, order_number):
     save_info = request.session.get('save_info')
     order = get_object_or_404(Order, order_number=order_number)
 
+    selected_currency = request.session.get("currency", "EUR").upper()
+
+    if selected_currency not in settings.CURRENCIES:
+        selected_currency = "EUR"
+
+    currency_symbol = settings.CURRENCIES[selected_currency]["symbol"]
+    rate = settings.CURRENCIES[selected_currency]["rate"]
+
+    order_total_converted = (order.order_total * rate).quantize(Decimal("0.01"))
+    delivery_converted = (order.delivery_cost * rate).quantize(Decimal("0.01"))
+    grand_total_converted = (order.grand_total * rate).quantize(Decimal("0.01"))
+
+
     # ---- DEDUCT STOCK AFTER SUCCESSFUL ORDER ----
     for line_item in order.lineitems.all():
         product = line_item.product
@@ -213,9 +226,16 @@ def checkout_success(request, order_number):
     )
 
     body = render_to_string(
-        'checkout/email/order_confirmation_body.txt',
-        {'order': order}
-    )
+    'checkout/email/order_confirmation_body.txt',
+    {
+        'order': order,
+        'currency_symbol': currency_symbol,
+        'order_total_converted': order_total_converted,
+        'delivery_converted': delivery_converted,
+        'grand_total_converted': grand_total_converted,
+    }
+)
+
 
     send_mail(
         subject.strip(),

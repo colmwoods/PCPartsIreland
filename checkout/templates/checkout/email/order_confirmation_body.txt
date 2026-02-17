@@ -7,12 +7,12 @@ Order Date: {{ order.date }}
 
 Items Ordered:
 {% for item in order.lineitems.all %}
-- {{ item.product.name }} (x{{ item.quantity }}) – €{{ item.product.price }}
+- {{ item.product.name }} (x{{ item.quantity }}) – {{ currency_symbol }}{{ item.product.price }}
 {% endfor %}
 
-Order Total: €{{ order.order_total }}
-Delivery: €{{ order.delivery_cost }}
-Grand Total: €{{ order.grand_total }}
+Order Total: {{ currency_symbol }}{{ order_total_converted }}
+Delivery: {{ currency_symbol }}{{ delivery_converted }}
+Grand Total: {{ currency_symbol }}{{ grand_total_converted }}
 
 Delivery Address:
 {{ order.full_name }}
