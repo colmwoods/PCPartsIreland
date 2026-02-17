@@ -3,6 +3,7 @@
     width: 100%;
     min-height: calc(100vh - 164px - 56px);
     background: url("/static/images/home-pagev2.jpg") center bottom / cover no-repeat;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
 }
