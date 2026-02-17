@@ -147,16 +147,13 @@ footer {
     border-radius: 6px;
 }
 
-.shop-now-button {
-    background: #ff6600;
-    color: white !important;
-    border: none;
-    letter-spacing: 1px;
-    font-weight: 600;
-    transition: 0.2s ease;
+button.shop-now-button {
+    background-color: #ff6600 !important;
+    border-color: #ff6600 !important;
+    color: #fff !important;
 }
 
-.shop-now-button:hover {
-    background: #e65c00;
-    transform: translateY(-2px);
+button.shop-now-button:hover {
+    background-color: #e65c00 !important;
+    border-color: #e65c00 !important;
 }
