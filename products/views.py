@@ -2,18 +2,23 @@ from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
 from django.db.models import Q
 from django.http import JsonResponse
+from django.core.paginator import Paginator
 
 # Create your views here.
 def all_products(request):
     """
-    A view to show all products, including sorting and category filtering.
+    A view to show all products, including sorting,
+    category filtering, and pagination.
     """
+
     products = Product.objects.all()
     current_categories = None
     current_sorting = 'None_None'
     search_term = None
 
-    # Category filter: /products/?category=ddr4,ddr5
+    # -------------------
+    # CATEGORY FILTERING
+    # -------------------
     if 'category' in request.GET:
         categories = request.GET['category'].split(',')
 
@@ -28,9 +33,10 @@ def all_products(request):
         current_categories = Category.objects.filter(name__in=categories)
     else:
         categories = []
-        # current_categories stays None
 
-    # Sorting: /products/?sort=price&direction=asc
+    # -------------------
+    # SORTING
+    # -------------------
     if 'sort' in request.GET:
         sortkey = request.GET['sort']
         direction = request.GET.get('direction', 'asc')
@@ -50,12 +56,33 @@ def all_products(request):
         products = products.order_by(sortkey)
         current_sorting = f"{request.GET['sort']}_{direction}"
 
+    # -------------------
+    # PAGINATION
+    # -------------------
+    per_page = request.GET.get('per_page', 16)
+
+    try:
+        per_page = int(per_page)
+    except ValueError:
+        per_page = 16
+
+    # Cap at 72 (so nobody can request 5000)
+    if per_page > 72:
+        per_page = 72
+
+    paginator = Paginator(products, per_page)
+
+    page_number = request.GET.get('page')
+    products = paginator.get_page(page_number)
+
     context = {
         'products': products,
+        'per_page': per_page,
         'current_categories': current_categories,
         'current_sorting': current_sorting,
         'search_term': search_term,
     }
+
     return render(request, 'products/products.html', context)
 
 def product_detail(request, product_id):
