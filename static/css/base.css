@@ -158,3 +158,20 @@ button.shop-now-button:hover {
     background-color: #e65c00 !important;
     border-color: #e65c00 !important;
 }
+
+.social-icon {
+    font-size: 1.8rem;
+    margin: 0 10px;
+    text-decoration: none !important;
+    transition: all 0.3s ease;
+}
+
+.social-icon,
+.social-icon:hover {
+    text-decoration: none !important;
+}
+
+.social-icon:hover {
+    transform: translateY(-4px);
+    color: #000 !important;
+}
