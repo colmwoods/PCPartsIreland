@@ -157,3 +157,24 @@ button.shop-now-button:hover {
     background-color: #e65c00 !important;
     border-color: #e65c00 !important;
 }
+
+.btt-button {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 45px;
+    height: 45px;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 999;
+    border-radius: 4px;
+    transition: 0.2s ease-in-out;
+}
+
+.btt-button:hover {
+    background: #f8f9fa;
+    transform: translateY(-2px);
+}
