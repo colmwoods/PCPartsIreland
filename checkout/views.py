@@ -174,11 +174,13 @@ def checkout(request):
 
 def checkout_success(request, order_number):
     """
-    Handle successful checkouts
+    Handle successful checkouts safely (no duplicate processing on refresh)
     """
-    save_info = request.session.get('save_info')
-    order = get_object_or_404(Order, order_number=order_number)
 
+    order = get_object_or_404(Order, order_number=order_number)
+    save_info = request.session.get('save_info')
+
+    # --- Currency handling ---
     selected_currency = request.session.get("currency", "EUR").upper()
 
     if selected_currency not in settings.CURRENCIES:
@@ -191,88 +193,89 @@ def checkout_success(request, order_number):
     delivery_converted = (order.delivery_cost * rate).quantize(Decimal("0.01"))
     grand_total_converted = (order.grand_total * rate).quantize(Decimal("0.01"))
 
+    # ---------------------------------------------------------
+    # 🔒 Only process ONCE (protect from refresh)
+    # ---------------------------------------------------------
+    if not order.processed:
 
-    # ---- DEDUCT STOCK AFTER SUCCESSFUL ORDER ----
-    for line_item in order.lineitems.all():
-        product = line_item.product
-        product.stock -= line_item.quantity
-        product.save()
+        # ---- Deduct Stock ----
+        for line_item in order.lineitems.all():
+            product = line_item.product
+            product.stock -= line_item.quantity
+            product.save()
 
+        # ---- Attach user profile ----
+        if request.user.is_authenticated:
+            profile = UserProfile.objects.get(user=request.user)
+            order.user_profile = profile
 
-    # Attach user profile if authenticated
-    if request.user.is_authenticated:
-        profile = UserProfile.objects.get(user=request.user)
-        order.user_profile = profile
+            # Save default delivery info
+            if save_info:
+                profile_data = {
+                    'default_phone_number': order.phone_number,
+                    'default_postcode': order.postcode,
+                    'default_town_or_city': order.town_or_city,
+                    'default_street_address1': order.street_address1,
+                    'default_street_address2': order.street_address2,
+                    'default_county': order.county,
+                }
+                user_profile_form = UserProfileForm(profile_data, instance=profile)
+                if user_profile_form.is_valid():
+                    user_profile_form.save()
+
+        # ---- Send confirmation email ----
+        subject = render_to_string(
+            'checkout/email/order_confirmation_subject.txt',
+            {'order': order}
+        )
+
+        body = render_to_string(
+            'checkout/email/order_confirmation_body.txt',
+            {
+                'order': order,
+                'currency_symbol': currency_symbol,
+                'order_total_converted': order_total_converted,
+                'delivery_converted': delivery_converted,
+                'grand_total_converted': grand_total_converted,
+            }
+        )
+
+        send_mail(
+            subject.strip(),
+            body,
+            settings.EMAIL_HOST_USER,
+            [order.email],
+            fail_silently=False,
+        )
+
+        # ---- Clear bag ----
+        if 'bag' in request.session:
+            del request.session['bag']
+
+        # ---- Mark as processed ----
+        order.processed = True
         order.save()
 
-        # Save the user's default delivery info
-        if save_info:
-            profile_data = {
-                'default_phone_number': order.phone_number,
-                'default_postcode': order.postcode,
-                'default_town_or_city': order.town_or_city,
-                'default_street_address1': order.street_address1,
-                'default_street_address2': order.street_address2,
-                'default_county': order.county,
-            }
-            user_profile_form = UserProfileForm(profile_data, instance=profile)
-            if user_profile_form.is_valid():
-                user_profile_form.save()
+        messages.success(
+            request,
+            f'Order successfully processed! '
+            f'Your order number is {order_number}. '
+            f'A confirmation email was sent to {order.email}.'
+        )
 
-    # --- SEND CONFIRMATION EMAIL ---
-    subject = render_to_string(
-        'checkout/email/order_confirmation_subject.txt',
-        {'order': order}
-    )
+    # ---------------------------------------------------------
+    # Just render page (safe on refresh)
+    # ---------------------------------------------------------
 
-    body = render_to_string(
-    'checkout/email/order_confirmation_body.txt',
-    {
+    template = 'checkout/checkout_success.html'
+
+    context = {
         'order': order,
         'currency_symbol': currency_symbol,
         'order_total_converted': order_total_converted,
         'delivery_converted': delivery_converted,
         'grand_total_converted': grand_total_converted,
     }
-)
 
-
-    send_mail(
-        subject.strip(),
-        body,
-        settings.EMAIL_HOST_USER,
-        [order.email],
-        fail_silently=False,
-    )
-    # --- END EMAIL ---
-
-    messages.success(request, f'Order successfully processed! '
-        f'Your order number is {order_number}. '
-        f'A confirmation email was sent to {order.email}.')
-
-    if 'bag' in request.session:
-        del request.session['bag']
-
-    template = 'checkout/checkout_success.html'
-
-    selected_currency = request.session.get("currency", "EUR").upper()
-
-    if selected_currency not in settings.CURRENCIES:
-        selected_currency = "EUR"
-
-    currency_symbol = settings.CURRENCIES[selected_currency]["symbol"]
-    rate = settings.CURRENCIES[selected_currency]["rate"]
-
-    order_total_converted = (order.order_total * rate).quantize(Decimal("0.01"))
-    delivery_converted = (order.delivery_cost * rate).quantize(Decimal("0.01"))
-    grand_total_converted = (order.grand_total * rate).quantize(Decimal("0.01"))
-    
-    context = {
-    'order': order,
-    'currency_symbol': currency_symbol,
-    'order_total_converted': order_total_converted,
-    'delivery_converted': delivery_converted,
-    'grand_total_converted': grand_total_converted,
-}
     return render(request, template, context)
 
