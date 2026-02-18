@@ -50,6 +50,8 @@ def all_products(request):
             sortkey = 'rating'
         elif sortkey == 'category':
             sortkey = 'category__name'
+        elif sortkey == 'stock':
+            sortkey = 'stock'
 
         if direction == 'desc':
             sortkey = f'-{sortkey}'

@@ -81,7 +81,7 @@
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
                                 Sort by...
                             </option>
-
+                            <option value="stock_desc" {% if current_sorting == 'stock_desc' %}selected{% endif %}>Availability</option>
                             <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
                             <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
                             <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
