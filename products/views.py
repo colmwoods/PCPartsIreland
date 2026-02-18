@@ -3,6 +3,7 @@ from .models import Product, Category
 from django.db.models import Q
 from django.http import JsonResponse
 from django.core.paginator import Paginator
+from urllib.parse import urlencode
 
 # Create your views here.
 def all_products(request):
@@ -75,12 +76,17 @@ def all_products(request):
     page_number = request.GET.get('page')
     products = paginator.get_page(page_number)
 
+    querydict = request.GET.copy()
+    querydict.pop('page', None)  # remove existing page param
+    query_string = urlencode(querydict)
+
     context = {
         'products': products,
         'per_page': per_page,
         'current_categories': current_categories,
         'current_sorting': current_sorting,
         'search_term': search_term,
+        'query_string': query_string,
     }
 
     return render(request, 'products/products.html', context)

@@ -178,14 +178,10 @@
                             {% if products.has_previous %}
                             <li class="page-item">
                                 <a class="page-link"
-                                   href="?{% for key,value in request.GET.items %}
-                                            {% if key != 'page' %}
-                                                {{ key }}={{ value }}&
-                                            {% endif %}
-                                          {% endfor %}
-                                          page={{ products.previous_page_number }}">
-                                    Previous
-                                </a>
+   href="?{{ query_string }}{% if query_string %}&{% endif %}page={{ products.previous_page_number }}">
+    Previous
+</a>
+
                             </li>
                             {% endif %}
 
@@ -198,14 +194,10 @@
                             {% if products.has_next %}
                             <li class="page-item">
                                 <a class="page-link"
-                                   href="?{% for key,value in request.GET.items %}
-                                            {% if key != 'page' %}
-                                                {{ key }}={{ value }}&
-                                            {% endif %}
-                                          {% endfor %}
-                                          page={{ products.next_page_number }}">
-                                    Next
-                                </a>
+   href="?{{ query_string }}{% if query_string %}&{% endif %}page={{ products.next_page_number }}">
+    Next
+</a>
+
                             </li>
                             {% endif %}
 
