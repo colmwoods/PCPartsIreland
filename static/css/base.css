@@ -159,27 +159,32 @@ button.shop-now-button:hover {
     border-color: #e65c00 !important;
 }
 
-.social-icon {
-    font-size: 1.8rem;
-    margin: 0 10px;
+
+footer .social-icon,
+footer .social-icon:link,
+footer .social-icon:visited,
+footer .social-icon:hover,
+footer .social-icon:active,
+footer .social-icon:focus {
     text-decoration: none !important;
-    transition: all 0.3s ease;
+    border: none !important;
+    outline: none !important;
 }
 
-.social-icon,
-.social-icon:hover {
+footer .social-icon i {
     text-decoration: none !important;
+    border: none !important;
 }
 
-.social-icon:hover {
-    transform: translateY(-4px);
-    color: #000 !important;
+footer .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    vertical-align: middle;
 }
 
-footer a i {
-    text-decoration: none !important;
-}
-
-footer a {
-    text-decoration: none !important;
+footer .social-icon:hover {
+    transform: translateY(-3px);
+    transition: 0.3s ease;
 }
