@@ -159,20 +159,29 @@ button.shop-now-button:hover {
 }
 
 .btt-button {
-    height: 42px;
-    width: 42px;
     position: fixed;
-    bottom: 20px;
-    right: 20px;
-    z-index: 1000;
+    bottom: 25px;
+    right: 25px;
+    width: 45px;
+    height: 45px;
+    background: #000;
+    color: #fff;
+    border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: white;
-    border-radius: 4px;
-    transition: 0.2s ease;
+    cursor: pointer;
+    z-index: 1050;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease-in-out;
+}
+
+.btt-button i {
+    color: #fff;
+    font-size: 18px;
 }
 
 .btt-button:hover {
-    transform: translateY(-2px);
+    background: #222;
+    transform: translateY(-3px);
 }
