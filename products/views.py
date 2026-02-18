@@ -1,4 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect, reverse
+from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from .forms import ProductForm
 from .models import Product, Category
 from django.db.models import Q
 from django.http import JsonResponse
@@ -157,3 +160,57 @@ def search_suggestions(request):
         })
 
     return JsonResponse(data, safe=False)
+
+@login_required
+def add_product(request):
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse('home'))
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES)
+        if form.is_valid():
+            product = form.save()
+            messages.success(request, "Successfully added product!")
+            return redirect('product_detail', product_id=product.id)
+        else:
+            messages.error(request, "Failed to add product. Please check the form.")
+    else:
+        form = ProductForm()
+
+    return render(request, 'products/add_product.html', {'form': form})
+
+@login_required
+def edit_product(request, product_id):
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+
+    if request.method == "POST":
+        form = ProductForm(request.POST, request.FILES, instance=product)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "Successfully updated product!")
+            return redirect('product_detail', product_id=product.id)
+        else:
+            messages.error(request, "Failed to update product.")
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'products/edit_product.html', {
+        'form': form,
+        'product': product,
+    })
+
+@login_required
+def delete_product(request, product_id):
+    if not request.user.is_superuser:
+        messages.error(request, "Sorry, only store owners can do that.")
+        return redirect(reverse('home'))
+
+    product = get_object_or_404(Product, pk=product_id)
+    product.delete()
+    messages.success(request, "Product deleted!")
+    return redirect(reverse('products'))
