@@ -64,12 +64,13 @@
         </div>
     </div>
 
+    <!-- SORT + PER PAGE -->
     <div class="row">
         <div class="product-container col-10 offset-1">
 
-            <!-- SORT + PER PAGE -->
             <div class="row mt-1 mb-2">
 
+                <!-- RIGHT SIDE (SORT + PAGE SIZE) -->
                 <div class="col-12 col-md-6 my-auto order-md-last d-flex justify-content-center justify-content-md-end align-items-center">
 
                     <!-- SORT -->
@@ -80,33 +81,15 @@
                             <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>
                                 Sort by...
                             </option>
-                            <option value="stock_desc" {% if current_sorting == 'stock_desc' %}selected{% endif %}>
-                                Availability
-                            </option>
-                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>
-                                Price (low to high)
-                            </option>
-                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>
-                                Price (high to low)
-                            </option>
-                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>
-                                Rating (low to high)
-                            </option>
-                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>
-                                Rating (high to low)
-                            </option>
-                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>
-                                Name (A-Z)
-                            </option>
-                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>
-                                Name (Z-A)
-                            </option>
-                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>
-                                Category (A-Z)
-                            </option>
-                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>
-                                Category (Z-A)
-                            </option>
+                            <option value="stock_desc" {% if current_sorting == 'stock_desc' %}selected{% endif %}>Availability</option>
+                            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price (low to high)</option>
+                            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price (high to low)</option>
+                            <option value="rating_asc" {% if current_sorting == 'rating_asc' %}selected{% endif %}>Rating (low to high)</option>
+                            <option value="rating_desc" {% if current_sorting == 'rating_desc' %}selected{% endif %}>Rating (high to low)</option>
+                            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name (A-Z)</option>
+                            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name (Z-A)</option>
+                            <option value="category_asc" {% if current_sorting == 'category_asc' %}selected{% endif %}>Category (A-Z)</option>
+                            <option value="category_desc" {% if current_sorting == 'category_desc' %}selected{% endif %}>Category (Z-A)</option>
                         </select>
                     </div>
 
@@ -127,8 +110,10 @@
                             {% endif %}
                         {% endfor %}
                     </form>
+
                 </div>
 
+                <!-- LEFT SIDE (COUNT) -->
                 <div class="col-12 col-md-6 order-md-first">
                     <p class="text-muted mt-3 text-center text-md-left">
                         {{ products.paginator.count }} Products
@@ -137,6 +122,7 @@
                         {% endif %}
                     </p>
                 </div>
+
             </div>
 
             <!-- PRODUCTS GRID -->
@@ -161,53 +147,139 @@
 
                             <div class="card-footer bg-white pt-0 border-0 text-left">
 
-                                <p class="lead mb-0 font-weight-bold">
-                                    {{ currency_symbol }}{{ product.price|mul:currency_rate|floatformat:2 }}
-                                </p>
+    <!-- PRICE -->
+    <p class="lead mb-0 font-weight-bold">
+        {{ currency_symbol }}{{ product.price|mul:currency_rate|floatformat:2 }}
+    </p>
 
-                                {% if product.category %}
-                                <p class="small mt-1 mb-0">
-                                    <a class="text-muted"
-                                       href="{% url 'products' %}?category={{ product.category.name }}">
-                                        <i class="fas fa-tag me-1"></i>
-                                        {{ product.category.friendly_name }}
-                                    </a>
-                                </p>
-                                {% endif %}
+    <!-- CATEGORY -->
+    {% if product.category %}
+    <p class="small mt-1 mb-0">
+        <a class="text-muted"
+           href="{% url 'products' %}?category={{ product.category.name }}">
+            <i class="fas fa-tag mr-1"></i>
+            {{ product.category.friendly_name }}
+        </a>
+    </p>
+    {% endif %}
 
-                                {% if product.rating %}
-                                <small class="text-muted d-block mt-1">
-                                    <i class="fas fa-star me-1"></i>
-                                    {{ product.rating }} / 5
-                                </small>
-                                {% else %}
-                                <small class="text-muted d-block mt-1">
-                                    No Rating
-                                </small>
-                                {% endif %}
+    <!-- RATING -->
+    {% if product.rating %}
+    <small class="text-muted d-block mt-1">
+        <i class="fas fa-star mr-1"></i>
+        {{ product.rating }} / 5
+    </small>
+    {% else %}
+    <small class="text-muted d-block mt-1">
+        No Rating
+    </small>
+    {% endif %}
 
-                                {% if product.stock > 0 %}
-                                <small class="text-success d-block mt-1">
-                                    <i class="fas fa-check-circle me-1"></i>
-                                    In Stock ({{ product.stock }})
-                                </small>
-                                {% else %}
-                                <small class="text-danger d-block mt-1">
-                                    <i class="fas fa-times-circle me-1"></i>
-                                    Out of Stock
-                                </small>
-                                {% endif %}
+    <!-- STOCK -->
+    {% if product.stock > 0 %}
+        <small class="text-success d-block mt-1">
+            <i class="fas fa-check-circle"></i>
+            In Stock ({{ product.stock }})
+        </small>
+    {% else %}
+        <small class="text-danger d-block mt-1">
+            <i class="fas fa-times-circle"></i>
+            Out of Stock
+        </small>
+    {% endif %}
 
-                            </div>
+</div>
+
 
                         </a>
+
                     </div>
                 </div>
                 {% endfor %}
             </div>
 
+            <!-- PAGINATION -->
+            {% if products.has_other_pages %}
+            <div class="row mt-4">
+                <div class="col text-center">
+                    <nav>
+                        <ul class="pagination justify-content-center">
+
+                            {% if products.has_previous %}
+                            <li class="page-item">
+                                <a class="page-link"
+   href="?{{ query_string }}{% if query_string %}&{% endif %}page={{ products.previous_page_number }}">
+    Previous
+</a>
+
+                            </li>
+                            {% endif %}
+
+                            <li class="page-item active">
+                                <span class="page-link">
+                                    Page {{ products.number }} of {{ products.paginator.num_pages }}
+                                </span>
+                            </li>
+
+                            {% if products.has_next %}
+                            <li class="page-item">
+                                <a class="page-link"
+   href="?{{ query_string }}{% if query_string %}&{% endif %}page={{ products.next_page_number }}">
+    Next
+</a>
+
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+            {% endif %}
+
         </div>
     </div>
 
 </div>
+
+<!-- BACK TO TOP -->
+<div class="btt-button position-fixed bottom-0 end-0 me-4 mb-4 
+            bg-dark text-white rounded shadow 
+            d-flex align-items-center justify-content-center" style="width: 45px;
+    height: 45px;">
+    <a class="btt-link text-white d-flex align-items-center justify-content-center w-100 h-100">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+
+<script>
+    $('.btt-link').click(function () {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    });
+
+    $('#sort-selector').change(function () {
+        var selector = $(this);
+        var currentUrl = new URL(window.location);
+        var selectedVal = selector.val();
+
+        if (selectedVal != "reset") {
+            var sort = selectedVal.split("_")[0];
+            var direction = selectedVal.split("_")[1];
+            currentUrl.searchParams.set("sort", sort);
+            currentUrl.searchParams.set("direction", direction);
+        } else {
+            currentUrl.searchParams.delete("sort");
+            currentUrl.searchParams.delete("direction");
+        }
+
+        window.location.replace(currentUrl);
+    });
+</script>
 {% endblock %}
