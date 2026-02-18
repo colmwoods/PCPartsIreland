@@ -175,3 +175,11 @@ button.shop-now-button:hover {
     transform: translateY(-4px);
     color: #000 !important;
 }
+
+footer a i {
+    text-decoration: none !important;
+}
+
+footer a {
+    text-decoration: none !important;
+}
