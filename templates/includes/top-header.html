@@ -41,9 +41,10 @@
 
                 <!-- Account Dropdown -->
                 <div class="dropdown">
-                    <a class="top-header-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        My Account
+                    <a class="top-header-link dropdown-toggle text-white d-flex align-items-center gap-2" href="#"
+                        role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user text-white"></i>
+                        <span>My Account</span>
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -74,8 +75,9 @@
                 </div>
 
                 <!-- Bag -->
-                <a href="{% url 'view_bag' %}" class="top-header-link d-flex align-items-center gap-1">
-                    <i class="bi bi-bag"></i>
+                <a href="{% url 'view_bag' %}" class="top-header-link text-white d-flex align-items-center gap-2">
+
+                    <i class="fas fa-shopping-bag text-white"></i>
 
                     {% if product_count %}
                     <span>Bag ({{ product_count }})</span>
@@ -85,6 +87,7 @@
                     {% else %}
                     <span>Bag (0)</span>
                     {% endif %}
+
                 </a>
 
             </div>
