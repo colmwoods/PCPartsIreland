@@ -6,6 +6,7 @@ from products.models import Product
 # Create your models here.
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
+    processed = models.BooleanField(default=False)
     user_profile = models.ForeignKey(
         'profiles.UserProfile',
         on_delete=models.SET_NULL,
