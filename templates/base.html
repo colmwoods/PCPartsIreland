@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
     <title>{% block title %}PC Parts Ireland | GPUs, CPUs, RAM & Gaming Hardware{% endblock %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
@@ -34,10 +34,11 @@
         <div class="container-fluid px-4">
 
             <a class="navbar-brand" href="{% url 'home' %}">
-                <img src="{% static 'images/pcpartsireland.jpg' %}" height="40">
+                <img src="{% static 'images/pcpartsireland.jpg' %}" height="40" alt="PC Parts Ireland Logo">
             </a>
 
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
@@ -171,9 +172,10 @@
     <a href="${item.url}" 
        class="list-group-item list-group-item-action d-flex align-items-center">
 
-        <img src="${item.image_url}" 
-             style="width:40px; height:40px; object-fit:cover;" 
-             class="me-2 rounded">
+        <img src="${item.image_url}"
+            alt="${item.name}"
+            style="width:40px; height:40px; object-fit:cover;"
+            class="me-2 rounded">
 
         <span>${item.name}</span>
     </a>
@@ -193,7 +195,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <div id="newsletterModal" class="newsletter-overlay" style="display:none;">
         <div class="newsletter-box bg-white p-5 shadow text-center position-relative">
-            <button class="newsletter-close" onclick="closeNewsletter()">×</button>
+            <button type="button" class="newsletter-close" onclick="closeNewsletter()"
+                aria-label="Close newsletter modal">
+                ×
+            </button>
 
             <h1 class="display-6 logo-font text-black mb-3">
                 Join PCPartsIreland
