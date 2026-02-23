@@ -100,3 +100,51 @@ class ProfileViewTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "checkout/checkout_success.html")
+
+
+@override_settings(SECURE_SSL_REDIRECT=False)
+class ProfileDeletionTests(TestCase):
+
+    def setUp(self):
+        self.client = Client()
+
+        self.user = User.objects.create_user(
+            username="deleteuser",
+            password="deletepass123"
+        )
+
+        self.confirm_url = reverse("confirm_delete_profile")
+        self.delete_url = reverse("delete_profile")
+
+    def test_confirm_delete_requires_login(self):
+        response = self.client.get(self.confirm_url)
+        self.assertEqual(response.status_code, 302)
+
+    def test_confirm_delete_page_loads_when_logged_in(self):
+        self.client.login(username="deleteuser", password="deletepass123")
+        response = self.client.get(self.confirm_url)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "profiles/confirm_delete_profile.html")
+
+    def test_delete_profile_get_does_not_delete_user(self):
+        self.client.login(username="deleteuser", password="deletepass123")
+
+        response = self.client.get(self.delete_url)
+
+        # Should redirect (not delete)
+        self.assertEqual(response.status_code, 302)
+
+        # User should still exist
+        self.assertTrue(User.objects.filter(username="deleteuser").exists())
+
+    def test_delete_profile_post_deletes_user(self):
+        self.client.login(username="deleteuser", password="deletepass123")
+
+        response = self.client.post(self.delete_url)
+
+        # Should redirect after deletion
+        self.assertEqual(response.status_code, 302)
+
+        # User should no longer exist
+        self.assertFalse(User.objects.filter(username="deleteuser").exists())
