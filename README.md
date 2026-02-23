@@ -151,6 +151,23 @@ I used [coolors.co](https://coolors.co/080708-3772ff-df2935-fdca40-e6e8e6) to ge
 - [Lato](https://fonts.google.com/specimen/Lato) was used for all other secondary text.
 - [Font Awesome](https://fontawesome.com) icons were used throughout the site, such as the social media icons in the footer.
 
+### Responsive Header Optimisation
+
+To improve usability on smaller devices, the header adapts at the Bootstrap `sm` breakpoint (576px).
+
+- Text labels for **Currency**, **My Account**, and **Bag** are hidden below 576px using Bootstrap responsive utility classes.
+- Icons remain visible to preserve full navigation functionality.
+- This prevents layout overflow and overcrowding on narrow devices.
+
+Bootstrap utilities used:
+- `d-none d-sm-inline`
+- Responsive spacing classes such as `gap-*` and `me-*`
+
+This ensures:
+- Clean mobile layout
+- No element collision below 576px
+- Full functionality retained through icon-based navigation
+
 ## Wireframes
 
 To follow best practice, wireframes were developed for mobile, tablet, and desktop sizes.
@@ -162,6 +179,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Login | ![screenshot](documentation/wireframes/mobile-login.jpg) | ![screenshot](documentation/wireframes/tablet-login.jpg) | ![screenshot](documentation/wireframes/desktop-login.jpg) |
 | Change Password | ![screenshot](documentation/wireframes/mobile-password.jpg) | ![screenshot](documentation/wireframes/tablet-password.jpg) | ![screenshot](documentation/wireframes/desktop-password.jpg) |
 | Profile | ![screenshot](documentation/wireframes/mobile-profile.jpg) | ![screenshot](documentation/wireframes/tablet-profile.jpg) | ![screenshot](documentation/wireframes/desktop-profile.jpg) |
+| Delete Profile Conformation | ![screenshot](documentation/wireframes/mobile-delete-profile.jpg) | ![screenshot](documentation/wireframes/tablet-delete-profile.jpg) | ![screenshot](documentation/wireframes/desktop-delete-profile.jpg) |
 | Home | ![screenshot](documentation/wireframes/mobile-home.jpg) | ![screenshot](documentation/wireframes/tablet-home.jpg) | ![screenshot](documentation/wireframes/desktop-home.jpg) |
 | Products | ![screenshot](documentation/wireframes/mobile-products.jpg) | ![screenshot](documentation/wireframes/tablet-products.jpg) | ![screenshot](documentation/wireframes/desktop-products.jpg) |
 | Product Details | ![screenshot](documentation/wireframes/mobile-product-details.jpg) | ![screenshot](documentation/wireframes/tablet-product-details.jpg) | ![screenshot](documentation/wireframes/desktop-product-details.jpg) |
@@ -173,6 +191,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Newsletter | ![screenshot](documentation/wireframes/mobile-newsletter.jpg) | ![screenshot](documentation/wireframes/tablet-newsletter.jpg) | ![screenshot](documentation/wireframes/desktop-newsletter.jpg) |
 | Contact | ![screenshot](documentation/wireframes/mobile-contact.jpg) | ![screenshot](documentation/wireframes/tablet-contact.jpg) | ![screenshot](documentation/wireframes/desktop-contact.jpg) |
 | 404 | ![screenshot](documentation/wireframes/mobile-404.jpg) | ![screenshot](documentation/wireframes/tablet-404.jpg) | ![screenshot](documentation/wireframes/desktop-404.jpg) |
+| 500 | ![screenshot](documentation/wireframes/mobile-500.jpg) | ![screenshot](documentation/wireframes/tablet-500.jpg) | ![screenshot](documentation/wireframes/desktop-500.jpg) |
 
 ## User Stories
 
@@ -237,6 +256,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Heroku Deployment | The site is deployed and publicly accessible via Heroku. | ![screenshot](documentation/features/heroku.jpg) |
 | 404 | Custom branded 404 page replaces the default server error page. | ![screenshot](documentation/features/404.jpg) |
 | 500 | Custom branded 500 page replaces the default server error 500 page. | ![screenshot](documentation/features/500.jpg) |
+| Multi-Currency Support | Users can switch between EUR, USD, and GBP using a dropdown in the header. Prices dynamically convert using a currency rate stored in session and applied consistently across product listings, cart totals, checkout, and order confirmation. | ![screenshot](documentation/features/currency.jpg) |
 
 ---
 
