@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Import environment variables from env.py if it exists
 env_path = BASE_DIR / "env.py"
 if env_path.exists():
-    import env
+    import env  # noqa
 
 
 # Quick-start development settings - unsuitable for production
@@ -32,7 +32,8 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".herokuapp.com", "pcpartsireland.com", "www.pcpartsireland.com"]
+ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".herokuapp.com",
+                 "pcpartsireland.com", "www.pcpartsireland.com"]
 
 
 # Application definition
@@ -226,7 +227,6 @@ if 'USE_AWS' in os.environ:
     MEDIAFILES_LOCATION = 'media'
     DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
     # Override static and media URL's
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 

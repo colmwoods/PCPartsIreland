@@ -10,12 +10,10 @@ from django.conf import settings
 from decimal import Decimal
 
 
-
 @login_required
 def profile(request):
     """ Display the user's profile. """
     profile, created = UserProfile.objects.get_or_create(user=request.user)
-
 
     if request.method == 'POST':
         form = UserProfileForm(request.POST, instance=profile)
@@ -69,19 +67,22 @@ def order_history(request, order_number):
     currency_symbol = settings.CURRENCIES[selected_currency]["symbol"]
     rate = settings.CURRENCIES[selected_currency]["rate"]
 
-    order_total_converted = (order.order_total * rate).quantize(Decimal("0.01"))
+    order_total_converted = (
+        order.order_total * rate).quantize(Decimal("0.01"))
     delivery_converted = (order.delivery_cost * rate).quantize(Decimal("0.01"))
-    grand_total_converted = (order.grand_total * rate).quantize(Decimal("0.01"))
+    grand_total_converted = (
+        order.grand_total * rate).quantize(Decimal("0.01"))
 
     context = {
-    'order': order,
-    'from_profile': True,
-    'currency_symbol': currency_symbol,
-    'order_total_converted': order_total_converted,
-    'delivery_converted': delivery_converted,
-    'grand_total_converted': grand_total_converted,
-}
+        'order': order,
+        'from_profile': True,
+        'currency_symbol': currency_symbol,
+        'order_total_converted': order_total_converted,
+        'delivery_converted': delivery_converted,
+        'grand_total_converted': grand_total_converted,
+    }
     return render(request, template, context)
+
 
 @login_required
 def confirm_delete_profile(request):

@@ -1,6 +1,7 @@
 from django import forms
 from .models import ContactMessage, ReturnRequest
 
+
 class ContactForm(forms.ModelForm):
     class Meta:
         model = ContactMessage
@@ -28,6 +29,7 @@ class ContactForm(forms.ModelForm):
                 'placeholder': 'Write your message here...'
             }),
         }
+
 
 class ReturnRequestForm(forms.ModelForm):
     class Meta:

@@ -13,13 +13,15 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='ReturnRequest',
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                ('id', models.BigAutoField(auto_created=True,
+                 primary_key=True, serialize=False, verbose_name='ID')),
                 ('first_name', models.CharField(max_length=100)),
                 ('last_name', models.CharField(max_length=100)),
                 ('email', models.EmailField(max_length=254)),
                 ('order_number', models.CharField(max_length=50)),
                 ('product_name', models.CharField(max_length=255)),
-                ('reason', models.CharField(choices=[('faulty', 'Faulty item'), ('wrong_item', 'Wrong item received'), ('not_needed', 'No longer needed'), ('other', 'Other')], max_length=20)),
+                ('reason', models.CharField(choices=[('faulty', 'Faulty item'), ('wrong_item', 'Wrong item received'), (
+                    'not_needed', 'No longer needed'), ('other', 'Other')], max_length=20)),
                 ('message', models.TextField(blank=True)),
                 ('created_at', models.DateTimeField(auto_now_add=True)),
             ],

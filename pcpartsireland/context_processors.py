@@ -1,8 +1,10 @@
 from django.conf import settings
 
+
 def currency_context(request):
     currency = request.session.get('currency', 'EUR')
-    currency_data = settings.CURRENCIES.get(currency, settings.CURRENCIES['EUR'])
+    currency_data = settings.CURRENCIES.get(
+        currency, settings.CURRENCIES['EUR'])
 
     return {
         'current_currency': currency,

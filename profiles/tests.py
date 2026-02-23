@@ -7,6 +7,8 @@ from profiles.models import UserProfile
 from checkout.models import Order
 
 # Create your tests here.
+
+
 @override_settings(SECURE_SSL_REDIRECT=False)
 class ProfileViewTests(TestCase):
 
@@ -125,7 +127,8 @@ class ProfileDeletionTests(TestCase):
         response = self.client.get(self.confirm_url)
 
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, "profiles/confirm_delete_profile.html")
+        self.assertTemplateUsed(
+            response, "profiles/confirm_delete_profile.html")
 
     def test_delete_profile_get_does_not_delete_user(self):
         self.client.login(username="deleteuser", password="deletepass123")

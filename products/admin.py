@@ -18,6 +18,7 @@ class CategoryResource(resources.ModelResource):
             'meta_keywords',
         )
 
+
 @admin.register(Category)
 class CategoryAdmin(ImportExportModelAdmin):
     resource_class = CategoryResource
@@ -27,7 +28,6 @@ class CategoryAdmin(ImportExportModelAdmin):
         'name',
         'slug',
     )
-
 
 
 class ProductResource(resources.ModelResource):

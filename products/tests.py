@@ -4,6 +4,8 @@ from decimal import Decimal
 from products.models import Product, Category
 
 # Create your tests here.
+
+
 @override_settings(SECURE_SSL_REDIRECT=False)
 class ProductViewTests(TestCase):
 
@@ -45,7 +47,6 @@ class ProductViewTests(TestCase):
 
         self.assertEqual(products.count(), 1)
         self.assertEqual(products.first(), self.product1)
-
 
     def test_sort_by_price_desc(self):
         response = self.client.get(

@@ -5,7 +5,6 @@ from faq.models import FAQ
 # Create your tests here.
 
 
-
 @override_settings(SECURE_SSL_REDIRECT=False)
 class FAQTests(TestCase):
 

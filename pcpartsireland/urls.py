@@ -23,6 +23,7 @@ from pathlib import Path
 from django.views import View
 from django.http import HttpResponse
 
+
 class RobotsView(View):
     def get(self, request):
         robots_path = Path(settings.BASE_DIR) / "robots.txt"
@@ -36,6 +37,7 @@ class SitemapView(View):
         with open(sitemap_path) as f:
             return HttpResponse(f.read(), content_type="application/xml")
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("home.urls")),
@@ -44,11 +46,13 @@ urlpatterns = [
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
-    path('set-currency/<str:currency_code>/', set_currency, name='set_currency'),
+    path('set-currency/<str:currency_code>/',
+         set_currency, name='set_currency'),
     path("", include("form.urls")),
     path("faq/", include("faq.urls")),
     path("robots.txt", RobotsView.as_view()),
     path("sitemap.xml", SitemapView.as_view()),
 ]
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)

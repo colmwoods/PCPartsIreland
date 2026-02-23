@@ -7,6 +7,8 @@ from products.models import Product
 from checkout.models import Order, OrderLineItem
 
 # Create your tests here.
+
+
 @override_settings(
     SECURE_SSL_REDIRECT=False,
     EMAIL_BACKEND="django.core.mail.backends.locmem.EmailBackend",

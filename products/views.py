@@ -9,6 +9,8 @@ from django.core.paginator import Paginator
 from urllib.parse import urlencode
 
 # Create your views here.
+
+
 def all_products(request):
     """
     A view to show all products, including sorting,
@@ -96,6 +98,7 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
+
 def product_detail(request, product_id):
     """
     A view to show individual product details.
@@ -161,6 +164,7 @@ def search_suggestions(request):
 
     return JsonResponse(data, safe=False)
 
+
 @login_required
 def add_product(request):
     if not request.user.is_superuser:
@@ -174,11 +178,13 @@ def add_product(request):
             messages.success(request, "Successfully added product!")
             return redirect('product_detail', product_id=product.id)
         else:
-            messages.error(request, "Failed to add product. Please check the form.")
+            messages.error(
+                request, "Failed to add product. Please check the form.")
     else:
         form = ProductForm()
 
     return render(request, 'products/add_product.html', {'form': form})
+
 
 @login_required
 def edit_product(request, product_id):
@@ -204,6 +210,7 @@ def edit_product(request, product_id):
         'product': product,
     })
 
+
 @login_required
 def delete_product(request, product_id):
     if not request.user.is_superuser:
@@ -218,4 +225,3 @@ def delete_product(request, product_id):
         return redirect(reverse('products'))
 
     return redirect(reverse('products'))
-

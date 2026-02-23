@@ -15,7 +15,8 @@ def contact(request):
         if form.is_valid():
             try:
                 form.save()
-                messages.success(request, "Your message has been sent successfully!")
+                messages.success(
+                    request, "Your message has been sent successfully!")
                 return redirect('success')
 
             except Exception as e:

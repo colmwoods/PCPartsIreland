@@ -18,8 +18,8 @@ from decimal import Decimal
 
 stripe.api_key = settings.STRIPE_SECRET_KEY
 if not settings.STRIPE_SECRET_KEY:
-    raise ValueError("STRIPE_SECRET_KEY is missing. Check env.py / environment variables.")
-
+    raise ValueError(
+        "STRIPE_SECRET_KEY is missing. Check env.py / environment variables.")
 
 
 @require_POST
@@ -132,8 +132,6 @@ def checkout(request):
             currency=selected_currency.lower(),
         )
 
-
-
         if request.user.is_authenticated:
             try:
                 profile = UserProfile.objects.get(user=request.user)
@@ -167,7 +165,6 @@ def checkout(request):
             'selected_currency': selected_currency,
         }
 
-
         return render(request, template, context)
         # end of the corrected indentation
 
@@ -189,9 +186,11 @@ def checkout_success(request, order_number):
     currency_symbol = settings.CURRENCIES[selected_currency]["symbol"]
     rate = settings.CURRENCIES[selected_currency]["rate"]
 
-    order_total_converted = (order.order_total * rate).quantize(Decimal("0.01"))
+    order_total_converted = (
+        order.order_total * rate).quantize(Decimal("0.01"))
     delivery_converted = (order.delivery_cost * rate).quantize(Decimal("0.01"))
-    grand_total_converted = (order.grand_total * rate).quantize(Decimal("0.01"))
+    grand_total_converted = (
+        order.grand_total * rate).quantize(Decimal("0.01"))
 
     # ---------------------------------------------------------
     # 🔒 Only process ONCE (protect from refresh)
@@ -219,7 +218,8 @@ def checkout_success(request, order_number):
                     'default_street_address2': order.street_address2,
                     'default_county': order.county,
                 }
-                user_profile_form = UserProfileForm(profile_data, instance=profile)
+                user_profile_form = UserProfileForm(
+                    profile_data, instance=profile)
                 if user_profile_form.is_valid():
                     user_profile_form.save()
 
@@ -278,4 +278,3 @@ def checkout_success(request, order_number):
     }
 
     return render(request, template, context)
-
