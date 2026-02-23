@@ -9,37 +9,49 @@ def contact(request):
     """
     Handle contact form submissions.
     """
-    if request.method == 'POST':
+    if request.method == "POST":
         form = ContactForm(request.POST)
 
         if form.is_valid():
             try:
                 form.save()
                 messages.success(
-                    request, "Your message has been sent successfully!")
-                return redirect('success')
+                    request,
+                    "Your message has been sent successfully!",
+                )
+                return redirect("success")
 
             except Exception:
                 messages.error(
                     request,
-                    "Something went wrong while sending your message. Please try again."
+                    (
+                        "Something went wrong while sending your "
+                        "message. Please try again."
+                    ),
                 )
         else:
             messages.error(
                 request,
-                "Please correct the errors below and resubmit the form."
+                (
+                    "Please correct the errors below and "
+                    "resubmit the form."
+                ),
             )
     else:
         form = ContactForm()
 
-    return render(request, 'form/contact.html', {'form': form})
+    return render(
+        request,
+        "form/contact.html",
+        {"form": form},
+    )
 
 
 def success(request):
     """
     Render success page after contact form submission.
     """
-    return render(request, 'form/success.html')
+    return render(request, "form/success.html")
 
 
 def return_request(request):
@@ -54,24 +66,37 @@ def return_request(request):
                 form.save()
                 messages.success(
                     request,
-                    "Your return request has been submitted successfully."
+                    (
+                        "Your return request has been "
+                        "submitted successfully."
+                    ),
                 )
                 return redirect("return_success")
 
             except Exception:
                 messages.error(
                     request,
-                    "Something went wrong while submitting your return request. Please try again."
+                    (
+                        "Something went wrong while submitting your "
+                        "return request. Please try again."
+                    ),
                 )
         else:
             messages.error(
                 request,
-                "Please correct the errors below before submitting your return request."
+                (
+                    "Please correct the errors below before "
+                    "submitting your return request."
+                ),
             )
     else:
         form = ReturnRequestForm()
 
-    return render(request, "form/return_form.html", {"form": form})
+    return render(
+        request,
+        "form/return_form.html",
+        {"form": form},
+    )
 
 
 def return_success(request):

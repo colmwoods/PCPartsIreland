@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.text import slugify
-# Create your models here.
 
 
 class Category(models.Model):
@@ -8,7 +7,7 @@ class Category(models.Model):
     friendly_name = models.CharField(max_length=254, blank=True, null=True)
     slug = models.SlugField(max_length=255, unique=True)
 
-    # Seo Fields
+    # SEO fields
     meta_title = models.CharField(max_length=255, blank=True, null=True)
     meta_description = models.TextField(blank=True, null=True)
     meta_keywords = models.CharField(max_length=500, blank=True, null=True)
@@ -30,23 +29,28 @@ class Category(models.Model):
 
 class Product(models.Model):
     category = models.ForeignKey(
-    Category,
-    null=True,
-    blank=True,
-    on_delete=models.SET_NULL,
-    related_name='products'
-)
+        Category,
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='products',
+    )
+
     name = models.CharField(max_length=254)
     sku = models.CharField(max_length=254, null=True, blank=True)
     description = models.TextField(blank=True)
     price = models.DecimalField(max_digits=10, decimal_places=2)
     rating = models.DecimalField(
-        max_digits=3, decimal_places=1, null=True, blank=True)  # optional
+        max_digits=3,
+        decimal_places=1,
+        null=True,
+        blank=True,
+    )
     image = models.ImageField(upload_to="media/", null=True, blank=True)
     image_url = models.URLField(max_length=500, null=True, blank=True)
     stock = models.PositiveIntegerField(default=0)
 
-    # Seo Fields
+    # SEO fields
     meta_title = models.CharField(max_length=255, blank=True, null=True)
     meta_description = models.TextField(blank=True, null=True)
     meta_keywords = models.CharField(max_length=500, blank=True, null=True)

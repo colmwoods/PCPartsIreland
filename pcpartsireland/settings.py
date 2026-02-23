@@ -9,14 +9,16 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
+
 import os
-import dj_database_url
 from pathlib import Path
 from decimal import Decimal
 
+import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 # Import environment variables from env.py if it exists
 env_path = BASE_DIR / "env.py"
@@ -24,19 +26,20 @@ if env_path.exists():
     import env  # noqa
 
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-ALLOWED_HOSTS = ["127.0.0.1", "localhost", ".herokuapp.com",
-                 "pcpartsireland.com", "www.pcpartsireland.com"]
+DEBUG = False
+
+ALLOWED_HOSTS = [
+    "127.0.0.1",
+    "localhost",
+    ".herokuapp.com",
+    "pcpartsireland.com",
+    "www.pcpartsireland.com",
+]
 
 
-# Application definition
+# Applications
 
 INSTALLED_APPS = [
     # Django
@@ -64,33 +67,33 @@ INSTALLED_APPS = [
     "form",
     "faq",
 
-    # Other apps
-    'storages',
-    'crispy_forms',
-    'crispy_bootstrap5',
-    'widget_tweaks',
+    # Third-party apps
+    "storages",
+    "crispy_forms",
+    "crispy_bootstrap5",
+    "widget_tweaks",
 ]
 
 SITE_ID = 1
 
-STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLIC_KEY')
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = os.environ.get("STRIPE_PUBLIC_KEY")
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 CURRENCIES = {
-    'EUR': {
-        'symbol': '€',
-        'rate': Decimal('1.0'),
+    "EUR": {
+        "symbol": "€",
+        "rate": Decimal("1.0"),
     },
-    'USD': {
-        'symbol': '$',
-        'rate': Decimal('1.08'),
+    "USD": {
+        "symbol": "$",
+        "rate": Decimal("1.08"),
     },
-    'GBP': {
-        'symbol': '£',
-        'rate': Decimal('0.86'),
+    "GBP": {
+        "symbol": "£",
+        "rate": Decimal("0.86"),
     },
 }
 
@@ -102,107 +105,120 @@ AUTHENTICATION_BACKENDS = [
 
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
+    "django.middleware.security.SecurityMiddleware",
     "pcpartsireland.middleware.CanonicalDomainMiddleware",
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.common.CommonMiddleware",
+    "django.middleware.csrf.CsrfViewMiddleware",
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-# MockUp Needs To Work
 X_FRAME_OPTIONS = "ALLOWALL"
 
+ROOT_URLCONF = "pcpartsireland.urls"
 
-ROOT_URLCONF = 'pcpartsireland.urls'
 SECURE_SSL_REDIRECT = not DEBUG
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 CANONICAL_HOST = "www.pcpartsireland.com"
 
+
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
         "DIRS": [BASE_DIR / "templates"],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-                'bag.context.bag_contents',
-                'pcpartsireland.context_processors.currency_context',
+        "APP_DIRS": True,
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
+                "bag.context.bag_contents",
+                "pcpartsireland.context_processors."
+                "currency_context",
             ],
         },
     },
 ]
 
-WSGI_APPLICATION = 'pcpartsireland.wsgi.application'
+
+WSGI_APPLICATION = "pcpartsireland.wsgi.application"
+
 ACCOUNT_EMAIL_VERIFICATION = "none"
 ACCOUNT_EMAIL_REQUIRED = True
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
-STANDARD_DELIVERY_COST = Decimal('12.29')
+
+STANDARD_DELIVERY_COST = Decimal("12.29")
+
 
 # Database
-# https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
     "default": dj_database_url.parse(
-    os.environ.get("DATABASE_URL")
-)
+        os.environ.get("DATABASE_URL"),
+    ),
 }
 
 
 # Password validation
-# https://docs.djangoproject.com/en/6.0/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': (
-        'django.contrib.auth.password_validation.'
-        'UserAttributeSimilarityValidator'
-    ),
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "UserAttributeSimilarityValidator"
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "MinimumLengthValidator"
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "CommonPasswordValidator"
+        ),
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": (
+            "django.contrib.auth.password_validation."
+            "NumericPasswordValidator"
+        ),
     },
 ]
 
 
 # Internationalization
-# https://docs.djangoproject.com/en/6.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "UTC"
 
 USE_I18N = True
-
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/6.0/howto/static-files/
+# Static files
 
 STATIC_URL = "/static/"
+
 STATICFILES_DIRS = [
     BASE_DIR / "static",
 ]
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
 
-EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 
+# Email
+
+EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
@@ -210,33 +226,57 @@ EMAIL_USE_TLS = True
 EMAIL_HOST_USER = os.environ.get("EMAIL_HOST_USER")
 EMAIL_HOST_PASSWORD = os.environ.get("EMAIL_HOST_PASSWORD")
 
-DEFAULT_FROM_EMAIL = "PC Parts Ireland <colmwoods13@gmail.com>"
+DEFAULT_FROM_EMAIL = (
+    "PC Parts Ireland "
+    "<colmwoods13@gmail.com>"
+)
 
 
-if 'USE_AWS' in os.environ:
-    # Cache control
+# AWS / S3 Configuration
+
+if "USE_AWS" in os.environ:
+
     AWS_S3_OBJECT_PARAMETERS = {
         "Expires": "Thu, 31 Dec 2099 20:00:00 GMT",
         "CacheControl": "max-age=94608000",
     }
-    # Bucket Config
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-    AWS_S3_REGION_NAME = os.environ.get('AWS_S3_REGION_NAME')
-    AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
-    AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
-    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.{AWS_S3_REGION_NAME}.amazonaws.com"
 
-    # Static and Media files
-    STATICFILES_STORAGE = 'custom_storages.StaticStorage'
-    STATICFILES_LOCATION = 'static'
-    MEDIAFILES_LOCATION = 'media'
-    DEFAULT_FILE_STORAGE = 'custom_storages.MediaStorage'
-    # Override static and media URL's
-    STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATICFILES_LOCATION}/'
-    MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
+    AWS_STORAGE_BUCKET_NAME = os.environ.get(
+        "AWS_STORAGE_BUCKET_NAME"
+    )
+    AWS_S3_REGION_NAME = os.environ.get(
+        "AWS_S3_REGION_NAME"
+    )
+    AWS_ACCESS_KEY_ID = os.environ.get(
+        "AWS_ACCESS_KEY_ID"
+    )
+    AWS_SECRET_ACCESS_KEY = os.environ.get(
+        "AWS_SECRET_ACCESS_KEY"
+    )
 
-    # Force S3 storages in Django 6+
+    AWS_S3_CUSTOM_DOMAIN = (
+        f"{AWS_STORAGE_BUCKET_NAME}.s3."
+        f"{AWS_S3_REGION_NAME}.amazonaws.com"
+    )
+
+    STATICFILES_LOCATION = "static"
+    MEDIAFILES_LOCATION = "media"
+
+    STATIC_URL = (
+        f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+        f"{STATICFILES_LOCATION}/"
+    )
+
+    MEDIA_URL = (
+        f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+        f"{MEDIAFILES_LOCATION}/"
+    )
+
     STORAGES = {
-        "default": {"BACKEND": "custom_storages.MediaStorage"},
-        "staticfiles": {"BACKEND": "custom_storages.StaticStorage"},
+        "default": {
+            "BACKEND": "custom_storages.MediaStorage",
+        },
+        "staticfiles": {
+            "BACKEND": "custom_storages.StaticStorage",
+        },
     }
