@@ -28,12 +28,16 @@
                         {% csrf_token %}
 
                         <div class="col-12">
-                            <label class="form-label fw-semibold">Email</label>
+                            <label for="{{ form.login.id_for_label }}" class="form-label fw-semibold">
+                                Email
+                            </label>
                             {{ form.login|add_class:"form-control form-control-lg" }}
                         </div>
 
                         <div class="col-12">
-                            <label class="form-label fw-semibold">Password</label>
+                            <label for="{{ form.password.id_for_label }}" class="form-label fw-semibold">
+                                Password
+                            </label>
                             {{ form.password|add_class:"form-control form-control-lg" }}
                         </div>
 
