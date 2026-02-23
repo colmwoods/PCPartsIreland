@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-
+from django.contrib import messages
 from form.forms import ContactForm, ReturnRequestForm
 
 # Create your views here.
@@ -11,17 +11,26 @@ def contact(request):
     """
     if request.method == 'POST':
         form = ContactForm(request.POST)
+
         if form.is_valid():
             try:
                 form.save()
+                messages.success(request, "Your message has been sent successfully!")
                 return redirect('success')
+
             except Exception as e:
-                print("💥 Contact form error:", e)
-                return render(request, 'form/contact.html', {'form': form})
+                messages.error(
+                    request,
+                    "Something went wrong while sending your message. Please try again."
+                )
         else:
-            print("❌ Form errors:", form.errors)
+            messages.error(
+                request,
+                "Please correct the errors below and resubmit the form."
+            )
     else:
         form = ContactForm()
+
     return render(request, 'form/contact.html', {'form': form})
 
 
