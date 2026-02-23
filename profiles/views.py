@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
@@ -82,3 +82,24 @@ def order_history(request, order_number):
     'grand_total_converted': grand_total_converted,
 }
     return render(request, template, context)
+
+@login_required
+def confirm_delete_profile(request):
+    """
+    Shows confirmation page before deleting account.
+    """
+    return render(request, 'profiles/confirm_delete_profile.html')
+
+
+@login_required
+def delete_profile(request):
+    """
+    Deletes the logged-in user after confirmation.
+    """
+    if request.method == "POST":
+        user = request.user
+        user.delete()
+        messages.success(request, "Your account has been deleted.")
+        return redirect('home')
+
+    return redirect('profile')
