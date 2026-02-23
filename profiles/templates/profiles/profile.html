@@ -35,9 +35,21 @@
                     Update Information
                 </button>
             </form>
+
+            <!-- DELETE ACCOUNT SECTION -->
+            <hr class="mt-5">
+            <p class="text-danger">Danger Zone</p>
+
+            <form action="{% url 'delete_profile' %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger rounded-0 text-uppercase"
+                    onclick="return confirm('Are you sure you want to permanently delete your account? This cannot be undone.');">
+                    Delete My Account
+                </button>
+            </form>
         </div>
 
-        <!-- Order History (safe even if empty) -->
+        <!-- Order History -->
         <div class="col-12 col-lg-6 mt-4 mt-lg-0">
             <p class="text-muted">Order History</p>
 
@@ -60,7 +72,6 @@
                                     {{ order.order_number|truncatechars:8 }}
                                 </a>
                             </td>
-
                             <td>{{ order.date|date:"d M Y" }}</td>
                             <td>{{ currency_symbol }}{{ order.converted_grand_total }}</td>
                         </tr>
