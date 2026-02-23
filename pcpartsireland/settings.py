@@ -152,7 +152,9 @@ STANDARD_DELIVERY_COST = Decimal('12.29')
 # https://docs.djangoproject.com/en/6.0/ref/settings/#databases
 
 DATABASES = {
-    "default": dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    "default": dj_database_url.parse(
+    os.environ.get("DATABASE_URL")
+)
 }
 
 
@@ -161,7 +163,10 @@ DATABASES = {
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME': (
+        'django.contrib.auth.password_validation.'
+        'UserAttributeSimilarityValidator'
+    ),
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',

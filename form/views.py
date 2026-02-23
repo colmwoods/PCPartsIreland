@@ -19,7 +19,7 @@ def contact(request):
                     request, "Your message has been sent successfully!")
                 return redirect('success')
 
-            except Exception as e:
+            except Exception:
                 messages.error(
                     request,
                     "Something went wrong while sending your message. Please try again."

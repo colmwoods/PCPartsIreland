@@ -103,9 +103,12 @@ def adjust_bag(request, item_id):
     # ---- STOCK VALIDATION ----
     if quantity > product.stock:
         messages.error(
-            request,
-            f"You cannot set quantity higher than available stock ({product.stock})."
-        )
+    request,
+    (
+        f"You cannot set quantity higher than "
+        f"available stock ({product.stock})."
+    )
+)
         return redirect(reverse('view_bag'))
 
     if size:
