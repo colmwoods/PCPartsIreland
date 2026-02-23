@@ -58,9 +58,9 @@
                             {{ field|add_class:"form-control form-control-lg" }}
 
                             {% if field.help_text %}
-                            <small id="{{ field.id_for_label }}_helptext" class="form-text text-muted">
+                            <div id="{{ field.id_for_label }}_helptext" class="form-text text-muted mt-1">
                                 {{ field.help_text|safe }}
-                            </small>
+                            </div>
                             {% endif %}
 
                         </div>
