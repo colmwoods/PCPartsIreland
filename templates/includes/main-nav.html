@@ -1,430 +1,422 @@
-<div class="collapse navbar-collapse" id="main-nav">
-    <ul class="navbar-nav">
+<li class="nav-item d-block d-md-none">
+    <a class="logo-font fw-bold nav-link text-black me-3" href="{% url 'home' %}" id="home-link">
+        Home
+    </a>
+</li>
 
-        <li class="nav-item d-block d-md-none">
-            <a class="logo-font fw-bold nav-link text-black me-3" href="{% url 'home' %}" id="home-link">
-                Home
+<!-- RAM -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="ram-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        RAM
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="ram-link">
+        <li class="dropdown-header">Desktop RAM (DIMM)</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=ram-desktop-ddr2,ram-desktop-ddr3,ram-desktop-ddr4,ram-desktop-ddr5">
+                DDR2–DDR5
             </a>
         </li>
 
-        <!-- RAM -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="ram-link" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                RAM
-            </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="ram-link">
-                <li class="dropdown-header">Desktop RAM (DIMM)</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=ram-desktop-ddr2,ram-desktop-ddr3,ram-desktop-ddr4,ram-desktop-ddr5">
-                        DDR2–DDR5
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li class="dropdown-header">Laptop RAM (SO-DIMM)</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=ram-laptop-ddr2,ram-laptop-ddr3,ram-laptop-ddr4,ram-laptop-ddr5">
-                        DDR2–DDR5
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=ram-desktop-ddr2,ram-desktop-ddr3,ram-desktop-ddr4,ram-desktop-ddr5,ram-laptop-ddr2,ram-laptop-ddr3,ram-laptop-ddr4,ram-laptop-ddr5">
-                        All RAM
-                    </a>
-                </li>
-            </ul>
+        <li>
+            <hr class="dropdown-divider">
         </li>
 
-        <!-- GPUs -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="gpus-link" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                GPUs
+        <li class="dropdown-header">Laptop RAM (SO-DIMM)</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=ram-laptop-ddr2,ram-laptop-ddr3,ram-laptop-ddr4,ram-laptop-ddr5">
+                DDR2–DDR5
             </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="gpus-link">
-                <li class="dropdown-header">Desktop GPUs</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=gpu-desktop-nvidia-rtx40,gpu-desktop-nvidia-rtx30,gpu-desktop-nvidia-rtx20,gpu-desktop-nvidia-gtx16,gpu-desktop-nvidia-gtx10,gpu-desktop-nvidia-gtx900,gpu-desktop-nvidia-gtx700,gpu-desktop-nvidia-gtx600">
-                        NVIDIA (GTX/RTX Series)
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=gpu-desktop-amd-rx7000,gpu-desktop-amd-rx6000,gpu-desktop-amd-rx5000,gpu-desktop-amd-rx500,gpu-desktop-amd-rx400,gpu-desktop-amd-hd7000">
-                        AMD (Radeon Series)
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li class="dropdown-header">Laptop GPUs</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=gpu-laptop-nvidia-rtx40,gpu-laptop-nvidia-rtx30,gpu-laptop-nvidia-rtx20,gpu-laptop-nvidia-gtx16,gpu-laptop-nvidia-gtx10">
-                        NVIDIA (Mobile)
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=gpu-laptop-amd-rx7000m,gpu-laptop-amd-rx6000m,gpu-laptop-amd-rx5000m">
-                        AMD (Radeon Mobile)
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=gpu-desktop-nvidia-rtx40,gpu-desktop-nvidia-rtx30,gpu-desktop-nvidia-rtx20,gpu-desktop-nvidia-gtx16,gpu-desktop-nvidia-gtx10,gpu-desktop-nvidia-gtx900,gpu-desktop-nvidia-gtx700,gpu-desktop-nvidia-gtx600,gpu-desktop-amd-rx7000,gpu-desktop-amd-rx6000,gpu-desktop-amd-rx5000,gpu-desktop-amd-rx500,gpu-desktop-amd-rx400,gpu-desktop-amd-hd7000,gpu-laptop-nvidia-rtx40,gpu-laptop-nvidia-rtx30,gpu-laptop-nvidia-rtx20,gpu-laptop-nvidia-gtx16,gpu-laptop-nvidia-gtx10,gpu-laptop-amd-rx7000m,gpu-laptop-amd-rx6000m,gpu-laptop-amd-rx5000m">
-                        All GPUs
-                    </a>
-                </li>
-            </ul>
         </li>
 
-        <!-- CPUs -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="cpus-link" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                CPUs
-            </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="cpus-link">
-                <li class="dropdown-header">Desktop CPUs</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1156,cpu-desktop-intel-lga1155,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700">
-                        Intel (LGA Sockets)
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5">
-                        AMD (AM Sockets)
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li class="dropdown-header">Laptop CPUs</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=cpu-laptop-intel-socketed,cpu-laptop-intel-bga">
-                        Intel (Socketed / BGA)
-                    </a>
-                </li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=cpu-laptop-amd-socketed,cpu-laptop-amd-bga">
-                        AMD (Socketed / BGA)
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1156,cpu-desktop-intel-lga1155,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700,cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5,cpu-laptop-intel-socketed,cpu-laptop-intel-bga,cpu-laptop-amd-socketed,cpu-laptop-amd-bga">
-                        All CPUs
-                    </a>
-                </li>
-            </ul>
+        <li>
+            <hr class="dropdown-divider">
         </li>
 
-        <!-- Motherboards -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="motherboards-link"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Motherboards
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=ram-desktop-ddr2,ram-desktop-ddr3,ram-desktop-ddr4,ram-desktop-ddr5,ram-laptop-ddr2,ram-laptop-ddr3,ram-laptop-ddr4,ram-laptop-ddr5">
+                All RAM
             </a>
+        </li>
+    </ul>
+</li>
 
-            <ul class="dropdown-menu border-0" aria-labelledby="motherboards-link">
+<!-- GPUs -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="gpus-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        GPUs
+    </a>
 
-                <li class="dropdown-header">Intel</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=motherboard-desktop-intel-lga775,motherboard-desktop-intel-lga1155,motherboard-desktop-intel-lga1150,motherboard-desktop-intel-lga1151,motherboard-desktop-intel-lga1156,motherboard-desktop-intel-lga1200,motherboard-desktop-intel-lga1700">
-                        LGA 775 / 1150 / 1151 / 1200 / 1700 / 1155 / 1156
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li class="dropdown-header">AMD</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=motherboard-desktop-amd-am3,motherboard-desktop-amd-am4,motherboard-desktop-amd-am5">
-                        AM3 / AM4 / AM5
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700,cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5">
-                        All Motherboards
-                    </a>
-                </li>
-
-            </ul>
+    <ul class="dropdown-menu border-0" aria-labelledby="gpus-link">
+        <li class="dropdown-header">Desktop GPUs</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=gpu-desktop-nvidia-rtx40,gpu-desktop-nvidia-rtx30,gpu-desktop-nvidia-rtx20,gpu-desktop-nvidia-gtx16,gpu-desktop-nvidia-gtx10,gpu-desktop-nvidia-gtx900,gpu-desktop-nvidia-gtx700,gpu-desktop-nvidia-gtx600">
+                NVIDIA (GTX/RTX Series)
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=gpu-desktop-amd-rx7000,gpu-desktop-amd-rx6000,gpu-desktop-amd-rx5000,gpu-desktop-amd-rx500,gpu-desktop-amd-rx400,gpu-desktop-amd-hd7000">
+                AMD (Radeon Series)
+            </a>
         </li>
 
-        <!-- Storage -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="storage-link"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Storage
-            </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="storage-link">
-                <li class="dropdown-header">HDD</li>
-                <li>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=storage-hdd-25,storage-hdd-35">
-                        2.5&quot; / 3.5&quot;
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li class="dropdown-header">SSD</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=storage-ssd-25-sata,storage-ssd-msata,storage-ssd-m2-sata">
-                        SATA / mSATA / M.2 SATA
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li class="dropdown-header">NVMe</li>
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=storage-nvme-gen3,storage-nvme-gen4,storage-nvme-gen5">
-                        PCIe Gen3–Gen5
-                    </a>
-                </li>
-
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=storage-hdd-25,storage-hdd-35,storage-ssd-25-sata,storage-ssd-msata,storage-ssd-m2-sata,storage-nvme-gen3,storage-nvme-gen4,storage-nvme-gen5">
-                        All Storage
-                    </a>
-                </li>
-            </ul>
+        <li>
+            <hr class="dropdown-divider">
         </li>
 
-        <!-- PSUs -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="psus-link" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                PSUs
+        <li class="dropdown-header">Laptop GPUs</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=gpu-laptop-nvidia-rtx40,gpu-laptop-nvidia-rtx30,gpu-laptop-nvidia-rtx20,gpu-laptop-nvidia-gtx16,gpu-laptop-nvidia-gtx10">
+                NVIDIA (Mobile)
             </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="psus-link">
-                <li>
-                    <a class="dropdown-item" href="{% url 'products' %}?category=psu-atx,psu-sfx,psu-server">
-                        All PSUs
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a href="{% url 'products' %}?category=psu-atx" class="dropdown-item">ATX</a></li>
-                <li><a href="{% url 'products' %}?category=psu-sfx" class="dropdown-item">SFX</a></li>
-                <li><a href="{% url 'products' %}?category=psu-server" class="dropdown-item">Server / Proprietary</a>
-                </li>
-            </ul>
+        </li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=gpu-laptop-amd-rx7000m,gpu-laptop-amd-rx6000m,gpu-laptop-amd-rx5000m">
+                AMD (Radeon Mobile)
+            </a>
         </li>
 
-        <!-- Cases -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="cases-link" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">
-                Cases
-            </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="cases-link">
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=case-atx,case-micro-atx,case-mini-itx,case-sff">
-                        All Cases
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a href="{% url 'products' %}?category=case-atx" class="dropdown-item">ATX</a></li>
-                <li><a href="{% url 'products' %}?category=case-micro-atx" class="dropdown-item">Micro-ATX</a></li>
-                <li><a href="{% url 'products' %}?category=case-mini-itx" class="dropdown-item">Mini-ITX</a></li>
-                <li><a href="{% url 'products' %}?category=case-sff" class="dropdown-item">SFF (Small Form Factor)</a>
-                </li>
-            </ul>
+        <li>
+            <hr class="dropdown-divider">
         </li>
 
-        <!-- Laptops -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="laptops-link"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Laptops
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=gpu-desktop-nvidia-rtx40,gpu-desktop-nvidia-rtx30,gpu-desktop-nvidia-rtx20,gpu-desktop-nvidia-gtx16,gpu-desktop-nvidia-gtx10,gpu-desktop-nvidia-gtx900,gpu-desktop-nvidia-gtx700,gpu-desktop-nvidia-gtx600,gpu-desktop-amd-rx7000,gpu-desktop-amd-rx6000,gpu-desktop-amd-rx5000,gpu-desktop-amd-rx500,gpu-desktop-amd-rx400,gpu-desktop-amd-hd7000,gpu-laptop-nvidia-rtx40,gpu-laptop-nvidia-rtx30,gpu-laptop-nvidia-rtx20,gpu-laptop-nvidia-gtx16,gpu-laptop-nvidia-gtx10,gpu-laptop-amd-rx7000m,gpu-laptop-amd-rx6000m,gpu-laptop-amd-rx5000m">
+                All GPUs
             </a>
+        </li>
+    </ul>
+</li>
 
-            <ul class="dropdown-menu border-0" aria-labelledby="laptops-link">
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=laptop-office,laptop-gaming,laptop-parts">
-                        All Laptops
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a href="{% url 'products' %}?category=laptop-office" class="dropdown-item">Office / Everyday</a>
-                </li>
-                <li><a href="{% url 'products' %}?category=laptop-gaming" class="dropdown-item">Gaming</a></li>
-                <li><a href="{% url 'products' %}?category=laptop-parts" class="dropdown-item">Parts / Repair</a></li>
-            </ul>
+<!-- CPUs -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="cpus-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        CPUs
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="cpus-link">
+        <li class="dropdown-header">Desktop CPUs</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1156,cpu-desktop-intel-lga1155,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700">
+                Intel (LGA Sockets)
+            </a>
+        </li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5">
+                AMD (AM Sockets)
+            </a>
         </li>
 
-        <!-- Prebuilt PCs -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="prebuilts-link"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Prebuilt PCs
-            </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="prebuilts-link">
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=prebuilt-gaming,prebuilt-office,prebuilt-parts">
-                        All Prebuilts
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a href="{% url 'products' %}?category=prebuilt-gaming" class="dropdown-item">Gaming PCs</a></li>
-                <li><a href="{% url 'products' %}?category=prebuilt-office" class="dropdown-item">Home / Office PCs</a>
-                </li>
-                <li><a href="{% url 'products' %}?category=prebuilt-parts" class="dropdown-item">Parts / Repair PCs</a>
-                </li>
-            </ul>
+        <li>
+            <hr class="dropdown-divider">
         </li>
 
-        <!-- Accessories -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="accessories-link"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Accessories
+        <li class="dropdown-header">Laptop CPUs</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=cpu-laptop-intel-socketed,cpu-laptop-intel-bga">
+                Intel (Socketed / BGA)
             </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="accessories-link">
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=accessory-wifi,accessory-video,accessory-m2-pcie,accessory-misc">
-                        All Accessories
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a href="{% url 'products' %}?category=accessory-wifi" class="dropdown-item">Wi-Fi &amp;
-                        Networking</a></li>
-                <li><a href="{% url 'products' %}?category=accessory-video" class="dropdown-item">Video Adapters &amp;
-                        Cables</a></li>
-                <li><a href="{% url 'products' %}?category=accessory-m2-pcie" class="dropdown-item">M.2 / PCIe
-                        Adapters</a></li>
-                <li><a href="{% url 'products' %}?category=accessory-misc" class="dropdown-item">Miscellaneous</a></li>
-            </ul>
+        </li>
+        <li>
+            <a class="dropdown-item" href="{% url 'products' %}?category=cpu-laptop-amd-socketed,cpu-laptop-amd-bga">
+                AMD (Socketed / BGA)
+            </a>
         </li>
 
-        <!-- Clearance -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="clearance-link"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Clearance
-            </a>
-
-            <ul class="dropdown-menu border-0" aria-labelledby="clearance-link">
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=clearance-under-10,clearance-under-25,clearance-under-50,clearance-last">
-                        All Clearance
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a href="{% url 'products' %}?category=clearance-under-10" class="dropdown-item">Under €10</a></li>
-                <li><a href="{% url 'products' %}?category=clearance-under-25" class="dropdown-item">Under €25</a></li>
-                <li><a href="{% url 'products' %}?category=clearance-under-50" class="dropdown-item">Under €50</a></li>
-                <li><a href="{% url 'products' %}?category=clearance-last" class="dropdown-item">Last Chance</a></li>
-            </ul>
+        <li>
+            <hr class="dropdown-divider">
         </li>
 
-        <!-- Parts / Repair -->
-        <li class="nav-item dropdown">
-            <a class="logo-font fw-bold nav-link text-black dropdown-toggle" href="#" id="parts-repair-link"
-                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Parts / Repair
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1156,cpu-desktop-intel-lga1155,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700,cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5,cpu-laptop-intel-socketed,cpu-laptop-intel-bga,cpu-laptop-amd-socketed,cpu-laptop-amd-bga">
+                All CPUs
             </a>
+        </li>
+    </ul>
+</li>
 
-            <ul class="dropdown-menu border-0" aria-labelledby="parts-repair-link">
-                <li>
-                    <a class="dropdown-item"
-                        href="{% url 'products' %}?category=repair-gpu,repair-cpu,repair-motherboard,repair-ram,repair-storage,repair-psu,repair-laptop,repair-prebuilt">
-                        All Parts / Repair
-                    </a>
-                </li>
-                <li>
-                    <hr class="dropdown-divider">
-                </li>
-                <li><a href="{% url 'products' %}?category=repair-gpu" class="dropdown-item">GPUs</a></li>
-                <li><a href="{% url 'products' %}?category=repair-cpu" class="dropdown-item">CPUs</a></li>
-                <li><a href="{% url 'products' %}?category=repair-motherboard" class="dropdown-item">Motherboards</a>
-                </li>
-                <li><a href="{% url 'products' %}?category=repair-ram" class="dropdown-item">RAM</a></li>
-                <li><a href="{% url 'products' %}?category=repair-storage" class="dropdown-item">Storage</a></li>
-                <li><a href="{% url 'products' %}?category=repair-psu" class="dropdown-item">PSUs</a></li>
-                <li><a href="{% url 'products' %}?category=repair-laptop" class="dropdown-item">Laptops</a></li>
-                <li><a href="{% url 'products' %}?category=repair-prebuilt" class="dropdown-item">Prebuilt PCs</a></li>
-            </ul>
+<!-- Motherboards -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="motherboards-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Motherboards
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="motherboards-link">
+
+        <li class="dropdown-header">Intel</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=motherboard-desktop-intel-lga775,motherboard-desktop-intel-lga1155,motherboard-desktop-intel-lga1150,motherboard-desktop-intel-lga1151,motherboard-desktop-intel-lga1156,motherboard-desktop-intel-lga1200,motherboard-desktop-intel-lga1700">
+                LGA 775 / 1150 / 1151 / 1200 / 1700 / 1155 / 1156
+            </a>
+        </li>
+
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+
+        <li class="dropdown-header">AMD</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=motherboard-desktop-amd-am3,motherboard-desktop-amd-am4,motherboard-desktop-amd-am5">
+                AM3 / AM4 / AM5
+            </a>
+        </li>
+
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=cpu-desktop-intel-lga775,cpu-desktop-intel-lga1150,cpu-desktop-intel-lga1151,cpu-desktop-intel-lga1200,cpu-desktop-intel-lga1700,cpu-desktop-amd-am3,cpu-desktop-amd-am4,cpu-desktop-amd-am5">
+                All Motherboards
+            </a>
         </li>
 
     </ul>
-</div>
+</li>
+
+<!-- Storage -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="storage-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Storage
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="storage-link">
+        <li class="dropdown-header">HDD</li>
+        <li>
+            <a class="dropdown-item" href="{% url 'products' %}?category=storage-hdd-25,storage-hdd-35">
+                2.5&quot; / 3.5&quot;
+            </a>
+        </li>
+
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+
+        <li class="dropdown-header">SSD</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=storage-ssd-25-sata,storage-ssd-msata,storage-ssd-m2-sata">
+                SATA / mSATA / M.2 SATA
+            </a>
+        </li>
+
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+
+        <li class="dropdown-header">NVMe</li>
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=storage-nvme-gen3,storage-nvme-gen4,storage-nvme-gen5">
+                PCIe Gen3–Gen5
+            </a>
+        </li>
+
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=storage-hdd-25,storage-hdd-35,storage-ssd-25-sata,storage-ssd-msata,storage-ssd-m2-sata,storage-nvme-gen3,storage-nvme-gen4,storage-nvme-gen5">
+                All Storage
+            </a>
+        </li>
+    </ul>
+</li>
+
+<!-- PSUs -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="psus-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        PSUs
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="psus-link">
+        <li>
+            <a class="dropdown-item" href="{% url 'products' %}?category=psu-atx,psu-sfx,psu-server">
+                All PSUs
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a href="{% url 'products' %}?category=psu-atx" class="dropdown-item">ATX</a></li>
+        <li><a href="{% url 'products' %}?category=psu-sfx" class="dropdown-item">SFX</a></li>
+        <li><a href="{% url 'products' %}?category=psu-server" class="dropdown-item">Server / Proprietary</a>
+        </li>
+    </ul>
+</li>
+
+<!-- Cases -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="cases-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Cases
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="cases-link">
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=case-atx,case-micro-atx,case-mini-itx,case-sff">
+                All Cases
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a href="{% url 'products' %}?category=case-atx" class="dropdown-item">ATX</a></li>
+        <li><a href="{% url 'products' %}?category=case-micro-atx" class="dropdown-item">Micro-ATX</a></li>
+        <li><a href="{% url 'products' %}?category=case-mini-itx" class="dropdown-item">Mini-ITX</a></li>
+        <li><a href="{% url 'products' %}?category=case-sff" class="dropdown-item">SFF (Small Form Factor)</a>
+        </li>
+    </ul>
+</li>
+
+<!-- Laptops -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="laptops-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Laptops
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="laptops-link">
+        <li>
+            <a class="dropdown-item" href="{% url 'products' %}?category=laptop-office,laptop-gaming,laptop-parts">
+                All Laptops
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a href="{% url 'products' %}?category=laptop-office" class="dropdown-item">Office / Everyday</a>
+        </li>
+        <li><a href="{% url 'products' %}?category=laptop-gaming" class="dropdown-item">Gaming</a></li>
+        <li><a href="{% url 'products' %}?category=laptop-parts" class="dropdown-item">Parts / Repair</a></li>
+    </ul>
+</li>
+
+<!-- Prebuilt PCs -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="prebuilts-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Prebuilt PCs
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="prebuilts-link">
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=prebuilt-gaming,prebuilt-office,prebuilt-parts">
+                All Prebuilts
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a href="{% url 'products' %}?category=prebuilt-gaming" class="dropdown-item">Gaming PCs</a></li>
+        <li><a href="{% url 'products' %}?category=prebuilt-office" class="dropdown-item">Home / Office PCs</a>
+        </li>
+        <li><a href="{% url 'products' %}?category=prebuilt-parts" class="dropdown-item">Parts / Repair PCs</a>
+        </li>
+    </ul>
+</li>
+
+<!-- Accessories -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="accessories-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Accessories
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="accessories-link">
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=accessory-wifi,accessory-video,accessory-m2-pcie,accessory-misc">
+                All Accessories
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a href="{% url 'products' %}?category=accessory-wifi" class="dropdown-item">Wi-Fi &amp;
+                Networking</a></li>
+        <li><a href="{% url 'products' %}?category=accessory-video" class="dropdown-item">Video Adapters &amp;
+                Cables</a></li>
+        <li><a href="{% url 'products' %}?category=accessory-m2-pcie" class="dropdown-item">M.2 / PCIe
+                Adapters</a></li>
+        <li><a href="{% url 'products' %}?category=accessory-misc" class="dropdown-item">Miscellaneous</a></li>
+    </ul>
+</li>
+
+<!-- Clearance -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black me-3 dropdown-toggle" href="#" id="clearance-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Clearance
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="clearance-link">
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=clearance-under-10,clearance-under-25,clearance-under-50,clearance-last">
+                All Clearance
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a href="{% url 'products' %}?category=clearance-under-10" class="dropdown-item">Under €10</a></li>
+        <li><a href="{% url 'products' %}?category=clearance-under-25" class="dropdown-item">Under €25</a></li>
+        <li><a href="{% url 'products' %}?category=clearance-under-50" class="dropdown-item">Under €50</a></li>
+        <li><a href="{% url 'products' %}?category=clearance-last" class="dropdown-item">Last Chance</a></li>
+    </ul>
+</li>
+
+<!-- Parts / Repair -->
+<li class="nav-item dropdown">
+    <a class="logo-font fw-bold nav-link text-black dropdown-toggle" href="#" id="parts-repair-link" role="button"
+        data-bs-toggle="dropdown" aria-expanded="false">
+        Parts / Repair
+    </a>
+
+    <ul class="dropdown-menu border-0" aria-labelledby="parts-repair-link">
+        <li>
+            <a class="dropdown-item"
+                href="{% url 'products' %}?category=repair-gpu,repair-cpu,repair-motherboard,repair-ram,repair-storage,repair-psu,repair-laptop,repair-prebuilt">
+                All Parts / Repair
+            </a>
+        </li>
+        <li>
+            <hr class="dropdown-divider">
+        </li>
+        <li><a href="{% url 'products' %}?category=repair-gpu" class="dropdown-item">GPUs</a></li>
+        <li><a href="{% url 'products' %}?category=repair-cpu" class="dropdown-item">CPUs</a></li>
+        <li><a href="{% url 'products' %}?category=repair-motherboard" class="dropdown-item">Motherboards</a>
+        </li>
+        <li><a href="{% url 'products' %}?category=repair-ram" class="dropdown-item">RAM</a></li>
+        <li><a href="{% url 'products' %}?category=repair-storage" class="dropdown-item">Storage</a></li>
+        <li><a href="{% url 'products' %}?category=repair-psu" class="dropdown-item">PSUs</a></li>
+        <li><a href="{% url 'products' %}?category=repair-laptop" class="dropdown-item">Laptops</a></li>
+        <li><a href="{% url 'products' %}?category=repair-prebuilt" class="dropdown-item">Prebuilt PCs</a></li>
+    </ul>
+</li>
