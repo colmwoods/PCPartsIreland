@@ -6,7 +6,7 @@
 
             <!-- LEFT SIDE - SEARCH -->
             <form method="GET" action="{% url 'product_search' %}" id="search-form"
-                class="d-flex align-items-center flex-nowrap position-relative" style="width: 280px;">
+                class="d-flex align-items-center flex-nowrap position-relative me-3" style="width: 280px;">
 
                 <input class="form-control form-control-sm py-1" type="search" name="q" id="search-input"
                     placeholder="Search products...">
@@ -24,8 +24,10 @@
                 <div class="dropdown">
                     <a class="top-header-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                         aria-expanded="false">
-                        <i class="fas fa-money-bill-wave me-1"></i>
-                        {{ current_currency }}
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span class="d-none d-sm-inline ms-1">
+                            {{ current_currency }}
+                        </span>
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -44,7 +46,7 @@
                     <a class="top-header-link dropdown-toggle text-white d-flex align-items-center gap-2" href="#"
                         role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fas fa-user text-white"></i>
-                        <span>My Account</span>
+                        <span class="d-none d-sm-inline">My Account</span>
                     </a>
 
                     <ul class="dropdown-menu dropdown-menu-end">
@@ -80,12 +82,12 @@
                     <i class="fas fa-shopping-bag text-white"></i>
 
                     {% if product_count %}
-                    <span>Bag ({{ product_count }})</span>
+                    <span class="d-none d-sm-inline">Bag ({{ product_count }})</span>
                     <span>
                         {{ currency_symbol }}{{ total|mul:currency_rate|floatformat:2 }}
                     </span>
                     {% else %}
-                    <span>Bag (0)</span>
+                    <span class="d-none d-sm-inline">Bag (0)</span>
                     {% endif %}
 
                 </a>
