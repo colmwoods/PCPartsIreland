@@ -47,9 +47,26 @@ def return_request(request):
     """
     if request.method == "POST":
         form = ReturnRequestForm(request.POST)
+
         if form.is_valid():
-            form.save()
-            return redirect("return_success")
+            try:
+                form.save()
+                messages.success(
+                    request,
+                    "Your return request has been submitted successfully."
+                )
+                return redirect("return_success")
+
+            except Exception:
+                messages.error(
+                    request,
+                    "Something went wrong while submitting your return request. Please try again."
+                )
+        else:
+            messages.error(
+                request,
+                "Please correct the errors below before submitting your return request."
+            )
     else:
         form = ReturnRequestForm()
 
