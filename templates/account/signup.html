@@ -50,10 +50,19 @@
 
                         {% for field in form %}
                         <div class="col-12">
+
                             <label for="{{ field.id_for_label }}" class="form-label fw-semibold">
                                 {{ field.label }}
                             </label>
+
                             {{ field|add_class:"form-control form-control-lg" }}
+
+                            {% if field.help_text %}
+                            <small id="{{ field.id_for_label }}_helptext" class="form-text text-muted">
+                                {{ field.help_text|safe }}
+                            </small>
+                            {% endif %}
+
                         </div>
                         {% endfor %}
 
