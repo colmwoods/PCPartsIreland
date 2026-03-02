@@ -254,7 +254,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Product Management | Superusers can add, edit, update stock, and delete products via a full CRUD interface. | ![screenshot](documentation/features/product-management.jpg) |
 | Newsletter | Users can subscribe to receive updates on hardware releases and promotions. | ![screenshot](documentation/features/newsletter.jpg) |
 | Contact | Contact form stores user enquiries in the database for admin review. | ![screenshot](documentation/features/contact.jpg) |
-| Return | Return form stores return info in the database for admin review. | ![screenshot](documentation/features/return.jpg) |
+| Returns | Return form stores return info in the database for admin review. | ![screenshot](documentation/features/return.jpg) |
 | FAQs | Admin-managed FAQ section provides answers to common purchasing queries. | ![screenshot](documentation/features/faqs.jpg) |
 | User Feedback | Django messaging framework provides real-time feedback (e.g., added to cart, removed item, insufficient stock). | ![screenshot](documentation/features/user-feedback.jpg) |
 | SEO | Includes sitemap.xml, robots.txt, and optimised metadata. | ![screenshot](documentation/features/seo.jpg) |
@@ -438,7 +438,6 @@ This relational structure ensures:
 
 The ERD below visualises these relationships.
 
-![screenshot](documentation/erd.jpg)
 
 I have used `Mermaid` to generate an interactive ERD of my project.
 
