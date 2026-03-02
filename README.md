@@ -613,17 +613,18 @@ EPICs were first defined at a high level (e.g., Product Management, Checkout & P
 
 A Kanban-style project board was used to move tasks through development stages such as:
 
-- Backlog  
-- To Do  
-- In Progress  
-- Testing  
+- Distinction 
+- Merit  
+- Todo  
+- In Progress
 - Done  
 
 This structured workflow ensured:
 
 - Clear feature planning  
 - Logical development progression  
-- Transparent milestone tracking  
+- Transparent milestone tracking
+- Alignment with assessment requirements
 - Efficient bug management  
 
 ![screenshot](documentation/gh-projects.jpg)
