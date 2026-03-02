@@ -661,15 +661,34 @@ The focus on the Irish market allows for clearer delivery expectations, pricing 
 
 ### Value Proposition
 
-PCPartsIreland differentiates itself by:
+PCPartsIreland creates value by simplifying the process of purchasing PC hardware through structured design, secure transactions, and inventory-aware functionality.
 
-- Offering a streamlined and uncluttered user experience  
-- Structuring hardware into logical, easy-to-navigate categories  
-- Providing secure online payments via Stripe  
-- Implementing stock-aware ordering to prevent overselling  
-- Delivering a focused platform tailored specifically to PC hardware  
+Unlike large international marketplaces that list a wide range of unrelated products, PCPartsIreland focuses exclusively on PC components. This niche focus allows for clearer categorisation of hardware such as CPUs, GPUs, RAM, Storage, Power Supplies, Cases, and Prebuilt PCs, making product discovery more intuitive and less overwhelming.
 
-Many large international marketplaces can feel overwhelming or overly broad. PCPartsIreland aims to simplify the purchasing process through clean categorisation and intuitive navigation.
+The application enhances user value through:
+
+- **Logical Product Organisation**  
+  Hardware is structured into clearly defined categories, helping users quickly navigate to relevant components.
+
+- **Search, Filtering & Sorting Tools**  
+  Users can efficiently compare products by category, price, or name, improving decision-making speed.
+
+- **Stock-Aware Ordering**  
+  Customers cannot purchase more units than are available, reducing order errors and increasing trust.
+
+- **Secure Payment Processing**  
+  Stripe integration ensures card details are handled securely, strengthening customer confidence at checkout.
+
+- **User Profile & Faster Checkout**  
+  Saved delivery details reduce friction for returning customers and streamline repeat purchases.
+
+- **Order History & Transparency**  
+  Customers can review past purchases, providing reassurance and clear transaction records.
+
+- **Newsletter Communication**  
+  Users can receive updates on restocks, new hardware releases, and promotions within the Irish market.
+
+By combining technical reliability with structured usability, PCPartsIreland delivers a focused, streamlined, and trustworthy e-commerce experience tailored specifically to PC hardware buyers in Ireland.
 
 ### Cost Structure
 
