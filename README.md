@@ -560,6 +560,49 @@ INSTALLED_APPS = [
 
 source: [medium.com](https://medium.com/@yathomasi1/1-using-django-extensions-to-visualize-the-database-diagram-in-django-application-c5fa7e710e16)
 
+---
+
+## Admin Import & Export Functionality
+
+PCPartsIreland uses **django-import-export** within the Django Admin interface to support structured bulk data management.
+
+Both the `Product` and `Category` models are registered using `ImportExportModelAdmin`, allowing the store owner to:
+
+- Import products in bulk (e.g., CSV format)
+- Export existing product data for reporting or backup
+- Update pricing and stock levels efficiently
+- Prevent duplication using unique identifiers (`sku` for products, `name` for categories)
+
+Product images are stored using **AWS S3**, and the `image_url` field supports direct S3 links.
+
+This allows efficient bulk image assignment. For example, when multiple products share the same image (such as AM4 processors using a common stock image), the S3 image URL can be copied into multiple rows within a CSV file and imported in a single operation.
+
+Instead of manually uploading images one-by-one through the admin interface, a structured spreadsheet can be prepared and imported instantly, significantly reducing manual workload and improving operational scalability.
+
+### Example Bulk Import Structure
+
+Below is an example of how the product import spreadsheet is structured:
+
+![screenshot](documentation/product-import-example.jpg)
+
+Typical columns include:
+
+- `sku`
+- `name`
+- `description`
+- `price`
+- `category`
+- `rating`
+- `stock`
+- `image_url`
+- `meta_title`
+- `meta_description`
+- `meta_keywords`
+
+Using this structured approach ensures consistent catalogue formatting and enables rapid addition of new hardware releases or pricing updates.
+
+---
+
 ## Agile Development Process
 
 ### GitHub Projects
