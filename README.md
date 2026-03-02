@@ -110,7 +110,7 @@ source: [PCPartsIreland amiresponsive](https://ui.dev/amiresponsive?url=https://
 
 **Information Architecture**
 - **Navigation Menu**:
-  - Links to Home, Products, Cart, Newsletter, and Account sections.
+  - Links to Home, Products, About, Cart, Newsletter, and Account sections.
 - **Hierarchy**:
   - Prominent product categories and filters for easy navigation.
   - Cart and checkout options displayed prominently for convenience.
@@ -180,6 +180,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Change Password | ![screenshot](documentation/wireframes/mobile-password.jpg) | ![screenshot](documentation/wireframes/tablet-password.jpg) | ![screenshot](documentation/wireframes/desktop-password.jpg) |
 | Profile | ![screenshot](documentation/wireframes/mobile-profile.jpg) | ![screenshot](documentation/wireframes/tablet-profile.jpg) | ![screenshot](documentation/wireframes/desktop-profile.jpg) |
 | Delete Profile Conformation | ![screenshot](documentation/wireframes/mobile-delete-profile.jpg) | ![screenshot](documentation/wireframes/tablet-delete-profile.jpg) | ![screenshot](documentation/wireframes/desktop-delete-profile.jpg) |
+| About | ![screenshot](documentation/wireframes/mobile-about.jpg) | ![screenshot](documentation/wireframes/tablet-about.jpg) | ![screenshot](documentation/wireframes/desktop-about.jpg) |
 | Home | ![screenshot](documentation/wireframes/mobile-home.jpg) | ![screenshot](documentation/wireframes/tablet-home.jpg) | ![screenshot](documentation/wireframes/desktop-home.jpg) |
 | Products | ![screenshot](documentation/wireframes/mobile-products.jpg) | ![screenshot](documentation/wireframes/tablet-products.jpg) | ![screenshot](documentation/wireframes/desktop-products.jpg) |
 | Product Details | ![screenshot](documentation/wireframes/mobile-product-details.jpg) | ![screenshot](documentation/wireframes/tablet-product-details.jpg) | ![screenshot](documentation/wireframes/desktop-product-details.jpg) |
@@ -199,6 +200,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | --- | --- | --- |
 | As a guest user | I would like to browse PC components without needing to register | so that I can explore products before committing to an account. |
 | As a guest user | I would like to be prompted to create an account or log in at checkout | so that I can complete my purchase and track my order history. |
+| As a guest user | I would like to learn more about the store and what it sells | so that I can decide whether it meets my needs. |
 | As a user | I would like to sign up to the site's newsletter | so that I can stay up to date with hardware releases, restocks, and promotions. |
 | As a customer | I would like to browse various hardware categories (CPU, GPU, RAM, Storage, Prebuilt PCs, Accessories) | so that I can easily find what I need. |
 | As a customer | I would like to use the search bar to find specific components | so that I can quickly locate a product by name or keyword. |
@@ -235,6 +237,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Register | Authentication is handled by Django Allauth, allowing secure user registration and account creation. | ![screenshot](documentation/features/register.jpg) |
 | Login | Registered users can securely log in to manage their account and order history. | ![screenshot](documentation/features/login.jpg) |
 | Logout | Users can safely log out of their account to protect personal data. | ![screenshot](documentation/features/logout.jpg) |
+| About Page | Provides background information about PCPartsIreland, outlining product offerings and brand purpose. Accessible via footer navigation. | ![screenshot](documentation/features/about.jpg) |
 | Product List | Displays all available PC components in a structured grid layout. Includes sorting, filtering, and search functionality. | ![screenshot](documentation/features/product-list.jpg) |
 | Search Bar | A navigation-based search bar allows users to search for hardware by keyword or product name. | ![screenshot](documentation/features/search-bar.jpg) |
 | Sorting & Filtering | Products can be sorted by price or name and filtered by category for easier browsing. | ![screenshot](documentation/features/product-list.jpg) |
