@@ -191,6 +191,8 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Edit Product | ![screenshot](documentation/wireframes/mobile-edit-product.jpg) | ![screenshot](documentation/wireframes/tablet-edit-product.jpg) | ![screenshot](documentation/wireframes/desktop-edit-product.jpg) |
 | Newsletter | ![screenshot](documentation/wireframes/mobile-newsletter.jpg) | ![screenshot](documentation/wireframes/tablet-newsletter.jpg) | ![screenshot](documentation/wireframes/desktop-newsletter.jpg) |
 | Contact | ![screenshot](documentation/wireframes/mobile-contact.jpg) | ![screenshot](documentation/wireframes/tablet-contact.jpg) | ![screenshot](documentation/wireframes/desktop-contact.jpg) |
+| Returns | ![screenshot](documentation/wireframes/mobile-returns.jpg) | ![screenshot](documentation/wireframes/tablet-returns.jpg) | ![screenshot](documentation/wireframes/desktop-returns.jpg) |
+| FAQ | ![screenshot](documentation/wireframes/mobile-faq.jpg) | ![screenshot](documentation/wireframes/tablet-faq.jpg) | ![screenshot](documentation/wireframes/desktop-faq.jpg) |
 | 404 | ![screenshot](documentation/wireframes/mobile-404.jpg) | ![screenshot](documentation/wireframes/tablet-404.jpg) | ![screenshot](documentation/wireframes/desktop-404.jpg) |
 | 500 | ![screenshot](documentation/wireframes/mobile-500.jpg) | ![screenshot](documentation/wireframes/tablet-500.jpg) | ![screenshot](documentation/wireframes/desktop-500.jpg) |
 
