@@ -617,13 +617,100 @@ I've decomposed my EPICs into User Stories for prioritizing and implementing the
 
 ## Ecommerce Business Model
 
-PCPartsIreland sells PC hardware components directly to individual customers, and therefore follows a **Business to Customer (B2C)** model. It operates using a straightforward transactional structure, where customers browse products, add items to their cart, and complete purchases securely online. It does not currently rely on subscription services or recurring payment models.
+PCPartsIreland sells computer hardware components directly to individual customers and therefore follows a **Business-to-Customer (B2C)** e-commerce model. The platform operates using a straightforward transactional structure in which customers browse products, add items to their shopping bag, and complete purchases securely online using Stripe. The system does not currently operate on subscription services or recurring payment models.
 
-The platform is still in its early development stages, although it already includes newsletter functionality and social media integration to support marketing efforts.
+### Product Offering
 
-Social media can help build a community around PCPartsIreland, increase visibility within the Irish tech and gaming market, and drive additional site traffic — particularly when using widely adopted platforms such as Facebook.
+The store focuses specifically on PC hardware and related components, including:
 
-The newsletter allows the business to communicate directly with customers. This can include notifications about special offers, new hardware releases, restocked components, updates to delivery options, changes to business hours, and other relevant announcements.
+- **CPUs (Processors)**
+- **GPUs (Graphics Cards)**
+- **RAM (Memory)**
+- **Motherboards**
+- **Storage Devices (SSD / HDD)**
+- **Power Supplies (PSUs)**
+- **PC Cases**
+- **Prebuilt PCs**
+- **Peripherals and Accessories**
+
+By concentrating exclusively on PC components, the platform maintains a clear niche focus within the Irish technology market.
+
+### Revenue Model
+
+Revenue is generated through direct product sales. The business operates as an inventory-based retail model, where profit is derived from the margin between procurement cost and final sale price.
+
+Additional potential revenue opportunities include:
+
+- Hardware bundles (e.g., CPU + motherboard kits)
+- Complete PC build packages
+- Promotional sales and discount campaigns
+- Affiliate partnerships
+- Featured or sponsored product listings
+
+### Target Market
+
+PCPartsIreland is designed for:
+
+- Gaming enthusiasts building high-performance systems
+- Students and remote workers upgrading hardware
+- First-time PC builders seeking structured browsing
+- Small businesses purchasing or upgrading office machines
+- General technology enthusiasts within Ireland
+
+The focus on the Irish market allows for clearer delivery expectations, pricing transparency, and region-specific marketing.
+
+### Value Proposition
+
+PCPartsIreland differentiates itself by:
+
+- Offering a streamlined and uncluttered user experience  
+- Structuring hardware into logical, easy-to-navigate categories  
+- Providing secure online payments via Stripe  
+- Implementing stock-aware ordering to prevent overselling  
+- Delivering a focused platform tailored specifically to PC hardware  
+
+Many large international marketplaces can feel overwhelming or overly broad. PCPartsIreland aims to simplify the purchasing process through clean categorisation and intuitive navigation.
+
+### Cost Structure
+
+Operating costs include:
+
+- Inventory procurement
+- Payment processing fees (Stripe transaction fees)
+- Hosting and infrastructure (Heroku and AWS S3)
+- Email services (Gmail API)
+- Domain and maintenance costs
+- Marketing and advertising efforts
+
+### Marketing Strategy
+
+Although still in early development stages, the platform incorporates:
+
+- Newsletter subscription functionality
+- Social media integration (e.g., Facebook presence)
+- Search Engine Optimisation (SEO)
+- Organic engagement strategies
+
+Social media helps build community engagement within the Irish tech and gaming space, while the newsletter allows direct communication with customers regarding:
+
+- Special offers  
+- New hardware releases  
+- Restocked components  
+- Delivery updates  
+- Business announcements  
+
+### Scalability Potential
+
+The application is built using Django and PostgreSQL, allowing future expansion into:
+
+- Advanced compatibility checking tools  
+- A guided PC builder system  
+- Loyalty and reward programs  
+- Abandoned cart recovery systems  
+- Expanded multi-currency and multi-language support  
+- Growth beyond the Irish market  
+
+PCPartsIreland is therefore structured as a scalable, inventory-based e-commerce platform with clear commercial viability and expansion potential.
 
 ## SEO & Marketing
 
