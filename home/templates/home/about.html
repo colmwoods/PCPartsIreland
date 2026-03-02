@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+<div class="home-hero d-flex align-items-center">
+    <div class="container error-content">
+        <div class="row justify-content-center">
+            <div class="col-12 col-md-8 col-lg-6">
+                <div class="bg-white p-5 shadow text-center">
+
+                    <h1 class="display-4 logo-font text-black">
+                        About PCPartsIreland
+                    </h1>
+
+                    <p class="lead mt-3 text-muted">
+                        PCPartsIreland was created to provide a focused, user-friendly platform for purchasing computer
+                        hardware within Ireland.
+                    </p>
+
+                    <hr class="my-4">
+
+                    <p class="text-muted">
+                        The platform specialises exclusively in PC components including CPUs, GPUs, RAM, Storage,
+                        Motherboards, Power Supplies, Cases, Prebuilt PCs, and Accessories.
+                    </p>
+
+                    <p class="text-muted">
+                        By concentrating purely on hardware, the store delivers a structured and simplified browsing
+                        experience compared to large international marketplaces.
+                    </p>
+
+                    <p class="text-muted">
+                        Built using Django and PostgreSQL, the application combines secure Stripe payments, stock-aware
+                        ordering, and account management features to create a streamlined and trustworthy shopping
+                        experience.
+                    </p>
+
+                    <div class="mt-4">
+                        <a href="{% url 'products' %}" class="shop-now-button btn btn-lg rounded-0 text-uppercase py-3">
+                            Shop Now
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
