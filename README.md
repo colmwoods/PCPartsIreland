@@ -179,7 +179,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 | Login | ![screenshot](documentation/wireframes/mobile-login.jpg) | ![screenshot](documentation/wireframes/tablet-login.jpg) | ![screenshot](documentation/wireframes/desktop-login.jpg) |
 | Change Password | ![screenshot](documentation/wireframes/mobile-password.jpg) | ![screenshot](documentation/wireframes/tablet-password.jpg) | ![screenshot](documentation/wireframes/desktop-password.jpg) |
 | Profile | ![screenshot](documentation/wireframes/mobile-profile.jpg) | ![screenshot](documentation/wireframes/tablet-profile.jpg) | ![screenshot](documentation/wireframes/desktop-profile.jpg) |
-| Delete Profile Conformation | ![screenshot](documentation/wireframes/mobile-delete-profile.jpg) | ![screenshot](documentation/wireframes/tablet-delete-profile.jpg) | ![screenshot](documentation/wireframes/desktop-delete-profile.jpg) |
+| Delete Profile Confirmation | ![screenshot](documentation/wireframes/mobile-delete-profile.jpg) | ![screenshot](documentation/wireframes/tablet-delete-profile.jpg) | ![screenshot](documentation/wireframes/desktop-delete-profile.jpg) |
 | About | ![screenshot](documentation/wireframes/mobile-about.jpg) | ![screenshot](documentation/wireframes/tablet-about.jpg) | ![screenshot](documentation/wireframes/desktop-about.jpg) |
 | Home | ![screenshot](documentation/wireframes/mobile-home.jpg) | ![screenshot](documentation/wireframes/tablet-home.jpg) | ![screenshot](documentation/wireframes/desktop-home.jpg) |
 | Products | ![screenshot](documentation/wireframes/mobile-products.jpg) | ![screenshot](documentation/wireframes/tablet-products.jpg) | ![screenshot](documentation/wireframes/desktop-products.jpg) |
@@ -367,7 +367,7 @@ PCPartsIreland uses a relational database powered by PostgreSQL and managed thro
 
 The core models in the system are:
 
-User  
+**User**
 Handles authentication and login functionality using Django’s built-in user model.
 
 UserProfile  
@@ -375,11 +375,11 @@ Extends the default User model using a one-to-one relationship.
 Stores default delivery information such as phone number, address, town/city, county, postcode, and country.  
 This improves checkout efficiency for returning customers.
 
-Category  
+**Category** 
 Organises products into structured hardware categories (e.g., CPUs, GPUs, RAM, Storage).  
 Each category contains multiple products using a one-to-many relationship.
 
-Product  
+**Product**  
 Stores all product-related data including:
 - SKU
 - Name
@@ -391,7 +391,7 @@ Stores all product-related data including:
 
 Each product belongs to a single category but can appear in multiple customer orders.
 
-Order  
+**Order**  
 Represents a completed checkout transaction.  
 Stores:
 - Order number
@@ -402,7 +402,7 @@ Stores:
 - Original cart data
 - Timestamp
 
-OrderLineItem  
+**OrderLineItem**  
 Breaks down an Order into individual purchased products.  
 Stores:
 - Product reference
@@ -411,13 +411,13 @@ Stores:
 
 This model ensures accurate quantity tracking and allows customers to order multiple units of the same product while maintaining correct stock awareness.
 
-Newsletter  
+**Newsletter**  
 Stores email addresses of users who subscribe to marketing updates.
 
-Contact  
+**Contact**  
 Stores contact form submissions including name, email, and message content.
 
-FAQ  
+**FAQ**  
 Allows administrators to manage frequently asked questions displayed on the site.
 
 ### Relationship Overview
@@ -873,7 +873,7 @@ The screenshot below demonstrates the confirmation page displayed after a succes
 
 ## Deployment
 
-The live deployed application can be found on [Heroku](https://pcpartsireland.com).
+PCPartsIreland is deployed on Heroku and publicly accessible via the custom domain: [https://pcpartsireland.com](https://pcpartsireland.com).
 
 ## Security Considerations
 
@@ -1009,27 +1009,50 @@ To configure Gmail:
     - `EMAIL_HOST_PASS` to the 16-character key
     - `EMAIL_HOST_USER` to your Gmail address
 
-### WhiteNoise
+### AWS S3 Static & Media Storage
 
-This project uses [WhiteNoise](https://whitenoise.readthedocs.io/en/latest/) to serve static files on the deployed Heroku version of PCPartsIreland.
+PCPartsIreland uses Amazon Web Services (AWS) S3 for static and media file storage in production.
 
-To configure WhiteNoise:
+S3 integration is conditionally enabled using the `USE_AWS` environment variable. When enabled:
 
-- Install the package:
-  - `pip install whitenoise`
-- Update requirements:
-  - `pip freeze --local > requirements.txt`
-- Add WhiteNoise to `settings.py` above other middleware (except SecurityMiddleware):
+- Static files are stored in a `static/` directory within the S3 bucket
+- Uploaded media files are stored in a separate `media/` directory
+- Files are served directly from AWS using a custom S3 domain
+- Long-term cache headers are applied to improve performance
 
-```python
-# settings.py
+#### Storage Configuration
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
-    # any additional middleware
-]
-```
+The project uses `django-storages` with custom storage backends:
+
+- `StaticStorage` for static files
+- `MediaStorage` for uploaded media
+
+The `STORAGES` setting dynamically switches Django’s file handling to AWS in production:
+
+- Static files are served from:
+  `https://<bucket-name>.s3.<region>.amazonaws.com/static/`
+- Media files are served from:
+  `https://<bucket-name>.s3.<region>.amazonaws.com/media/`
+
+#### Performance & Scalability Benefits
+
+Using S3 provides:
+
+- Scalable cloud-based file storage
+- Reduced load on the Heroku dyno
+- Long-term asset caching (`CacheControl` headers applied)
+- Improved performance and reliability in production
+- Separation of application server and asset storage
+
+In development, static files are served locally. In production, AWS handles all static and media asset delivery.
+
+#### AWS S3 Asset Delivery Verification
+
+The screenshot below demonstrates that product images are served directly from AWS S3 in the deployed production environment.
+
+The highlighted `src` attribute shows the S3 bucket domain, confirming that static and media files are not served locally from the Heroku dyno.
+
+![screenshot](documentation/aws-s3-verification.jpg)
 
 ### Local Development
 
@@ -1139,7 +1162,6 @@ The deployed version reflects the tested local environment. Minor differences ma
 | [Boutique Ado](https://codeinstitute.net) | Code Institute walkthrough inspiration |
 | [Bootstrap](https://getbootstrap.com) | Responsive front-end framework |
 | [AWS S3](https://aws.amazon.com/s3) | Static/media storage |
-| [Whitenoise](https://whitenoise.readthedocs.io) | Static file service |
 | [Stripe](https://docs.stripe.com/payments/elements) | Payment integration |
 | [Gmail API](https://developers.google.com/gmail/api/guides) | Email integration |
 | [Python Tutor](https://pythontutor.com) | Python assistance |
