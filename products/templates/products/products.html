@@ -124,6 +124,16 @@
                 </div>
 
             </div>
+{% if request.user.is_superuser %}
+<div class="row mb-3">
+    <div class="col text-end">
+        <a href="{% url 'add_product' %}"
+           class="btn btn-black rounded-0 text-uppercase">
+            Add Product
+        </a>
+    </div>
+</div>
+{% endif %}
 
             <!-- PRODUCTS GRID -->
 <div class="row">
