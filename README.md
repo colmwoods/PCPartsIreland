@@ -815,46 +815,56 @@ Further links for future implementation:
 
 ### Social Media Marketing
 
-Creating a strong social presence and linking it to the PCPartsIreland website can help drive engagement and increase sales. Using widely adopted platforms such as Facebook helps maximise exposure within the Irish tech and gaming community.
+Creating a strong social media presence and linking it directly to the PCPartsIreland website supports brand visibility, customer engagement, and long-term growth. Platforms such as Facebook allow the business to connect with the Irish tech and gaming community, share product updates, promote new hardware releases, and communicate special offers.
 
-I've created a mockup Facebook business account using the [Balsamiq template](https://code-institute-org.github.io/5P-Assessments-Handbook/files/Facebook_Mockups.zip) provided by Code Institute.
+PCPartsIreland maintains an active Facebook Business page to support marketing efforts and community engagement:
 
-![screenshot](documentation/mockup-facebook.jpg)
+👉 **Facebook Page:** https://www.facebook.com/pcpartsireland123/
 
-### Newsletter Marketing
+The page is used to:
 
-I have incorporated newsletter functionality within the application to allow users to supply their email address if they are interested in receiving updates about PCPartsIreland products and promotions.
+- Share new product arrivals and restocks  
+- Promote seasonal offers and discounts  
+- Engage with customers through posts and updates  
+- Increase brand awareness within the Irish PC hardware market  
 
-Two newsletter approaches are supported:
+![screenshot](documentation/facebook-page.jpg)
 
-**1. Custom Django Model Newsletter**
+## Newsletter Marketing
 
-- A custom `newsletter` app was created within the project, containing a model called `Newsletter`.
-- This satisfies two assessment criteria:
-    1. Including a newsletter feature
-    2. Implementing one of the required custom models
-- The model stores subscriber email addresses securely.
-- The existing `send_mail()` functionality used within `webhook_handler.py` can be reused to send promotional emails when new products are added to the store.
+PCPartsIreland includes a fully implemented newsletter system designed to support customer engagement, brand awareness, and repeat visits.
 
-**2. MailChimp Newsletter (Alternative Option)**
+Users can subscribe to the newsletter in two ways:
 
-- A Mailchimp account can be created to manage campaigns externally.
-- This allows up to 2,500 subscription email sends per month.
-- Mailchimp scripts can be integrated into the project following Code Institute guidance.
+- **Automatic Timed Popup** – A subscription modal appears 5 seconds after page load to encourage new visitors to join the mailing list without immediately interrupting their browsing experience.
+- **Footer Trigger** – Users can manually open the newsletter popup at any time by clicking the “Newsletter” link in the site footer, ensuring a non-intrusive and user-controlled option.
 
-Example Mailchimp embedded form integration:
+JavaScript is used to manage the timed modal behaviour, and `sessionStorage` ensures the popup is displayed only once per browsing session to prevent repetitive interruptions.
 
-<script>
-document.getElementById("mc-embedded-subscribe-form").addEventListener("submit", function(e) {
-    const emailInput = document.getElementById("mce-EMAIL").value;
-    if (!emailInput.includes("@")) {
-        e.preventDefault();
-        alert("Please enter a valid email address.");
-    }
-});
-</script>
+Upon submission, the user’s email address is securely added directly to the connected Mailchimp audience list. After successful subscription, users are redirected to a confirmation page verifying that their subscription has been completed.
 
-This JavaScript provides simple client-side validation before submitting the form to Mailchimp.
+### Mailchimp Integration
+
+Mailchimp is used to manage subscriber lists and external marketing campaigns. This provides:
+
+- Secure subscriber data management  
+- Campaign analytics and reporting  
+- Audience segmentation capabilities  
+- Structured promotional campaign delivery  
+- Up to 2,500 monthly subscription emails (free tier)  
+
+This integration enables the business to distribute:
+
+- New product announcements  
+- Restock notifications  
+- Promotional offers  
+- Seasonal sales updates  
+
+### Subscription Confirmation
+
+The screenshot below demonstrates the confirmation page displayed after a successful newsletter signup:
+
+![screenshot](documentation/newsletter-confirmation.jpg)
 
 ## Testing
 
