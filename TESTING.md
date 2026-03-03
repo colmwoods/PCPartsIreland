@@ -70,7 +70,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| checkout | [stripe_elements.js](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/js/stripe_elements.js) |  | ![screenshot](documentation/validation/js-checkout-stripe_elements.png) | ⚠️ Notes (if applicable) |
+| checkout/static/checkout/js | [stripe_elements.js](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/js/stripe_elements.js) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/js-checkout-stripe_elements.png) | ⚠️ Notes (if applicable) |
 
 ### Python
 
