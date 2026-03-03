@@ -59,10 +59,10 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| checkout | [checkout.css](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/css/checkout.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-checkout-checkout.png) | ⚠️ Notes (if applicable) |
-| home | [home.css](https://github.com/colmwoods/PCPartsIreland/blob/main/home/static/home/css/home.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-home-home.png) | ⚠️ Notes (if applicable) |
-| profiles | [profile.css](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/static/profiles/css/profile.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-profiles-profile.png) | ⚠️ Notes (if applicable) |
-| static | [base.css](https://github.com/colmwoods/PCPartsIreland/blob/main/static/css/base.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-static-base.png) | ⚠️ Notes (if applicable) |
+| checkout/static/checkout/css | [checkout.css](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/css/checkout.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-checkout-checkout.png) | ⚠️ Notes (if applicable) |
+| home/static/home/css | [home.css](https://github.com/colmwoods/PCPartsIreland/blob/main/home/static/home/css/home.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-home-home.png) | ⚠️ Notes (if applicable) |
+| profiles/static/profiles/css | [profile.css](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/static/profiles/css/profile.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-profiles-profile.png) | ⚠️ Notes (if applicable) |
+| static/css | [base.css](https://github.com/colmwoods/PCPartsIreland/blob/main/static/css/base.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-static-base.png) | ⚠️ Notes (if applicable) |
 
 ### JavaScript
 
