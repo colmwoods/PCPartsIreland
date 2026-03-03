@@ -7,40 +7,125 @@
 
 ### HTML
 
-I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all of my HTML files.
+I have used the recommended [HTML W3C Validator](https://validator.w3.org) to validate all custom HTML templates created for this project. Third-party templates located inside the `venv` directory were excluded, as they belong to external packages (Django, Allauth, Crispy Forms, etc.).
 
-| Directory | File | URL | Screenshot | Notes |
-| --- | --- | --- | --- | --- |
-| bag | [bag-total.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/bag-total.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-bag-total.png) | ⚠️ Notes (if applicable) |
-| bag | [bag.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/bag.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-bag.png) | ⚠️ Notes (if applicable) |
-| bag | [checkout-buttons.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/checkout-buttons.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-checkout-buttons.png) | ⚠️ Notes (if applicable) |
-| bag | [product-image.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/product-image.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-product-image.png) | ⚠️ Notes (if applicable) |
-| bag | [product-info.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/product-info.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-product-info.png) | ⚠️ Notes (if applicable) |
-| bag | [quantity-form.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/quantity-form.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-bag-quantity-form.png) | ⚠️ Notes (if applicable) |
-| checkout | [checkout.html](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/templates/checkout/checkout.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-checkout-checkout.png) | ⚠️ Notes (if applicable) |
-| checkout | [checkout_success.html](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/templates/checkout/checkout_success.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-checkout-checkout_success.png) | ⚠️ Notes (if applicable) |
-| faq | [faq.html](https://github.com/colmwoods/PCPartsIreland/blob/main/faq/templates/faq/faq.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-faq-faq.png) | ⚠️ Notes (if applicable) |
-| form | [contact.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/contact.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-form-contact.png) | ⚠️ Notes (if applicable) |
-| form | [return_form.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/return_form.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-form-return_form.png) | ⚠️ Notes (if applicable) |
-| form | [return_success.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/return_success.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-form-return_success.png) | ⚠️ Notes (if applicable) |
-| form | [success.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/success.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-form-success.png) | ⚠️ Notes (if applicable) |
-| home | [index.html](https://github.com/colmwoods/PCPartsIreland/blob/main/home/templates/home/index.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-home-index.png) | ⚠️ Notes (if applicable) |
-| products | [add_product.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/add_product.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-products-add_product.png) | ⚠️ Notes (if applicable) |
-| products | [edit_product.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/edit_product.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-products-edit_product.png) | ⚠️ Notes (if applicable) |
-| products | [product_detail.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/product_detail.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-products-product_detail.png) | ⚠️ Notes (if applicable) |
-| products | [products.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/products.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-products-products.png) | ⚠️ Notes (if applicable) |
-| products | [search_results.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/search/search_results.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-products-search_results.png) | ⚠️ Notes (if applicable) |
-| profiles | [confirm_delete_profile.html](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/templates/profiles/confirm_delete_profile.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-profiles-confirm_delete_profile.png) | ⚠️ Notes (if applicable) |
-| profiles | [profile.html](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/templates/profiles/profile.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-profiles-profile.png) | ⚠️ Notes (if applicable) |
-| templates | [404.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/404.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-404.png) | ⚠️ Notes (if applicable) |
-| templates | [500.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/500.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-500.png) | ⚠️ Notes (if applicable) |
-| templates | [login.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/login.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-login.png) | ⚠️ Notes (if applicable) |
-| templates | [logout.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/logout.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-logout.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_done.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_done.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_done.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_from_key.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_from_key.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_from_key.png) | ⚠️ Notes (if applicable) |
-| templates | [password_reset_from_key_done.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_from_key_done.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-password_reset_from_key_done.png) | ⚠️ Notes (if applicable) |
-| templates | [signup.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/signup.html) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/html-templates-signup.png) | ⚠️ Notes (if applicable) |
+---
+
+#### Bag
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [bag-total.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/bag-total.html) | ![screenshot](documentation/validation/html-bag-bag-total.png) | — |
+| [bag.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/bag.html) | ![screenshot](documentation/validation/html-bag-bag.png) | — |
+| [checkout-buttons.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/checkout-buttons.html) | ![screenshot](documentation/validation/html-bag-checkout-buttons.png) | — |
+| [product-image.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/product-image.html) | ![screenshot](documentation/validation/html-bag-product-image.png) | — |
+| [product-info.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/product-info.html) | ![screenshot](documentation/validation/html-bag-product-info.png) | — |
+| [quantity-form.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/quantity-form.html) | ![screenshot](documentation/validation/html-bag-quantity-form.png) | — |
+
+---
+
+#### Checkout
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [checkout.html](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/templates/checkout/checkout.html) | ![screenshot](documentation/validation/html-checkout-checkout.png) | — |
+| [checkout_success.html](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/templates/checkout/checkout_success.html) | ![screenshot](documentation/validation/html-checkout-checkout_success.png) | — |
+
+---
+
+#### FAQ
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [faq.html](https://github.com/colmwoods/PCPartsIreland/blob/main/faq/templates/faq/faq.html) | ![screenshot](documentation/validation/html-faq-faq.png) | — |
+
+---
+
+#### Form
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [contact.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/contact.html) | ![screenshot](documentation/validation/html-form-contact.png) | — |
+| [return_form.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/return_form.html) | ![screenshot](documentation/validation/html-form-return_form.png) | — |
+| [return_success.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/return_success.html) | ![screenshot](documentation/validation/html-form-return_success.png) | — |
+| [success.html](https://github.com/colmwoods/PCPartsIreland/blob/main/form/templates/form/success.html) | ![screenshot](documentation/validation/html-form-success.png) | — |
+
+---
+
+#### Home
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [index.html](https://github.com/colmwoods/PCPartsIreland/blob/main/home/templates/home/index.html) | ![screenshot](documentation/validation/html-home-index.png) | — |
+| [about.html](https://github.com/colmwoods/PCPartsIreland/blob/main/home/templates/home/about.html) | ![screenshot](documentation/validation/html-home-about.png) | — |
+
+---
+
+#### Products
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [add_product.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/add_product.html) | ![screenshot](documentation/validation/html-products-add_product.png) | — |
+| [edit_product.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/edit_product.html) | ![screenshot](documentation/validation/html-products-edit_product.png) | — |
+| [product_detail.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/product_detail.html) | ![screenshot](documentation/validation/html-products-product_detail.png) | — |
+| [products.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/products.html) | ![screenshot](documentation/validation/html-products-products.png) | — |
+| [search_results.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/search/search_results.html) | ![screenshot](documentation/validation/html-products-search_results.png) | — |
+| [custom_clearable_file_input.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/custom_widget_templates/custom_clearable_file_input.html) | ![screenshot](documentation/validation/html-products-custom_clearable_file_input.png) | — |
+| [quantity_input_script.html](https://github.com/colmwoods/PCPartsIreland/blob/main/products/templates/products/includes/quantity_input_script.html) | ![screenshot](documentation/validation/html-products-quantity_input_script.png) | — |
+
+---
+
+#### Profiles
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [confirm_delete_profile.html](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/templates/profiles/confirm_delete_profile.html) | ![screenshot](documentation/validation/html-profiles-confirm_delete_profile.png) | — |
+| [profile.html](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/templates/profiles/profile.html) | ![screenshot](documentation/validation/html-profiles-profile.png) | — |
+
+---
+
+#### Root Templates
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [base.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/base.html) | ![screenshot](documentation/validation/html-templates-base.png) | — |
+| [404.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/404.html) | ![screenshot](documentation/validation/html-templates-404.png) | — |
+| [500.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/500.html) | ![screenshot](documentation/validation/html-templates-500.png) | — |
+
+---
+
+#### Includes
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [main-nav.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/includes/main-nav.html) | ![screenshot](documentation/validation/html-includes-main-nav.png) | — |
+| [top-header.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/includes/top-header.html) | ![screenshot](documentation/validation/html-includes-top-header.png) | — |
+
+---
+
+#### Toasts
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [toast_error.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/includes/toasts/toast_error.html) | ![screenshot](documentation/validation/html-toast-error.png) | — |
+| [toast_info.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/includes/toasts/toast_info.html) | ![screenshot](documentation/validation/html-toast-info.png) | — |
+| [toast_success.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/includes/toasts/toast_success.html) | ![screenshot](documentation/validation/html-toast-success.png) | — |
+| [toast_warning.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/includes/toasts/toast_warning.html) | ![screenshot](documentation/validation/html-toast-warning.png) | — |
+
+---
+
+#### Account Templates
+
+| File | Screenshot | Notes |
+|------|------------|------|
+| [base.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/base.html) | ![screenshot](documentation/validation/html-account-base.png) | — |
+| [login.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/login.html) | ![screenshot](documentation/validation/html-templates-login.png) | — |
+| [logout.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/logout.html) | ![screenshot](documentation/validation/html-templates-logout.png) | — |
+| [password_reset.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset.html) | ![screenshot](documentation/validation/html-templates-password_reset.png) | — |
+| [password_reset_done.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_done.html) | ![screenshot](documentation/validation/html-templates-password_reset_done.png) | — |
+| [password_reset_from_key.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_from_key.html) | ![screenshot](documentation/validation/html-templates-password_reset_from_key.png) | — |
+| [password_reset_from_key_done.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/password_reset_from_key_done.html) | ![screenshot](documentation/validation/html-templates-password_reset_from_key_done.png) | — |
+| [signup.html](https://github.com/colmwoods/PCPartsIreland/blob/main/templates/account/signup.html) | ![screenshot](documentation/validation/html-templates-signup.png) | — |
 
 ### CSS
 
