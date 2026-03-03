@@ -11,8 +11,8 @@ I have used the recommended [HTML W3C Validator](https://validator.w3.org) to va
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
+| bag/templates/bag | [bag.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/bag.html) | https://pcpartsireland-1cfc0205aac1.herokuapp.com/bag/ | ![screenshot](documentation/validation/html-bag.jpg) |  |
 | bag/templates/bag | [bag-total.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/bag-total.html) | N/A | ![screenshot](documentation/validation/html-bag.jpg) | Validated via rendered /bag/ page (partial template). |
-| bag/templates/bag | [bag.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/bag.html) | https://pcpartsireland-1cfc0205aac1.herokuapp.com/bag/ | ![screenshot](documentation/validation/html-bag.jpg) | ⚠️ Notes (if applicable) |
 | bag/templates/bag | [checkout-buttons.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/checkout-buttons.html) | N/A | ![screenshot](documentation/validation/html-bag.jpg) | Validated via rendered /bag/ page (partial template). |
 | bag/templates/bag | [product-image.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/product-image.html) | N/A | ![screenshot](documentation/validation/html-bag.jpg) | Validated via rendered /bag/ page (partial template). |
 | bag/templates/bag | [product-info.html](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/templates/bag/product-info.html) | N/A | ![screenshot](documentation/validation/html-bag.jpg) | Validated via rendered /bag/ page (partial template). |
@@ -87,9 +87,8 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-
-|  | [custom_storages.py](https://github.com/colmwoods/PCPartsIreland/blob/main/custom_storages.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PCPartsIreland/main/custom_storages.py) | ![screenshot](documentation/validation/py--custom_storages.jpg) | ⚠️ Notes (if applicable) |
-|  | [manage.py](https://github.com/colmwoods/PCPartsIreland/blob/main/manage.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PCPartsIreland/main/manage.py) | ![screenshot](documentation/validation/py--manage.jpg) | ⚠️ Notes (if applicable) |
+| . | [custom_storages.py](https://github.com/colmwoods/PCPartsIreland/blob/main/custom_storages.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PCPartsIreland/main/custom_storages.py) | ![screenshot](documentation/validation/py--custom_storages.jpg) | ⚠️ Notes (if applicable) |
+| . | [manage.py](https://github.com/colmwoods/PCPartsIreland/blob/main/manage.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PCPartsIreland/main/manage.py) | ![screenshot](documentation/validation/py--manage.jpg) | ⚠️ Notes (if applicable) |
 | bag | [admin.py](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/admin.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PCPartsIreland/main/bag/admin.py) | ![screenshot](documentation/validation/py-bag-admin.jpg) | ⚠️ Notes (if applicable) |
 | bag | [apps.py](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/apps.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PCPartsIreland/main/bag/apps.py) | ![screenshot](documentation/validation/py-bag-apps.jpg) | ⚠️ Notes (if applicable) |
 | bag | [context.py](https://github.com/colmwoods/PCPartsIreland/blob/main/bag/context.py) | [PEP8 CI Link](https://pep8ci.herokuapp.com/https://raw.githubusercontent.com/colmwoods/PCPartsIreland/main/bag/context.py) | ![screenshot](documentation/validation/py-bag-context.jpg) | ⚠️ Notes (if applicable) |
