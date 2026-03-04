@@ -89,7 +89,7 @@ Buy {{ product.name }} in Ireland with fast delivery and secure checkout from PC
                 Only {{ product.stock }} left!
                 </p>
                 {% else %}
-                <p class="text-success fw-bold mt-2">In Stock</p>
+                <p class="text-success fw-bold mt-2">In Stock ({{ product.stock }})</p>
                 {% endif %}
                 <!-- ADMIN CONTROLS -->
                 {% if request.user.is_superuser %}
