@@ -1,3 +1,5 @@
+from urllib import request
+
 from django.shortcuts import (
     render,
     redirect,
@@ -250,6 +252,24 @@ def checkout_success(request, order_number):
         Order,
         order_number=order_number,
     )
+
+# Prevent users viewing other people's orders
+    if request.user.is_authenticated:
+        profile = get_object_or_404(UserProfile, user=request.user)
+
+        if order.user_profile and order.user_profile != profile:
+            messages.error(
+                request,
+                "You do not have permission to view this order."
+            )
+            return redirect(reverse("home"))
+        # Block anonymous users from viewing saved orders
+    if not request.user.is_authenticated and order.user_profile:
+        messages.error(
+            request,
+            "You must be logged in to view this order."
+         )
+        return redirect(reverse("account_login"))
 
     save_info = request.session.get("save_info")
 
