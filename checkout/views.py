@@ -267,6 +267,13 @@ def checkout_success(request, order_number):
     if request.user.is_authenticated:
         profile = get_object_or_404(UserProfile, user=request.user)
 
+        if order.user_profile is None:
+            messages.error(
+                request,
+                "You do not have permission to view this order."
+            )
+            return redirect(reverse("home"))
+
         if order.user_profile != profile:
             messages.error(
                 request,
