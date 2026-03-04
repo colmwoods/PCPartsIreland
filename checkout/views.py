@@ -140,6 +140,8 @@ def checkout(request):
                 "save-info" in request.POST
             )
 
+            request.session["last_order"] = order.order_number
+
             return redirect(
                 reverse(
                     "checkout_success",
@@ -250,6 +252,16 @@ def checkout_success(request, order_number):
         Order,
         order_number=order_number,
     )
+
+    # Prevent direct URL access to guest orders
+    session_order = request.session.get("last_order")
+
+    if not request.user.is_authenticated and session_order != order_number:
+        messages.error(
+            request,
+            "You do not have permission to view this order."
+        )
+        return redirect(reverse("home"))
 
 # Prevent users viewing other people's orders
     if request.user.is_authenticated:
