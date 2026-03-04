@@ -1,5 +1,4 @@
-from urllib import request
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import (
     render,
     redirect,
@@ -243,6 +242,7 @@ def checkout(request):
         return render(request, template, context)
 
 
+@login_required
 def checkout_success(request, order_number):
     """
     Handle successful checkouts safely (no duplicate processing)
