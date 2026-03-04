@@ -253,40 +253,39 @@ def checkout_success(request, order_number):
         order_number=order_number,
     )
 
-    # Prevent direct URL access to guest orders
+    # --- ORDER ACCESS SECURITY ---
     session_order = request.session.get("last_order")
 
-    if not request.user.is_authenticated and session_order != order_number:
-        messages.error(
-            request,
-            "You do not have permission to view this order."
-        )
-        return redirect(reverse("home"))
+    # Guest user
+    if not request.user.is_authenticated:
+        if session_order != order_number:
+            messages.error(
+                request,
+                "You do not have permission to view this order."
+            )
+            return redirect(reverse("home"))
 
-# Prevent users viewing orders that are not theirs
-    if request.user.is_authenticated:
+    # Logged-in user
+    else:
         profile = get_object_or_404(UserProfile, user=request.user)
 
-        if order.user_profile is None:
-            messages.error(
-                request,
-                "You do not have permission to view this order."
-            )
-            return redirect(reverse("home"))
+        # Order belongs to registered user
+        if order.user_profile:
+            if order.user_profile != profile:
+                messages.error(
+                    request,
+                    "You do not have permission to view this order."
+                )
+                return redirect(reverse("home"))
 
-        if order.user_profile != profile:
-            messages.error(
-                request,
-                "You do not have permission to view this order."
-            )
-            return redirect(reverse("home"))
-        # Block anonymous users from viewing saved orders
-    if not request.user.is_authenticated and order.user_profile:
-        messages.error(
-            request,
-            "You must be logged in to view this order."
-         )
-        return redirect(reverse("account_login"))
+        # Order was guest checkout
+        else:
+            if request.user.email != order.email:
+                messages.error(
+                    request,
+                    "You do not have permission to view this order."
+                )
+                return redirect(reverse("home"))
 
     save_info = request.session.get("save_info")
 
@@ -330,19 +329,11 @@ def checkout_success(request, order_number):
 
             if save_info:
                 profile_data = {
-                    "default_phone_number": (
-                        order.phone_number
-                    ),
+                    "default_phone_number": order.phone_number,
                     "default_postcode": order.postcode,
-                    "default_town_or_city": (
-                        order.town_or_city
-                    ),
-                    "default_street_address1": (
-                        order.street_address1
-                    ),
-                    "default_street_address2": (
-                        order.street_address2
-                    ),
+                    "default_town_or_city": order.town_or_city,
+                    "default_street_address1": order.street_address1,
+                    "default_street_address2": order.street_address2,
                     "default_county": order.county,
                 }
 
@@ -364,13 +355,9 @@ def checkout_success(request, order_number):
             {
                 "order": order,
                 "currency_symbol": currency_symbol,
-                "order_total_converted": (
-                    order_total_converted
-                ),
+                "order_total_converted": order_total_converted,
                 "delivery_converted": delivery_converted,
-                "grand_total_converted": (
-                    grand_total_converted
-                ),
+                "grand_total_converted": grand_total_converted,
             },
         )
 
