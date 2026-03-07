@@ -52,17 +52,21 @@ def profile(request):
 
 @login_required
 def order_history(request, order_number):
-    order = get_object_or_404(
-    Order,
-    order_number=order_number,
-    user_profile=request.user.userprofile
-)
+
+    order = get_object_or_404(Order, order_number=order_number)
+
+    # SECURITY CHECK
+    if order.user_profile != request.user.userprofile:
+        messages.error(
+            request,
+            "You do not have permission to view that order."
+        )
+        return redirect('profile')
 
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
         'A confirmation email was sent on the order date.'
     ))
-
     template = 'checkout/checkout_success.html'
     selected_currency = request.session.get("currency", "EUR").upper()
 
