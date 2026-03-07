@@ -248,16 +248,10 @@ def checkout_success(request, order_number):
     Handle successful checkouts safely (no duplicate processing)
     """
 
-    order = get_object_or_404(
-        Order,
-        order_number=order_number,
-    )
-
-    # --- ORDER ACCESS SECURITY ---
-    session_order = request.session.get("last_order")
-
-    # Guest user
+    # Guest users must match the session order
     if not request.user.is_authenticated:
+        session_order = request.session.get("last_order")
+
         if session_order != order_number:
             messages.error(
                 request,
@@ -265,28 +259,18 @@ def checkout_success(request, order_number):
             )
             return redirect(reverse("home"))
 
-    # Logged-in user
+        order = get_object_or_404(
+            Order,
+            order_number=order_number,
+        )
+
+    # Logged in users must own the order
     else:
-        profile = get_object_or_404(UserProfile, user=request.user)
-
-        # Order belongs to registered user
-        if order.user_profile:
-            if order.user_profile != profile:
-                messages.error(
-                    request,
-                    "You do not have permission to view this order."
-                )
-                return redirect(reverse("home"))
-
-        # Order was guest checkout
-        else:
-            if request.user.email != order.email:
-                messages.error(
-                    request,
-                    "You do not have permission to view this order."
-                )
-                return redirect(reverse("home"))
-
+        order = get_object_or_404(
+            Order,
+            order_number=order_number,
+            user_profile__user=request.user,
+        )
     save_info = request.session.get("save_info")
 
     selected_currency = (
