@@ -250,23 +250,26 @@ def checkout_success(request, order_number):
 
     order = get_object_or_404(Order, order_number=order_number)
 
-    # Guest users must match session order
+# Guest users
     if not request.user.is_authenticated:
         session_order = request.session.get("last_order")
 
         if session_order != order_number:
             messages.error(
                 request,
-                "Please sign in with the account that placed this order."
+                "You do not have permission to view that order."
             )
-            return redirect("account_login")
+            return redirect("home")
 
-    # Logged-in users must own the order
+# Logged-in users
     else:
-        if order.user_profile and order.user_profile.user != request.user:
+        profile = UserProfile.objects.get(user=request.user)
+  
+        # If the order belongs to another account OR is not linked to this account
+        if order.user_profile != profile:
             messages.error(
                 request,
-                "That order belongs to another account."
+                "You do not have permission to view that order."
             )
             return redirect("home")
     save_info = request.session.get("save_info")
