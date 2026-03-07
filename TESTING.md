@@ -168,6 +168,11 @@ I've tested my deployed project to check for responsiveness issues.
 | Newsletter | ![screenshot](documentation/responsiveness/mobile-newsletter.jpg) | ![screenshot](documentation/responsiveness/tablet-newsletter.jpg) | ![screenshot](documentation/responsiveness/desktop-newsletter.jpg) | Works as expected |
 | Contact | ![screenshot](documentation/responsiveness/mobile-contact.jpg) | ![screenshot](documentation/responsiveness/tablet-contact.jpg) | ![screenshot](documentation/responsiveness/desktop-contact.jpg) | Works as expected |
 | 404 | ![screenshot](documentation/responsiveness/mobile-404.jpg) | ![screenshot](documentation/responsiveness/tablet-404.jpg) | ![screenshot](documentation/responsiveness/desktop-404.jpg) | Works as expected |
+| Search Results | ![screenshot](documentation/responsiveness/mobile-search-results.jpg) | ![screenshot](documentation/responsiveness/tablet-search-results.jpg) | ![screenshot](documentation/responsiveness/desktop-search-results.jpg) | Works as expected |
+| FAQ | ![screenshot](documentation/responsiveness/mobile-faq.jpg) | ![screenshot](documentation/responsiveness/tablet-faq.jpg) | ![screenshot](documentation/responsiveness/desktop-faq.jpg) | Works as expected |
+| Logout | ![screenshot](documentation/responsiveness/mobile-logout.jpg) | ![screenshot](documentation/responsiveness/tablet-logout.jpg) | ![screenshot](documentation/responsiveness/desktop-logout.jpg) | Works as expected |
+| Password Reset | ![screenshot](documentation/responsiveness/mobile-password-reset.jpg) | ![screenshot](documentation/responsiveness/tablet-password-reset.jpg) | ![screenshot](documentation/responsiveness/desktop-password-reset.jpg) | Works as expected |
+| Password Reset Confirm | ![screenshot](documentation/responsiveness/mobile-password-reset-confirm.jpg) | ![screenshot](documentation/responsiveness/tablet-password-reset-confirm.jpg) | ![screenshot](documentation/responsiveness/desktop-password-reset-confirm.jpg) | Works as expected |
 
 ## Browser Compatibility
 
@@ -189,6 +194,11 @@ I've tested my deployed project on multiple browsers to check for compatibility 
 | Newsletter | ![screenshot](documentation/browsers/chrome-newsletter.jpg) | ![screenshot](documentation/browsers/firefox-newsletter.jpg) | ![screenshot](documentation/browsers/safari-newsletter.jpg) | Works as expected |
 | Contact | ![screenshot](documentation/browsers/chrome-contact.jpg) | ![screenshot](documentation/browsers/firefox-contact.jpg) | ![screenshot](documentation/browsers/safari-contact.jpg) | Works as expected |
 | 404 | ![screenshot](documentation/browsers/chrome-404.jpg) | ![screenshot](documentation/browsers/firefox-404.jpg) | ![screenshot](documentation/browsers/safari-404.jpg) | Works as expected |
+| Search Results | ![screenshot](documentation/browsers/chrome-search-results.jpg) | ![screenshot](documentation/browsers/firefox-search-results.jpg) | ![screenshot](documentation/browsers/safari-search-results.jpg) | Works as expected |
+| FAQ | ![screenshot](documentation/browsers/chrome-faq.jpg) | ![screenshot](documentation/browsers/firefox-faq.jpg) | ![screenshot](documentation/browsers/safari-faq.jpg) | Works as expected |
+| Logout | ![screenshot](documentation/browsers/chrome-logout.jpg) | ![screenshot](documentation/browsers/firefox-logout.jpg) | ![screenshot](documentation/browsers/safari-logout.jpg) | Works as expected |
+| Password Reset | ![screenshot](documentation/browsers/chrome-password-reset.jpg) | ![screenshot](documentation/browsers/firefox-password-reset.jpg) | ![screenshot](documentation/browsers/safari-password-reset.jpg) | Works as expected |
+| Password Reset Confirm | ![screenshot](documentation/browsers/chrome-password-reset-confirm.jpg) | ![screenshot](documentation/browsers/firefox-password-reset-confirm.jpg) | ![screenshot](documentation/browsers/safari-password-reset-confirm.jpg) | Works as expected |
 
 ## Lighthouse Audit
 
@@ -210,6 +220,11 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Newsletter | ![screenshot](documentation/lighthouse/mobile-newsletter.jpg) | ![screenshot](documentation/lighthouse/desktop-newsletter.jpg) |
 | Contact | ![screenshot](documentation/lighthouse/mobile-contact.jpg) | ![screenshot](documentation/lighthouse/desktop-contact.jpg) |
 | 404 | ![screenshot](documentation/lighthouse/mobile-404.jpg) | ![screenshot](documentation/lighthouse/desktop-404.jpg) |
+| Search Results | ![screenshot](documentation/lighthouse/mobile-search-results.jpg) | ![screenshot](documentation/lighthouse/desktop-search-results.jpg) |
+| FAQ | ![screenshot](documentation/lighthouse/mobile-faq.jpg) | ![screenshot](documentation/lighthouse/desktop-faq.jpg) |
+| Logout | ![screenshot](documentation/lighthouse/mobile-logout.jpg) | ![screenshot](documentation/lighthouse/desktop-logout.jpg) |
+| Password Reset | ![screenshot](documentation/lighthouse/mobile-password-reset.jpg) | ![screenshot](documentation/lighthouse/desktop-password-reset.jpg) |
+| Password Reset Confirm | ![screenshot](documentation/lighthouse/mobile-password-reset-confirm.jpg) | ![screenshot](documentation/lighthouse/desktop-password-reset-confirm.jpg) |
 
 ## Defensive Programming
 
