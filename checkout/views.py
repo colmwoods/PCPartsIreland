@@ -264,8 +264,7 @@ def checkout_success(request, order_number):
 # Logged-in users
     else:
         profile = UserProfile.objects.get(user=request.user)
-  
-        # If the order belongs to another account OR is not linked to this account
+
         if order.user_profile != profile:
             messages.error(
                 request,
