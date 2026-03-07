@@ -61,7 +61,7 @@ def order_history(request, order_number):
             request,
             "You do not have permission to view that order."
         )
-        return redirect('profile')
+        return redirect('home')
 
     messages.info(request, (
         f'This is a past confirmation for order number {order_number}. '
