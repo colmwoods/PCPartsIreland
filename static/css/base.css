@@ -150,13 +150,11 @@ footer {
 
 button.shop-now-button {
     background-color: #ff6600 !important;
-    border-color: #ff6600 !important;
     color: #fff !important;
 }
 
 button.shop-now-button:hover {
     background-color: #e65c00 !important;
-    border-color: #e65c00 !important;
 }
 
 

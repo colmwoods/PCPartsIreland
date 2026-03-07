@@ -68,10 +68,10 @@ I have used the recommended [CSS Jigsaw Validator](https://jigsaw.w3.org/css-val
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| checkout/static/checkout/css | [checkout.css](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/css/checkout.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-checkout-checkout.jpg) | ⚠️ Notes (if applicable) |
-| home/static/home/css | [home.css](https://github.com/colmwoods/PCPartsIreland/blob/main/home/static/home/css/home.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-home-home.jpg) | ⚠️ Notes (if applicable) |
-| profiles/static/profiles/css | [profile.css](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/static/profiles/css/profile.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-profiles-profile.jpg) | ⚠️ Notes (if applicable) |
-| static/css | [base.css](https://github.com/colmwoods/PCPartsIreland/blob/main/static/css/base.css) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/css-static-base.jpg) | ⚠️ Notes (if applicable) |
+| checkout/static/checkout/css | [checkout.css](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/css/checkout.css) | N/A | ![screenshot](documentation/validation/css-checkout.jpg) | |
+| home/static/home/css | [home.css](https://github.com/colmwoods/PCPartsIreland/blob/main/home/static/home/css/home.css) | N/A | ![screenshot](documentation/validation/css-home.jpg) | |
+| profiles/static/profiles/css | [profile.css](https://github.com/colmwoods/PCPartsIreland/blob/main/profiles/static/profiles/css/profile.css) | N/A | ![screenshot](documentation/validation/css-profile.jpg) | |
+| static/css | [base.css](https://github.com/colmwoods/PCPartsIreland/blob/main/static/css/base.css) | N/A | ![screenshot](documentation/validation/css-static-base.jpg) | |
 
 ### JavaScript
 
@@ -79,7 +79,7 @@ I have used the recommended [JShint Validator](https://jshint.com) to validate a
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| checkout/static/checkout/js | [stripe_elements.js](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/js/stripe_elements.js) | ⚠️ Link (if applicable) | ![screenshot](documentation/validation/js-checkout-stripe_elements.jpg) | ⚠️ Notes (if applicable) |
+| checkout/static/checkout/js | [stripe_elements.js](https://github.com/colmwoods/PCPartsIreland/blob/main/checkout/static/checkout/js/stripe_elements.js) | N/A | ![screenshot](documentation/validation/js-checkout-stripe_elements.jpg) | Used /* jshint esversion: 11, jquery: true */ /* global Stripe */ up top of file |
 
 ### Python
 
