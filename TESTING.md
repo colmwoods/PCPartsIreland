@@ -150,7 +150,15 @@ I have used the recommended [PEP8 CI Python Linter](https://pep8ci.herokuapp.com
 
 ## Responsiveness
 
-I've tested my deployed project to check for responsiveness issues.
+I've tested my deployed project to check for responsiveness issues. Testing was performed using Chrome Developer Tools device toolbar across common viewport sizes to simulate different devices.
+
+The following resolutions were used during testing:
+
+- **Mobile:** 375 × 812 (typical smartphone viewport)
+- **Tablet:** 768 × 1024 (standard tablet viewport)
+- **Desktop:** 1920 × 1080 (full HD desktop display)
+
+Each page was tested at these breakpoints to ensure layouts adapt correctly, navigation remains accessible, and no horizontal scrolling or layout overflow occurs.
 
 | Page | Mobile | Tablet | Desktop | Notes |
 | --- | --- | --- | --- | --- |
