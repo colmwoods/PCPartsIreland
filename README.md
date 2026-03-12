@@ -882,6 +882,24 @@ PCPartsIreland is deployed on Heroku and publicly accessible via the custom doma
 - Sensitive files such as env.py are included in .gitignore.
 - Stripe webhook signing is verified before processing events.
 
+### Order Access Protection
+
+Order access is protected to prevent users from viewing orders that do not belong to them.
+
+**Guest Orders**
+- Guest orders are temporarily linked to the browser session using a session key (`last_order`).
+- Only the session that created the order can access the order confirmation page.
+- If another user attempts to manually access the order URL, access is denied and the user is redirected.
+
+**Logged-in Orders**
+- When a logged-in user completes a purchase, the order is linked to their `UserProfile`.
+- Only the account associated with the order can access the order confirmation page.
+
+**Session Behaviour**
+- If a guest places an order and later logs into an account within the same browser session, the order confirmation page is still accessible.
+- This occurs because the session identifier remains the same.
+- However, the order is not accessible from other accounts or different browser sessions.
+
 
 ### Heroku Deployment
 
