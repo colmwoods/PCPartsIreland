@@ -265,7 +265,7 @@ def checkout_success(request, order_number):
     else:
         profile = UserProfile.objects.get(user=request.user)
 
-        if order.user_profile != profile:
+        if order.user_profile and order.user_profile != profile:
             messages.error(
                 request,
                 "You do not have permission to view that order."
