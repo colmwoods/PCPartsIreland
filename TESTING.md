@@ -233,6 +233,7 @@ I've tested my deployed project using the Lighthouse Audit tool to check for any
 | Search Results | ![screenshot](documentation/lighthouse/mobile-search-results.jpg) | ![screenshot](documentation/lighthouse/desktop-search-results.jpg) |
 | FAQ | ![screenshot](documentation/lighthouse/mobile-faq.jpg) | ![screenshot](documentation/lighthouse/desktop-faq.jpg) |
 | Logout | ![screenshot](documentation/lighthouse/mobile-logout.jpg) | ![screenshot](documentation/lighthouse/desktop-logout.jpg) |
+| Returns | ![screenshot](documentation/lighthouse/mobile-returns.jpg) | ![screenshot](documentation/lighthouse/desktop-returns.jpg) |
 | Password Reset | ![screenshot](documentation/lighthouse/mobile-password-reset.jpg) | ![screenshot](documentation/lighthouse/desktop-password-reset.jpg) |
 | Password Reset Confirm | ![screenshot](documentation/lighthouse/mobile-password-reset-confirm.jpg) | ![screenshot](documentation/lighthouse/desktop-password-reset-confirm.jpg) |
 
