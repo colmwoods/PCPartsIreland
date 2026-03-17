@@ -112,6 +112,9 @@ def product_detail(request, product_id):
 
 
 def product_search(request):
+    """
+    A view to search for products based on a query.
+    """
     query = request.GET.get('q')
 
     if not query:
@@ -123,22 +126,48 @@ def product_search(request):
         Q(sku__icontains=query)
     )
 
-    # 🔥 IF RESULTS EXIST → USE PRODUCTS PAGE
     if products.exists():
+
+        # -------------------
+        # PAGINATION
+        # -------------------
+        per_page = request.GET.get('per_page', 16)
+
+        try:
+            per_page = int(per_page)
+        except ValueError:
+            per_page = 16
+
+        if per_page > 72:
+            per_page = 72
+
+        paginator = Paginator(products, per_page)
+
+        page_number = request.GET.get('page')
+        products = paginator.get_page(page_number)
+
+        querydict = request.GET.copy()
+        querydict.pop('page', None)
+        query_string = urlencode(querydict)
+
         return render(request, 'products/products.html', {
             'products': products,
             'search_term': query,
             'current_categories': None,
             'current_sorting': 'None_None',
+            'per_page': per_page,
+            'query_string': query_string,
         })
 
-    # ❌ IF NO RESULTS → USE HERO EMPTY PAGE
     return render(request, 'search/search_results.html', {
         'query': query
     })
 
 
 def search_suggestions(request):
+    """
+    A view to provide search suggestions for the search bar.
+    """
     query = request.GET.get('q', '')
 
     products = Product.objects.filter(
@@ -167,6 +196,9 @@ def search_suggestions(request):
 
 @login_required
 def add_product(request):
+    """
+    A view to add a new product to the store. Only accessible by superusers.
+    """
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
         return redirect(reverse('home'))
@@ -188,6 +220,8 @@ def add_product(request):
 
 @login_required
 def edit_product(request, product_id):
+    """
+    A view to edit an existing product. Only accessible by superusers."""
     if not request.user.is_superuser:
         messages.error(request, "Sorry, only store owners can do that.")
         return redirect(reverse('home'))
@@ -213,6 +247,9 @@ def edit_product(request, product_id):
 
 @login_required
 def delete_product(request, product_id):
+    """
+    A view to delete a product from the store. Only accessible by superusers.
+    """
     if not request.user.is_superuser:
         messages.error(request, 'Sorry, only store owners can do that.')
         return redirect(reverse('home'))
