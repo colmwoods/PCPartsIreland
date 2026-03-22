@@ -17,7 +17,7 @@ def all_products(request):
     category filtering, and pagination.
     """
 
-    products = Product.objects.all()
+    products = Product.objects.all().order_by('name')
     current_categories = None
     current_sorting = 'None_None'
     search_term = None

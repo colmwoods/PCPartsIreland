@@ -45,8 +45,8 @@ class ProductViewTests(TestCase):
 
         products = response.context["products"]
 
-        self.assertEqual(products.count(), 1)
-        self.assertEqual(products.first(), self.product1)
+        self.assertEqual(len(products), 1)
+        self.assertEqual(products[0], self.product1)
 
     def test_sort_by_price_desc(self):
         response = self.client.get(

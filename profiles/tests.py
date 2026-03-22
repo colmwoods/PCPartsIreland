@@ -77,6 +77,7 @@ class ProfileViewTests(TestCase):
         self.assertContains(response, "123456")
 
     def test_order_history_view(self):
+        self.client.login(username="testuser", password="testpass123") 
         profile = UserProfile.objects.get_or_create(user=self.user)[0]
 
         order = Order.objects.create(

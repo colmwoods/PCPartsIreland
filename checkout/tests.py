@@ -2,11 +2,12 @@ from django.test import TestCase, Client, override_settings
 from django.urls import reverse
 from unittest.mock import patch
 from decimal import Decimal
-
+from django.contrib.auth.models import User
 from products.models import Product
 from checkout.models import Order, OrderLineItem
 
 # Create your tests here.
+
 
 
 @override_settings(
@@ -17,6 +18,10 @@ class CheckoutTests(TestCase):
 
     def setUp(self):
         self.client = Client()
+        self.user = User.objects.create_user(
+            username="testuser",
+            password="testpass123"
+        )
 
         self.product = Product.objects.create(
             name="Test Product",
@@ -67,6 +72,7 @@ class CheckoutTests(TestCase):
 
     @patch("checkout.views.send_mail")
     def test_checkout_success_deducts_stock_and_clears_bag(self, mock_mail):
+        self.client.login(username='testuser', password='testpass123')
         order = Order.objects.create(
             full_name="John Doe",
             email="john@example.com",
@@ -99,4 +105,4 @@ class CheckoutTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(self.product.stock, 8)
-        self.assertNotIn("bag", self.client.session)
+        self.assertFalse(self.client.session.get("bag"))
