@@ -303,7 +303,7 @@ Automated testing was implemented using Django’s built-in testing framework al
 
 A total of 38 unit tests were written to validate core application functionality, including product browsing, checkout processing, and user profile management. External services such as Stripe payments and email functionality were mocked to ensure reliable and isolated test execution.
 
-The application achieved an overall test coverage of **86%**, demonstrating strong coverage across key components such as models, forms, and business logic.
+The application achieved an overall test coverage of **81%**, demonstrating strong coverage across key components such as models, forms, and business logic.
 
 ![screenshot](documentation/automation/html-coverage.jpg)
 
