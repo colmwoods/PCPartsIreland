@@ -61,9 +61,9 @@ Buy {{ product.name }} in Ireland with fast delivery and secure checkout from PC
             <p class="text-muted small mb-2">SKU: {{ product.sku }}</p>
             {% endif %}
 
-            <h4 class="fw-bold mb-3">
+            <h2 class="fw-bold mb-3">
                 {{ currency_symbol }}{{ product.price|mul:currency_rate|floatformat:2 }}
-            </h4>
+            </h2>
 
             {% if product.category %}
             <p class="small mb-2">
