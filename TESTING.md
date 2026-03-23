@@ -58,9 +58,9 @@ The currency selection routes (EUR, USD, GBP) are rendered dynamically via Djang
 
 | Directory | File | URL | Screenshot | Notes |
 | --- | --- | --- | --- | --- |
-| dynamic view | EUR (set_currency) | https://pcpartsireland.com/set-currency/EUR/ | ![screenshot](documentation/validation/html-eur.jpg) | Rendered via Django view |
-| dynamic view | USD (set_currency) | https://pcpartsireland.com/set-currency/USD/ | ![screenshot](documentation/validation/html-usd.jpg) | Rendered via Django view |
-| dynamic view | GBP (set_currency) | https://pcpartsireland.com/set-currency/GBP/ | ![screenshot](documentation/validation/html-gbp.jpg) | Rendered via Django view |
+| dynamic view | EUR (set_currency) | [View](https://pcpartsireland.com/set-currency/EUR/) | ![screenshot](documentation/validation/html-eur.jpg) | Rendered via Django view |
+| dynamic view | USD (set_currency) | [View](https://pcpartsireland.com/set-currency/USD/) | ![screenshot](documentation/validation/html-usd.jpg) | Rendered via Django view |
+| dynamic view | GBP (set_currency) | [View](https://pcpartsireland.com/set-currency/GBP/) | ![screenshot](documentation/validation/html-gbp.jpg) | Rendered via Django view |
 
 ### CSS
 
@@ -262,6 +262,15 @@ Defensive programming was manually tested with the below user acceptance testing
 | Newsletter | Feature is expected to allow users to sign up for the newsletter. | Submitted valid email addresses for newsletter registration. | Email addresses were successfully added to the newsletter list. | ![screenshot](documentation/defensive/newsletter.jpg) |
 | 404 Error Page | Feature is expected to display a 404 error page for non-existent pages. | Navigated to an invalid URL (e.g., `/test`). | A custom 404 error page was displayed as expected. | ![screenshot](documentation/defensive/404.jpg) |
 
+## User Story Validation
+
+All user stories for this project were planned and documented using an Agile methodology in a dedicated file:
+
+👉 [View User Stories & Agile Planning](user_stories.md)
+
+Each implemented feature was tested against its corresponding user story acceptance criteria.  
+The table below demonstrates how the core user stories were validated through manual testing and confirms that all *Pass (Must Have)* requirements were successfully delivered.
+
 ## User Story Testing
 
 | Target | Expectation | Outcome | Screenshot |
@@ -303,7 +312,7 @@ Automated testing was implemented using Django’s built-in testing framework al
 
 A total of 38 unit tests were written to validate core application functionality, including product browsing, checkout processing, and user profile management. External services such as Stripe payments and email functionality were mocked to ensure reliable and isolated test execution.
 
-The application achieved an overall test coverage of **81%**, demonstrating strong coverage across key components such as models, forms, and business logic.
+The application achieved an overall test coverage of **81%** (excluding configuration files such as env.py and migrations), demonstrating strong coverage across key components such as models, forms, and business logic.
 
 ![screenshot](documentation/automation/html-coverage.jpg)
 
@@ -319,4 +328,5 @@ While some view logic has slightly lower coverage due to UI-related complexity, 
 | If a product is in your bag/cart, but then gets deleted from the database, it throws errors from the session storage memory. | ![screenshot](documentation/issues/session-storage.jpg) |
 
 > [!IMPORTANT]  
-> There are no remaining bugs that I am aware of, though, even after thorough testing, I cannot rule out the possibility.
+> Bugs encountered during development were identified and resolved through iterative testing, including user story validation and manual testing documented above.  
+> At the time of submission, no known critical bugs remain.
