@@ -144,9 +144,10 @@
                 {% elif product.image_url %}
                     <img class="card-img-top img-fluid" src="{{ product.image_url }}" alt="{{ product.name }}">
                 {% else %}
-                    <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}media/placeholder.jpeg" alt="No image">
-                {% endif %}
-
+    <img class="card-img-top img-fluid"
+         src="https://pcpartsireland.s3.us-east-1.amazonaws.com/media/media/placeholder.jpeg"
+         alt="No image">
+{% endif %}
                 <div class="card-body pb-0">
                     <p class="mb-0">{{ product.name }}</p>
                 </div>

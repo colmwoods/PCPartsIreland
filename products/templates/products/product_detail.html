@@ -46,7 +46,8 @@ Buy {{ product.name }} in Ireland with fast delivery and secure checkout from PC
                 {% elif product.image_url %}
                 <img class="img-fluid" src="{{ product.image_url }}" alt="{{ product.name }} product image">
                 {% else %}
-                <img class="img-fluid" src="{{ MEDIA_URL }}media/placeholder.jpeg"
+                <img class="img-fluid"
+                    src="https://pcpartsireland.s3.us-east-1.amazonaws.com/media/media/placeholder.jpeg"
                     alt="No image available for {{ product.name }}">
                 {% endif %}
             </div>
