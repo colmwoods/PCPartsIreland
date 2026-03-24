@@ -320,6 +320,23 @@ While some view logic has slightly lower coverage due to UI-related complexity, 
 
 ## Bugs
 
+### Fixed Bugs
+
+[![GitHub issue custom search](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aclosed%20label%3Abug&label=Fixed%20Bugs&color=green)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue+is%3Aclosed+label%3Abug)
+
+I've used [GitHub Issues](https://www.github.com/colmwoods/PCPartsIreland/issues) to track and manage bugs and issues during the development stages of my project.
+
+All previously closed/fixed bugs can be tracked [here](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue+is%3Aclosed+label%3Abug).
+
+![screenshot](documentation/bugs/gh-issues-closed.png)
+
+### Unfixed Bugs
+
+[![GitHub issue custom search](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%2Bis%3Aopen%2Blabel%3Abug&label=Unfixed%20Bugs&color=red)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue+is%3Aopen+label%3Abug)
+
+Any remaining open issues can be tracked [here](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
+
+![screenshot](documentation/bugs/gh-issues-open.png)
 ### Known Issues
 
 | Issue | Screenshot |
