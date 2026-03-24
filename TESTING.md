@@ -328,7 +328,7 @@ I've used [GitHub Issues](https://www.github.com/colmwoods/PCPartsIreland/issues
 
 All previously closed/fixed bugs can be tracked [here](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue+is%3Aclosed+label%3Abug).
 
-![screenshot](documentation/bugs/gh-issues-closed.png)
+![screenshot](documentation/bugs/gh-issues-closed.jpg)
 
 ### Unfixed Bugs
 
@@ -336,7 +336,7 @@ All previously closed/fixed bugs can be tracked [here](https://www.github.com/co
 
 Any remaining open issues can be tracked [here](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue+is%3Aopen+label%3Abug).
 
-![screenshot](documentation/bugs/gh-issues-open.png)
+![screenshot](documentation/bugs/gh-issues-open.jpg)
 ### Known Issues
 
 | Issue | Screenshot |
