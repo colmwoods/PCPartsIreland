@@ -33,9 +33,13 @@
                     <ul class="dropdown-menu dropdown-menu-end">
                         {% for code, data in currencies.items %}
                         <li>
-                            <a class="dropdown-item" href="{% url 'set_currency' code %}">
-                                {{ data.symbol }} {{ code }}
-                            </a>
+                            <form method="POST" action="{% url 'set_currency' %}">
+                                {% csrf_token %}
+                                <input type="hidden" name="currency" value="{{ code }}">
+                                <button type="submit" class="dropdown-item">
+                                    {{ data.symbol }} {{ code }}
+                                </button>
+                            </form>
                         </li>
                         {% endfor %}
                     </ul>

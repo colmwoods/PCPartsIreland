@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
-from pcpartsireland.views import set_currency
+from pcpartsireland import views
 from pathlib import Path
 from django.views import View
 from django.http import HttpResponse
@@ -46,8 +46,7 @@ urlpatterns = [
     path('bag/', include('bag.urls')),
     path('checkout/', include('checkout.urls')),
     path('profile/', include('profiles.urls')),
-    path('set-currency/<str:currency_code>/',
-         set_currency, name='set_currency'),
+    path('set-currency/', views.set_currency, name='set_currency'),
     path("", include("form.urls")),
     path("faq/", include("faq.urls")),
     path("robots.txt", RobotsView.as_view()),
