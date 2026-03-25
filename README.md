@@ -646,7 +646,7 @@ This ensured traceability between planning and implementation, aligning developm
 | Link | Screenshot |
 | --- | --- |
 | [![GitHub issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aopen%20-label%3Abug&label=Open%20Issues&color=yellow)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aopen%20-label%3Abug) | ![screenshot](documentation/gh-issues-open.jpg) |
-| [![GitHub closed issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/gh-issues-closed.jpg) |
+| [![GitHub closed issues](https://img.shields.io/github/issues-search/colmwoods/PCPartsIreland?query=is%3Aissue%20is%3Aclosed%20-label%3Abug&label=Closed%20Issues&color=green)](https://www.github.com/colmwoods/PCPartsIreland/issues?q=is%3Aissue%20is%3Aclosed%20-label%3Abug) | ![screenshot](documentation/gh-issues-close.jpg) |
 
 
 ### MoSCoW Prioritization
