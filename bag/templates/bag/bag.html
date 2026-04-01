@@ -63,70 +63,74 @@
                     </div>
                 </div>
                 {% endfor %}
-                <div class="btt-button shadow-sm rounded-0 border border-black">
-                    <a class="btt-link d-flex h-100">
-                        <i class="fas fa-arrow-up text-black mx-auto my-auto"></i>
-                    </a>
-                </div>
             </div>
-            <div class="table-responsive rounded d-none d-md-block">
-                <table class="table table-sm table-borderless">
-                    <thead class="text-black">
-                        <tr>
-                            <th scope="col">Product Info</th>
-                            <th scope="col"></th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Qty</th>
-                            <th scope="col">Subtotal</th>
-                        </tr>
-                    </thead>
+            <div class="btt-button position-fixed bottom-0 end-0 me-4 mb-4 
+            bg-dark text-white rounded shadow 
+            d-flex align-items-center justify-content-center" style="width: 45px; height: 45px;">
 
-                    {% for item in bag_items %}
-                    <tr>
-                        <td class="p-3 w-25">
-                            {% include "bag/product-image.html" %}
-                        </td>
-                        <td class="py-3">
-                            {% include "bag/product-info.html" %}
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">
-                                {{ currency_symbol }}{{ item.product.price|mul:currency_rate|floatformat:2 }}
-                            </p>
-                        </td>
-
-                        <td class="py-3 w-25">
-                            {% include "bag/quantity-form.html" %}
-                        </td>
-                        <td class="py-3">
-                            <p class="my-0">{{ currency_symbol }}{{ item.item_total|mul:currency_rate|floatformat:2 }}
-                            </p>
-                        </td>
-                    </tr>
-                    {% endfor %}
-                    <tr>
-                        <td colspan="5" class="pt-5 text-right">
-                            {% include "bag/bag-total.html" %}
-                        </td>
-                    </tr>
-                    <tr>
-                        <td colspan="5" class="text-right">
-                            {% include "bag/checkout-buttons.html" %}
-                        </td>
-                    </tr>
-                </table>
+                <a class="btt-link text-white d-flex align-items-center justify-content-center w-100 h-100">
+                    <i class="fas fa-arrow-up"></i>
+                </a>
             </div>
-            {% else %}
-            <p class="lead mb-5">Your bag is empty.</p>
-            <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
-                <span class="icon">
-                    <i class="fas fa-chevron-left"></i>
-                </span>
-                <span class="text-uppercase">Keep Shopping</span>
-            </a>
-            {% endif %}
         </div>
+        <div class="table-responsive rounded d-none d-md-block">
+            <table class="table table-sm table-borderless">
+                <thead class="text-black">
+                    <tr>
+                        <th scope="col">Product Info</th>
+                        <th scope="col"></th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Qty</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+
+                {% for item in bag_items %}
+                <tr>
+                    <td class="p-3 w-25">
+                        {% include "bag/product-image.html" %}
+                    </td>
+                    <td class="py-3">
+                        {% include "bag/product-info.html" %}
+                    </td>
+                    <td class="py-3">
+                        <p class="my-0">
+                            {{ currency_symbol }}{{ item.product.price|mul:currency_rate|floatformat:2 }}
+                        </p>
+                    </td>
+
+                    <td class="py-3 w-25">
+                        {% include "bag/quantity-form.html" %}
+                    </td>
+                    <td class="py-3">
+                        <p class="my-0">{{ currency_symbol }}{{ item.item_total|mul:currency_rate|floatformat:2 }}
+                        </p>
+                    </td>
+                </tr>
+                {% endfor %}
+                <tr>
+                    <td colspan="5" class="pt-5 text-right">
+                        {% include "bag/bag-total.html" %}
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="5" class="text-right">
+                        {% include "bag/checkout-buttons.html" %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+        {% else %}
+        <p class="lead mb-5">Your bag is empty.</p>
+        <a href="{% url 'products' %}" class="btn btn-outline-black rounded-0 btn-lg">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase">Keep Shopping</span>
+        </a>
+        {% endif %}
     </div>
+</div>
 </div>
 {% endblock %}
 
@@ -139,7 +143,10 @@
 
 <script>
     $('.btt-link').click(function () {
-        window.scrollTo(0, 0);
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
     });
 </script>
 
